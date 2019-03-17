@@ -7,7 +7,7 @@ public class AmazonSearchResultsPage extends AbstractPage {
 
 	private static final By firstNonSponsoredResultTitle = By.xpath("//div[@data-index='2']//h5");
 	
-	public AmazonSearchResultsPage(WebDriver driver) {
+	public AmazonSearchResultsPage(WebDriver driver) throws Exception {
 		super(driver);
 	}
 	
