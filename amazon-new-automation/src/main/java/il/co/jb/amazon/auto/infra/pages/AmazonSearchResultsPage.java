@@ -15,4 +15,10 @@ public class AmazonSearchResultsPage extends AbstractPage {
 		return driver.findElement(firstNonSponsoredResultTitle).getText();
 	}
 	
+	public AmazonProductPage clickOnSearchResultTitleByIndex(int resultIndex) throws Exception {
+		
+		By resultTitle = By.xpath("//div[@data-index='" + resultIndex + "']//h5");
+		driver.findElement(resultTitle).click();
+		return new AmazonProductPage(driver);
+	}
 }

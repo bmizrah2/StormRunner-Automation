@@ -5,9 +5,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 
 import il.co.jb.amazon.auto.infra.config.MainConfig;
+import il.co.jb.amazon.auto.infra.reports.ConsoleReporter;
 import il.co.jb.amazon.auto.infra.web.WebDriverFactory;
 
-public class AbstractTest {
+public abstract class AbstractTest {
 
 	protected WebDriver driver;
 
@@ -15,8 +16,14 @@ public class AbstractTest {
 	public void beforeTest() {
 		
 		if (driver == null) {
+			
 			driver = WebDriverFactory.getWebDriver(MainConfig.webDriverType);
 		}
+	}
+	
+	public void browseToUrl(String url) {
+		ConsoleReporter.report("Browsing to URL: " + url);
+		driver.get(url);
 	}
 	
 	@AfterTest

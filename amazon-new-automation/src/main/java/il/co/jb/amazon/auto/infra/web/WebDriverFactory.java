@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import il.co.jb.amazon.auto.infra.config.MainConfig;
+import il.co.jb.amazon.auto.infra.reports.ConsoleReporter;
 
 public class WebDriverFactory {
 
@@ -25,13 +26,15 @@ public class WebDriverFactory {
 			driver = new FirefoxDriver();
 			break;
 		case INTERNET_EXPLORER:
-			System.setProperty("webdriver.chrome.driver", "webdrivers/IEDriverServer.exe");
+			System.setProperty("webdriver.ie.driver", "webdrivers/IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
 			break;
 		}
 		
 		driver.manage().timeouts().implicitlyWait(MainConfig.webDriverImplicitWaitInSeconds, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+		
+		ConsoleReporter.report("Opened new " + webDriverType + " browser window");
 		
 		return driver;
 	}
