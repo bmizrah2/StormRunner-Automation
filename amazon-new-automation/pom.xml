@@ -8,6 +8,13 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
+	<repositories>
+		<repository>
+			<id>topq</id>
+			<url>http://maven.top-q.co.il/content/groups/public</url>
+		</repository>
+	</repositories>
+
 	<name>amazon-new-automation</name>
 	<url>http://maven.apache.org</url>
 
@@ -26,6 +33,11 @@
 			<artifactId>testng</artifactId>
 			<version>6.9.9</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>il.co.topq.difido</groupId>
+			<artifactId>difido-testng</artifactId>
+			<version>2.2.05</version>
 		</dependency>
 	</dependencies>
 </project>

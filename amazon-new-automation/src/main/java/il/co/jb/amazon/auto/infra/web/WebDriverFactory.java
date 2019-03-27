@@ -8,10 +8,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import il.co.jb.amazon.auto.infra.config.MainConfig;
-import il.co.jb.amazon.auto.infra.reports.ConsoleReporter;
+import il.co.topq.difido.ReportDispatcher;
+import il.co.topq.difido.ReportManager;
 
 public class WebDriverFactory {
 
+	private static ReportDispatcher report = ReportManager.getInstance();
+	
 	public static WebDriver getWebDriver(WebDriverType webDriverType) {
 		
 		WebDriver driver = null;
@@ -34,7 +37,7 @@ public class WebDriverFactory {
 		driver.manage().timeouts().implicitlyWait(MainConfig.webDriverImplicitWaitInSeconds, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
-		ConsoleReporter.report("Opened new " + webDriverType + " browser window");
+		report.log("Opened new " + webDriverType + " browser window");
 		
 		return driver;
 	}

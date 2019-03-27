@@ -1,21 +1,23 @@
 package il.co.jb.amazon.auto.infra.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import il.co.jb.amazon.auto.infra.reports.ConsoleReporter;
 import il.co.jb.amazon.auto.infra.web.ActionBot;
+import il.co.jb.amazon.auto.infra.web.By2;
+import il.co.topq.difido.ReportDispatcher;
+import il.co.topq.difido.ReportManager;
 
 public abstract class AbstractPage {
 
+	protected ReportDispatcher report = ReportManager.getInstance();
 	protected WebDriver driver;
 	protected ActionBot bot;
-	protected By[] pageUniqueElements;
+	protected By2[] pageUniqueElements;
 	
-	public AbstractPage(WebDriver driver, By... pageUniqueElements) throws Exception {
+	public AbstractPage(WebDriver driver, By2... pageUniqueElements) throws Exception {
 		this.driver = driver;
 		this.bot = new ActionBot(driver);
 		this.pageUniqueElements = pageUniqueElements;
@@ -27,10 +29,10 @@ public abstract class AbstractPage {
 		WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
 		
 		try {
-			for (By uniqueElement : pageUniqueElements) {
-				webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(uniqueElement));
+			for (By2 uniqueElement : pageUniqueElements) {
+				webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(uniqueElement.by));
 			}
-			ConsoleReporter.report("*** On page: " + this.getClass().getSimpleName());
+			report.log("*** On page: " + this.getClass().getSimpleName());
 		}
 		catch (TimeoutException ex) {
 			throw new Exception("Not on the expected page: " + this.getClass().getSimpleName() + "\n" + ex.getMessage());
