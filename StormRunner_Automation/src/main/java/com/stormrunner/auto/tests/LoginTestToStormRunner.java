@@ -24,7 +24,7 @@ public class LoginTestToStormRunner extends AbstractTest {
 		//driver.findElement(By.xpath("//input[@id='federateLoginName']")).click();
 		
 		// Entering user name as part of login to StormRunner
-		driver.findElement(By.id("federateLoginName")).sendKeys("bmizrah3@gmail.com");
+		driver.findElement(By.id("federateLoginName")).sendKeys(System.getenv("SEL_USERNAME"));
 		driver.findElement(By.id("fed-submit")).click();
 		
 		
@@ -32,7 +32,8 @@ public class LoginTestToStormRunner extends AbstractTest {
 		//	driver.findElement(By.id("signInSubmit")).click();
 		
 		// Entering Password as part of login to StormRunner 
-		driver.findElement(By.id("password")).sendKeys("GoodPassword1");
+		//driver.findElement(By.id("password")).sendKeys("GoodPassword1");
+		driver.findElement(By.id("password")).sendKeys(System.getenv("SEL_PASSWORD"));
 		driver.findElement(By.id("submit_button")).click();
 		
 				
