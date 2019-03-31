@@ -1,5 +1,7 @@
 package il.co.jb.amazon.auto.tests;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +19,9 @@ public abstract class AbstractTest {
 	protected WebDriver driver;
 
 	@BeforeMethod
-	public void beforeTest() {
+	public void beforeTest() throws IOException {
+		
+		MainConfig.initFromFile("src/main/resources/config/MainConfig.properties");
 		
 		if (driver == null) {
 			

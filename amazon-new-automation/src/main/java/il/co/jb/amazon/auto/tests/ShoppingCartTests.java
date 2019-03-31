@@ -1,21 +1,22 @@
 package il.co.jb.amazon.auto.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import il.co.jb.amazon.auto.infra.config.MainConfig;
 import il.co.jb.amazon.auto.infra.pages.AddedToCartPage;
 import il.co.jb.amazon.auto.infra.pages.AmazonLandingPage;
 import il.co.jb.amazon.auto.infra.pages.AmazonProductPage;
 import il.co.jb.amazon.auto.infra.pages.AmazonSearchResultsPage;
+import il.co.jb.amazon.auto.infra.utils.AssertUtils;
 
 public class ShoppingCartTests extends AbstractTest {
 
 	@Test
-	public void shoppingCartTest() throws Exception {
+	public void _085_shoppingCartTest() throws Exception {
 		
 		// Step 1 - Browse to amazon.com landing page
 		report.startLevel("Step 1 - Browse to amazon.com landing page");
-		browseToUrl("http://amazon.com");
+		browseToUrl(MainConfig.baseUrl);
 		AmazonLandingPage amazonLandingPage = new AmazonLandingPage(driver);
 		report.endLevel();
 		
@@ -38,7 +39,7 @@ public class ShoppingCartTests extends AbstractTest {
 		
 		// Step 5 - Verify the "Cart" icon on the top right of the page shows the correct number of products added to the cart.
 		report.startLevel("Step 5 - Verify the \"Cart\" icon");
-		Assert.assertEquals(addedToCartPage.getCartCounterValue(), 1, "Wrong number of items in cart");
+		AssertUtils.assertEquals(addedToCartPage.getCartCounterValue(), 1, "Number of items in cart should be 1");
 		report.endLevel();
 	}
 	
