@@ -51,8 +51,28 @@ public class LoginTestToStormRunner extends AbstractTest {
 		// $x("//div/a[contains(@href,'175726009')]")
 			
 			
+		// saving first tab	
+			String currentWindow = driver.getWindowHandle();
+		
 			
+		//	Pressing the "Launch" button
+			//driver.findElement(By.xpath("//div/a[contains(@href,'175726009')]")).click();
+			driver.findElement(By.xpath("//a[text()='Launch']")).click();
+
+		
+		// A new tab is opened --> So switching to the new tab
+
+			for (String handle : driver.getWindowHandles()) {
+			    if (!handle.equals(currentWindow)) {
+			        driver.switchTo().window(handle);
+			    }
+			}	
 			
+		// Pressing "Create a Test" button
+		//	driver.findElement(By.xpath("//a[@class='stm-tst-load-tests' and text()='Load Tests']")).click();
+			driver.findElement(By.id("createTest")).click();	
+			
+	
 			
 			
 	}

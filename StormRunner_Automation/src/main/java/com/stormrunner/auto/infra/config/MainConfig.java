@@ -6,6 +6,6 @@ public class MainConfig {
 
 	public static WebDriverType webDriverType = WebDriverType.CHROME;
 	public static boolean closeBrowserAtTestEnd = false;
-	public static int webDriverImplicitWaitInSeconds = 1;
+	public static int webDriverImplicitWaitInSeconds = 5;
 	
 }
