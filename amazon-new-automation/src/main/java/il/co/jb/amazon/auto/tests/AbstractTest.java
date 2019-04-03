@@ -1,7 +1,10 @@
 package il.co.jb.amazon.auto.tests;
 
+import java.io.File;
 import java.io.IOException;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,12 +14,13 @@ import il.co.jb.amazon.auto.infra.config.MainConfig;
 import il.co.jb.amazon.auto.infra.web.WebDriverFactory;
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
+import il.co.topq.difido.model.Enums.Status;
 
 @Listeners(il.co.topq.difido.ReportManagerHook.class)
 public abstract class AbstractTest {
 
-	protected ReportDispatcher report = ReportManager.getInstance();
-	protected WebDriver driver;
+	protected static ReportDispatcher report = ReportManager.getInstance();
+	protected static WebDriver driver;
 
 	@BeforeMethod
 	public void beforeTest() throws IOException {
@@ -34,8 +38,21 @@ public abstract class AbstractTest {
 		driver.get(url);
 	}
 	
+	public static void takeScreenshot(String description) throws Exception {
+		
+		if (driver != null) {
+			File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			report.addImage(screenshotFile, description);
+		}
+		else {
+			report.log("driver == null; Can't take screenshot.", Status.warning);
+		}
+	}
+	
 	@AfterMethod
-	public void afterTest() {
+	public void afterTest() throws Exception {
+		
+		takeScreenshot("Browser state at test end");
 		
 		if (driver != null && MainConfig.closeBrowserAtTestEnd) {
 			driver.close();

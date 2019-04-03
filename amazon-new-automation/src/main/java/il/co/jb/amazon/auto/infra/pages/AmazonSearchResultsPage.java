@@ -23,4 +23,10 @@ public class AmazonSearchResultsPage extends AbstractPage {
 		bot.click(resultTitle);
 		return new AmazonProductPage(driver);
 	}
+	
+	public String getSearchResultTitleByIndex(int resultIndex) throws Exception {
+		
+		By2 resultTitle = new By2("Title of search result #" + resultIndex, By.xpath("//div[@data-index='" + resultIndex + "']//h5"));
+		return bot.getElementText(resultTitle);
+	}
 }

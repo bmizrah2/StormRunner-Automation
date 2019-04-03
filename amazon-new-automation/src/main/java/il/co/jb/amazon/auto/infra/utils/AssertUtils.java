@@ -22,7 +22,7 @@ public class AssertUtils {
 		}
 		catch (AssertionError e) {
 			
-			report.logHtml(e.getMessage(), null, Status.failure);
+			report.log(e.getMessage(), Status.failure);
 
 			if (!softAssert) {
 				throw e;
@@ -43,7 +43,7 @@ public class AssertUtils {
 		}
 		catch (AssertionError e) {
 			
-			report.logHtml(e.getMessage(), null, Status.failure);
+			report.log(e.getMessage(), Status.failure);
 
 			if (!softAssert) {
 				throw e;
