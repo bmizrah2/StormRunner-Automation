@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.infra.utils;
+package com.stormrunner.auto.infra.utils;
 
 import org.testng.Assert;
 

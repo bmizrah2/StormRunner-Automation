@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.infra.entities;
+package com.stormrunner.auto.infra.entities;
 
 public class SearchItem {
 

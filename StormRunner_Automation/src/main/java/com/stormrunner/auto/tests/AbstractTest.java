@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.tests;
+package com.stormrunner.auto.tests;
 
 import java.io.File;
 import java.io.IOException;

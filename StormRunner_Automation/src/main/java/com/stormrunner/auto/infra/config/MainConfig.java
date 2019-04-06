@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.infra.config;
+package com.stormrunner.auto.infra.config;
 
 import java.io.FileInputStream;
 import java.io.IOException;

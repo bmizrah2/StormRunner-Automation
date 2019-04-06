@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.tests;
+package com.stormrunner.auto.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

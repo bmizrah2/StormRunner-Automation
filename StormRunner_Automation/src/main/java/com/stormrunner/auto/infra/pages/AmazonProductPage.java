@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.infra.pages;
+package com.stormrunner.auto.infra.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

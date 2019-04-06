@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.tests;
+package com.stormrunner.auto.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

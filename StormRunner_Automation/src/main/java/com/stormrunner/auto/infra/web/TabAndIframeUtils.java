@@ -1,4 +1,4 @@
-package il.co.jb.amazon.auto.infra.web;
+package com.stormrunner.auto.infra.web;
 
 import java.util.Set;
 
