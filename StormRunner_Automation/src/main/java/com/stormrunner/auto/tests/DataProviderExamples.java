@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import il.co.jb.amazon.auto.infra.config.MainConfig;
-import il.co.jb.amazon.auto.infra.entities.SearchItem;
-import il.co.jb.amazon.auto.infra.pages.AmazonLandingPage;
-import il.co.jb.amazon.auto.infra.pages.AmazonSearchResultsPage;
-import il.co.jb.amazon.auto.infra.utils.AssertUtils;
+import com.stormrunner.auto.infra.config.MainConfig;
+import com.stormrunner.auto.infra.entities.SearchItem;
+import com.stormrunner.auto.infra.pages.AmazonLandingPage;
+import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
+import com.stormrunner.auto.infra.utils.AssertUtils;
 
 public class DataProviderExamples extends AbstractTest {
 

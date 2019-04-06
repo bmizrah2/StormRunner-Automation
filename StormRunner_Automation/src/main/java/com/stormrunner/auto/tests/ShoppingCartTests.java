@@ -2,12 +2,12 @@ package com.stormrunner.auto.tests;
 
 import org.testng.annotations.Test;
 
-import il.co.jb.amazon.auto.infra.config.MainConfig;
-import il.co.jb.amazon.auto.infra.pages.AddedToCartPage;
-import il.co.jb.amazon.auto.infra.pages.AmazonLandingPage;
-import il.co.jb.amazon.auto.infra.pages.AmazonProductPage;
-import il.co.jb.amazon.auto.infra.pages.AmazonSearchResultsPage;
-import il.co.jb.amazon.auto.infra.utils.AssertUtils;
+import com.stormrunner.auto.infra.config.MainConfig;
+import com.stormrunner.auto.infra.pages.AddedToCartPage;
+import com.stormrunner.auto.infra.pages.AmazonLandingPage;
+import com.stormrunner.auto.infra.pages.AmazonProductPage;
+import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
+import com.stormrunner.auto.infra.utils.AssertUtils;
 
 public class ShoppingCartTests extends AbstractTest {
 

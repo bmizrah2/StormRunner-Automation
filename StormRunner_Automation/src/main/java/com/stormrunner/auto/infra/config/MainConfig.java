@@ -5,10 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import il.co.jb.amazon.auto.infra.web.WebDriverType;
+import com.stormrunner.auto.infra.web.WebDriverType;
 
 public class MainConfig {
 
+	public static String StormRunnerURL;
 	public static WebDriverType webDriverType;
 	public static boolean closeBrowserAtTestEnd;
 	public static int webDriverImplicitWaitInSeconds;
@@ -25,6 +26,7 @@ public class MainConfig {
 		closeBrowserAtTestEnd = Boolean.parseBoolean(prop.getProperty("closeBrowserAtTestEnd"));
 		webDriverImplicitWaitInSeconds = Integer.parseInt(prop.getProperty("webDriverImplicitWaitInSeconds"));
 		baseUrl = prop.getProperty("baseUrl");
+		StormRunnerURL = prop.getProperty("StormRunnerURL");
 		
 		input.close();
 	}

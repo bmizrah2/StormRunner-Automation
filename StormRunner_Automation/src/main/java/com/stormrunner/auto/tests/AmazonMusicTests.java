@@ -2,7 +2,7 @@ package com.stormrunner.auto.tests;
 
 import org.testng.annotations.Test;
 
-import il.co.jb.amazon.auto.infra.pages.AmazonLandingPage;
+import com.stormrunner.auto.infra.pages.AmazonLandingPage;
 
 public class AmazonMusicTests extends AbstractTest {
 

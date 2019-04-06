@@ -10,8 +10,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 
-import il.co.jb.amazon.auto.infra.config.MainConfig;
-import il.co.jb.amazon.auto.infra.web.WebDriverFactory;
+import com.stormrunner.auto.infra.config.MainConfig;
+import com.stormrunner.auto.infra.web.WebDriverFactory;
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
 import il.co.topq.difido.model.Enums.Status;

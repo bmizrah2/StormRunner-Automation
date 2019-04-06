@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import il.co.jb.amazon.auto.infra.web.ActionBot;
-import il.co.jb.amazon.auto.infra.web.By2;
+import com.stormrunner.auto.infra.web.ActionBot;
+import com.stormrunner.auto.infra.web.By2;
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
 
@@ -14,7 +14,7 @@ public abstract class AbstractPage {
 
 	protected ReportDispatcher report = ReportManager.getInstance();
 	protected WebDriver driver;
-	protected ActionBot bot;
+	protected static ActionBot bot;
 	protected By2[] pageUniqueElements;
 	
 	public AbstractPage(WebDriver driver, By2... pageUniqueElements) throws Exception {

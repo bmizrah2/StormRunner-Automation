@@ -23,6 +23,7 @@ public class ActionBot {
 		webDriverWait = new WebDriverWait(driver, 5);
 	}
 	
+	// StormRunner - Clicking a button
 	public void click(By2 elementLocator) {
 
 		report.log("Click on element: " + elementLocator);
@@ -51,6 +52,17 @@ public class ActionBot {
 		element.clear();
 		element.sendKeys(text);
 	}
+	
+	// StormRunner - Write to user name field
+	public void writeToUserNameField(By2 elementLocator, String text) {
+
+		report.log("Write '" + text + "' to element: " + elementLocator);
+		WebElement element = driver.findElement(elementLocator.by);
+		element.clear();
+		element.sendKeys(text);
+	}
+	
+	
 	
 	public String getElementText(By2 elementLocator) { 
 		String text = driver.findElement(elementLocator.by).getText();

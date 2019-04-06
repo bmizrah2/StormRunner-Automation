@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
-import il.co.jb.amazon.auto.infra.config.MainConfig;
+import com.stormrunner.auto.infra.config.MainConfig;
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
 

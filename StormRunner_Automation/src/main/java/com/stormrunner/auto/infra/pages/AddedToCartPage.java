@@ -3,7 +3,7 @@ package com.stormrunner.auto.infra.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import il.co.jb.amazon.auto.infra.web.By2;
+import com.stormrunner.auto.infra.web.By2;
 
 public class AddedToCartPage extends AbstractPage {
 

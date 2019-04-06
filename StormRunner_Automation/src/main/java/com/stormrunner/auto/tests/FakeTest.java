@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.testng.annotations.Test;
 
-import il.co.jb.amazon.auto.infra.utils.AssertUtils;
+import com.stormrunner.auto.infra.utils.AssertUtils;
 
 public class FakeTest extends AbstractTest {
 

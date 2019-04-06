@@ -3,7 +3,7 @@ package com.stormrunner.auto.tests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import il.co.jb.amazon.auto.infra.web.TabAndIframeUtils;
+import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
 public class TabsIframesExample extends AbstractTest {
 
