@@ -3,10 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.stormruuner</groupId>
-	<artifactId>StormRunner_Automation</artifactId>
+	<groupId>il.co.jb</groupId>
+	<artifactId>amazon-new-automation</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
+
+	<repositories>
+		<repository>
+			<id>topq</id>
+			<url>http://maven.top-q.co.il/content/groups/public</url>
+		</repository>
+	</repositories>
 
 	<name>amazon-new-automation</name>
 	<url>http://maven.apache.org</url>
@@ -26,6 +33,11 @@
 			<artifactId>testng</artifactId>
 			<version>6.9.9</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>il.co.topq.difido</groupId>
+			<artifactId>difido-testng</artifactId>
+			<version>2.2.05</version>
 		</dependency>
 	</dependencies>
 </project>

@@ -1,10 +1,10 @@
-package com.stormrunner.auto.tests;
+package il.co.jb.amazon.auto.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.stormrunner.auto.infra.pages.AmazonLandingPage;
-import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
+import il.co.jb.amazon.auto.infra.pages.AmazonLandingPage;
+import il.co.jb.amazon.auto.infra.pages.AmazonSearchResultsPage;
 
 public class SearchTests extends AbstractTest {
 
