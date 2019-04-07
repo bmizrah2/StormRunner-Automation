@@ -6,14 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.stormrunner.auto.infra.config.MainConfig;
-import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
 import com.stormrunner.auto.infra.pages.MyAccountPage;
-import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
+import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
-import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
-public class CreatingAndDeletingNewTest extends AbstractTest {
+public class CreateNewLoadTest extends AbstractTest {
 
 	@Test
 	public void _002_loginToStormRunner() throws Exception {
@@ -92,54 +90,51 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 		report.endLevel();
 		
 		
-				
+		
+		
+		
 		// locate "Luanch" button
 		// $x("//div/a[contains(@href,'175726009')]")
-					
-				
+			
+		
+		
+		
+		
 		report.startLevel("Step 5 - Moving to new opened Tab after clicking 'Launch'");
 		// saving first tab	
-		//String currentWindow = driver.getWindowHandle();
+		String currentWindow = driver.getWindowHandle();
 		
 			
 		//	Pressing the "Launch" button
 		//driver.findElement(By.xpath("//div/a[contains(@href,'175726009')]")).click();
-	
-		//driver.findElement(By.xpath("//a[text()='Launch']")).click();
-		
-		MyAccountPage myAccountPage = new MyAccountPage(driver);
-		myAccountPage.clickLaunchButton();
-		
-		//StormRunnerHomePage stormRunnerHomePage = 
-		
-		//myAccountPage.clickLaunchButton();
+		driver.findElement(By.xpath("//a[text()='Launch']")).click();
 
-		//stormRunnerHomePage.clickOnHomeTab();
-		
-		
-		//TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerHomeURL);
-		//TabAndIframeUtils.switchToTabByTitle(driver, "Home");
-		
-		//TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerLoadTestsURL);
-		
-		
-		//https://stormrunner-load.saas.microfocus.com/home/?TENANTID=175726009&projectId=1
 		
 		// A new tab is opened --> So switching to the new tab
 
-		//	for (String handle : driver.getWindowHandles()) {
-		//	    if (!handle.equals(currentWindow)) {
-		///	        driver.switchTo().window(handle);
-		///	    }
-		///	}	
+			for (String handle : driver.getWindowHandles()) {
+			    if (!handle.equals(currentWindow)) {
+			        driver.switchTo().window(handle);
+			    }
+			}	
 			
-		 report.endLevel();
+		report.endLevel();
 	
 		// Pressing "Create a Test" button
 		//	driver.findElement(By.xpath("//a[@class='stm-tst-load-tests' and text()='Load Tests']")).click();
 		//	driver.findElement(By.id("createTest")).click();	
 			
-	
+		
+		StormRunnerLoadTestsPage stormRunnerLoadTestsPage = new StormRunnerLoadTestsPage(driver);
+		
+		// Need a click on "Load tests" tab
+		
+		stormRunnerLoadTestsPage.writeToTestNameField("This is a new Automated test");
+		
+		stormRunnerLoadTestsPage.writeToDescriptionField("This is the description of the test");
+
+		
+		//stormRunnerLoginPage.clickOnSignIn();
 			
 			
 	}

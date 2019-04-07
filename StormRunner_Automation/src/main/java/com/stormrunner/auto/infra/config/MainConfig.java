@@ -10,6 +10,9 @@ import com.stormrunner.auto.infra.web.WebDriverType;
 public class MainConfig {
 
 	public static String StormRunnerURL;
+	public static String StormRunnerHomeURL;
+	public static String StormRunnerLoadTestsURL;
+	
 	public static WebDriverType webDriverType;
 	public static boolean closeBrowserAtTestEnd;
 	public static int webDriverImplicitWaitInSeconds;
@@ -27,6 +30,8 @@ public class MainConfig {
 		webDriverImplicitWaitInSeconds = Integer.parseInt(prop.getProperty("webDriverImplicitWaitInSeconds"));
 		baseUrl = prop.getProperty("baseUrl");
 		StormRunnerURL = prop.getProperty("StormRunnerURL");
+		StormRunnerHomeURL = prop.getProperty("StormRunnerHomeURL");
+		StormRunnerLoadTestsURL = prop.getProperty("StormRunnerLoadTestsURL");
 		
 		input.close();
 	}

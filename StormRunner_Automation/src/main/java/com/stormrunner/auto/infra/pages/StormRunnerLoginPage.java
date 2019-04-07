@@ -71,9 +71,21 @@ public class StormRunnerLoginPage extends AbstractPage {
 	//StormRunner - func to click "Sign in"
 		public void clickOnSignIn() throws Exception {
 			bot.click(signIn);
+			//return new StormRunnerHomePage(driver);
 		}
 	
-	
+	//	public AmazonSearchResultsPage clickOnGoButton() throws Exception {
+	//		bot.click(goButton);
+	//		return new AmazonSearchResultsPage(driver);
+	//	}
+	//	public AmazonProductPage clickOnSearchResultTitleByIndex(int resultIndex) throws Exception {
+			
+	//		By2 resultTitle = new By2("Title of search result #" + resultIndex, By.xpath("//div[@data-index='" + resultIndex + "']//h5"));
+	//		bot.click(resultTitle);
+	//		return new AmazonProductPage(driver);
+	//	}
+		
+		
 	
 	//public void WaitForSignInSecurlyButtonEnabled() {
 	//	bot.waitForElementToBeClickable(signInSecurlyButtonBy);
