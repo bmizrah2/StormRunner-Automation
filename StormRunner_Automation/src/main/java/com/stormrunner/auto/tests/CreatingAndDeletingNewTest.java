@@ -9,6 +9,7 @@ import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
 import com.stormrunner.auto.infra.pages.MyAccountPage;
 import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
+import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
@@ -110,17 +111,20 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		myAccountPage.clickLaunchButton();
 		
+		//StormRunnerHomePage stormRunnerHomePage = myAccountPage.clickLaunchButton();
+
+		//StormRunnerLoadTestsPage stormRunnerLoadTestsPage = new StormRunnerLoadTestsPage(driver);
+		
 		//StormRunnerHomePage stormRunnerHomePage = 
 		
-		//myAccountPage.clickLaunchButton();
-
 		//stormRunnerHomePage.clickOnHomeTab();
-		
-		
+				
 		//TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerHomeURL);
 		//TabAndIframeUtils.switchToTabByTitle(driver, "Home");
+		//TabAndIframeUtils.switchToTabByTitle(driver, "Load Tests");
 		
-		//TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerLoadTestsURL);
+		//stormRunnerLoadTestsPage   ????
+		TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerHomeURL);
 		
 		
 		//https://stormrunner-load.saas.microfocus.com/home/?TENANTID=175726009&projectId=1

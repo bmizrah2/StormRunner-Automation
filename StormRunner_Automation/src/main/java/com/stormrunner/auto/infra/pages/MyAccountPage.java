@@ -42,19 +42,21 @@ public class MyAccountPage extends AbstractPage {
 	
 	//StormRunner - Click on Launch
 	// Option1
-		public void clickLaunchButton() {
-			bot.click(launchButton);
-		}
+	//	public void clickLaunchButton() {
+	//		bot.click(launchButton);
+	//	}
 		
 	
 		//StormRunner - Click on Launch
 		// Option2
-		//public StormRunnerHomePage clickLaunchButton() throws Exception{
-		//bot.click(launchButton);
-		//return new StormRunnerHomePage(driver); 
+		public StormRunnerHomePage clickLaunchButton() throws Exception{
+		bot.click(launchButton);
+		return new StormRunnerHomePage(driver); 
 		}
 		
 		
+		
+}		
 		//public AmazonSearchResultsPage clickOnGoButton() throws Exception {
 		//	bot.click(goButton);
 		//	return new AmazonSearchResultsPage(driver);
@@ -65,4 +67,4 @@ public class MyAccountPage extends AbstractPage {
 	//	driver.findElement(By.xpath("//a[text()='Launch']")).click();
 		
 	
-}
+

@@ -22,6 +22,9 @@ public class StormRunnerHomePage extends AbstractPage {
 		
 		//"Create a Test" button by id
 		private static final By2 createTest = new By2("Create a Test button", By.id("CreateTest"));
+
+
+		private static final StormRunnerHomePage StormRunnerHomePage = null;
 	
 	
 		
@@ -46,8 +49,14 @@ public class StormRunnerHomePage extends AbstractPage {
 	
 	
 	//StormRunner
-	public void clickOnHomeTab() {
+	//public void clickOnHomeTab() {
+	//	bot.click(homeButton);
+	//}
+	
+	//option2
+	public StormRunnerHomePage clickOnHomeTab() {
 		bot.click(homeButton);
+		return StormRunnerHomePage;
 	}
 	
 	

@@ -26,7 +26,7 @@ public abstract class AbstractPage {
 	
 	public void assertInPage() throws Exception {
 		
-		WebDriverWait webDriverWait = new WebDriverWait(driver, 5);
+		WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
 		
 		try {
 			for (By2 uniqueElement : pageUniqueElements) {
