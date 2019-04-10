@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.stormrunner.auto.infra.web.By2;
+import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
 public class StormRunnerLoadTestsPage extends AbstractPage {
 
@@ -51,6 +52,12 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 				bot.writeToElement(descriptionField, descriptionInput);
 			}
 	
+			public StormRunnerHomePage clickLaunchButton() throws Exception{
+				bot.click(launchButton);
+				TabAndIframeUtils.switchToTabByTitle(driver, "Home", 10000);
+				return new StormRunnerHomePage(driver); 
+			}
+			
 	
 	//ORIG
 	//public int getCartCounterValue() {

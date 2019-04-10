@@ -108,8 +108,15 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 	
 		//driver.findElement(By.xpath("//a[text()='Launch']")).click();
 		
+		//works
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
-		myAccountPage.clickLaunchButton();
+		StormRunnerHomePage stormRunnerHomePage = myAccountPage.clickLaunchButton();
+		
+		StormRunnerLoadTestsPage stormRunnerLoadTestsPage = stormRunnerHomePage.clickLoadTestsMenuLink();
+		
+		//Try to add pressing load tests tab
+		//MyAccountPage myAccountPage = new MyAccountPage(driver);
+		//StormRunnerLoadTestsPage stormRunnerLoadTestsPage = 
 		
 		//StormRunnerHomePage stormRunnerHomePage = myAccountPage.clickLaunchButton();
 
@@ -124,7 +131,7 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 		//TabAndIframeUtils.switchToTabByTitle(driver, "Load Tests");
 		
 		//stormRunnerLoadTestsPage   ????
-		TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerHomeURL);
+		//TabAndIframeUtils.switchToTabByUrl(driver, MainConfig.StormRunnerLoadTestsURL);
 		
 		
 		//https://stormrunner-load.saas.microfocus.com/home/?TENANTID=175726009&projectId=1

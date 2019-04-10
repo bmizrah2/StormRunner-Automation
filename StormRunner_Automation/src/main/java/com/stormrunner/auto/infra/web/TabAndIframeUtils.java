@@ -13,18 +13,29 @@ public class TabAndIframeUtils {
 
 	private static ReportDispatcher report = ReportManager.getInstance();
 	
-	public static void switchToTabByTitle(WebDriver driver, String title) throws Exception {
+	public static void switchToTabByTitle(WebDriver driver, String title, long timeoutInMillis) throws Exception {
 		
 		Set<String> windowHandles = driver.getWindowHandles();
 		boolean foundTab = false;
 		
-		for (String windowHandle : windowHandles) {
+		long startTime = System.currentTimeMillis();
+		long timeElapsed = 0;
+		
+		while (!foundTab && timeElapsed < timeoutInMillis) {
 			
-			driver.switchTo().window(windowHandle);
+			for (String windowHandle : windowHandles) {
+				
+				driver.switchTo().window(windowHandle);
+				
+				if (driver.getTitle().equals(title)) {
+					foundTab = true;
+					break;
+				}
+			}
 			
-			if (driver.getTitle().equals(title)) {
-				foundTab = true;
-				break;
+			if (!foundTab) {
+				Thread.sleep(1000);
+				timeElapsed = System.currentTimeMillis() - startTime;
 			}
 		}
 		
