@@ -68,6 +68,11 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 			}
 	
 			
+		// Click on "Scripts" tab in left pane menu	
+			public StormRunnerHomePage clickOnHomeTab() {
+				bot.click(homeButton);
+				return StormRunnerHomePage;
+			}	
 			
 			
 //			public StormRunnerHomePage clickLaunchButton() throws Exception{

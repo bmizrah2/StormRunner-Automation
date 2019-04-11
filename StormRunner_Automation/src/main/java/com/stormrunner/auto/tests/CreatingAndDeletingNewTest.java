@@ -8,10 +8,12 @@ import org.testng.annotations.Test;
 import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
 import com.stormrunner.auto.infra.pages.MyAccountPage;
+import com.stormrunner.auto.infra.pages.StormRunnerAssetsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerCreateTestPage;
 import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
+import com.stormrunner.auto.infra.pages.StormRunnerResultsPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
@@ -125,6 +127,11 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 		//Entering Test Description 
 		stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
 		
+		// click Assets tab
+		StormRunnerAssetsPage stormRunnerAssetsPage = stormRunnerHomePage.clickAssetsMenuLink();
+
+		// Click Results tab
+		StormRunnerResultsPage stormRunnerResultsPage = stormRunnerHomePage.clickResultsMenuLink();
 		
 		
 		//Try to add pressing load tests tab

@@ -20,6 +20,13 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 	//Home tab by css selector  ($$("a.stm-tst-home"))
 	private static final By2 homeButton = new By2("Home tab button", By.cssSelector("a.stm-tst-home"));
 
+	// Assets tab css selector $$("stm-tst-assets")
+	private static final By2 assetsButton = new By2("Assets tab button", By.cssSelector("a.stm-tst-assets"));
+
+	
+	
+	
+	
 
 	//"Create a Test" button by id
 	private static final By2 createTest = new By2("Create a Test button", By.id("CreateTest"));
@@ -69,5 +76,11 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 	}
 
 
+//	public StormRunnerAssetsPage clickOnAssetsTab() {
+//		bot.click(assetsButton);
+//		return StormRunnerAssetsPage;
+//	}
+	
+	
 
 }
