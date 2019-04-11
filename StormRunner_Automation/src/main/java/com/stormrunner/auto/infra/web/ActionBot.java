@@ -3,6 +3,7 @@ package com.stormrunner.auto.infra.web;
 import java.util.List;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +50,8 @@ public class ActionBot {
 
 		report.log("Write '" + text + "' to element: " + elementLocator);
 		WebElement element = driver.findElement(elementLocator.by);
-		element.clear();
+		element.sendKeys(Keys.chord(Keys.CONTROL,"a"));
+		element.sendKeys(Keys.DELETE);
 		element.sendKeys(text);
 	}
 	
