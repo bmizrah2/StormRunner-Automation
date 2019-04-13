@@ -13,14 +13,16 @@ import com.stormrunner.auto.infra.pages.StormRunnerCreateTestPage;
 import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
+import com.stormrunner.auto.infra.pages.StormRunnerMainMenuPage;
 import com.stormrunner.auto.infra.pages.StormRunnerResultsPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
-public class CreatingAndDeletingNewTest extends AbstractTest {
+public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 
+	//@SuppressWarnings("null")
 	@Test
-	public void _002_loginToStormRunner() throws Exception {
+	public void _002_CreatingAndDeletingLoadTest() throws Exception {
 		
 		//driver.get("http://amazon.com");
 		
@@ -132,6 +134,24 @@ public class CreatingAndDeletingNewTest extends AbstractTest {
 
 		// Click Results tab
 		StormRunnerResultsPage stormRunnerResultsPage = stormRunnerHomePage.clickResultsMenuLink();
+		
+		
+		// try functions of StormRunnerMainMenuPage
+		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
+		
+		stormRunnerHomePage = stormRunnerMainMenuPage.clickHomeTab();
+		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
+		stormRunnerAssetsPage = stormRunnerMainMenuPage.clickAssetsMenuLink();
+		stormRunnerResultsPage = stormRunnerMainMenuPage.clickResultsTab();
+
+		
+		
+		
+	//	stormRunnerMainMenuPage.clickHomeTab();
+		
+		
+		
+		
 		
 		
 		//Try to add pressing load tests tab

@@ -13,7 +13,7 @@ import com.stormrunner.auto.infra.utils.AssertUtils;
 public class LoginTestToStormRunner extends AbstractTest {
 
 	@Test
-	public void _002_loginToStormRunner() throws Exception {
+	public void _001_loginToStormRunner() throws Exception {
 		
 		//driver.get("http://amazon.com");
 		
