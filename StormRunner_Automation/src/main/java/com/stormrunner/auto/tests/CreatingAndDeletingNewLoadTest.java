@@ -129,13 +129,22 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		//Entering Test Description 
 		stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
 		
+		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
+		
+		// moving to "Load Tests" tab to view the grid
+		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
+		
+		//Verifying a new test line is added to the grid
+		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),"This is an Automated Test !!!", "Test Name should be: 'This is an Automated Test !!!'",true);
+		
+		
+		/*
 		// click Assets tab
 		StormRunnerAssetsPage stormRunnerAssetsPage = stormRunnerHomePage.clickAssetsMenuLink();
 
 		// Click Results tab
 		StormRunnerResultsPage stormRunnerResultsPage = stormRunnerHomePage.clickResultsMenuLink();
-		
-		
+				
 		// try functions of StormRunnerMainMenuPage
 		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
 		
@@ -143,7 +152,7 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
 		stormRunnerAssetsPage = stormRunnerMainMenuPage.clickAssetsMenuLink();
 		stormRunnerResultsPage = stormRunnerMainMenuPage.clickResultsTab();
-
+		*/
 		
 		
 		

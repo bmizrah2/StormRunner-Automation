@@ -43,6 +43,10 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	// Edit text of the button
 	private static final By2 editText = new By2("'Edit' text", By.xpath("//div[contains(text(),'Edit')]"));
 	
+	// Line of new created test
+	private static final By2 newTestLine = new By2("'Test created in grid'", By.cssSelector("a.stm-tst-row-This-is-an-Automated-Test----"));
+	
+	//"a.stm-tst-row-This-is-an-Automated-Test----"
 	//WebElement accountName = driver.findElement(By.xpath("//div[@title='Benny Java Automation']"));
 	
 		
@@ -73,6 +77,12 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 				return new StormRunnerCreateTestPage(driver);
 			}
 			
+			
+			public static String getNewAddedTest() {
+				String actualNewAddedTest = bot.getElementText(newTestLine);
+				return actualNewAddedTest;
+			}
+
 			
 			
 //			public StormRunnerHomePage clickLaunchButton() throws Exception{
