@@ -46,6 +46,12 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	// Line of new created test
 	private static final By2 newTestLine = new By2("'Test created in grid'", By.cssSelector("a.stm-tst-row-This-is-an-Automated-Test----"));
 	
+	// 'Delete' Button
+	private static final By2 deleteButton = new By2("'Delete' button", By.cssSelector("div.stm-tst-delete"));
+
+	// 'Delete' button in Confirmation dialog
+	private static final By2 deleteButtonInConfirmationDialog = new By2("'Delete' button in confirmation dialog", By.cssSelector("div.stm-tst-Delete"));
+	
 	//"a.stm-tst-row-This-is-an-Automated-Test----"
 	//WebElement accountName = driver.findElement(By.xpath("//div[@title='Benny Java Automation']"));
 	
@@ -74,6 +80,18 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	
 			public StormRunnerCreateTestPage clickOnCreateButton () throws Exception{
 				bot.click(createText);
+				return new StormRunnerCreateTestPage(driver);
+			}
+			
+			// Clicking 'Delete' button for deleting a test
+			public StormRunnerCreateTestPage clickOnDeleteButton () throws Exception{
+				bot.click(deleteButton);
+				return new StormRunnerCreateTestPage(driver);
+			}
+			
+			// Clicking on 'Delete' in Confirmation message
+			public StormRunnerCreateTestPage clickOnDeleteButtonInConfirmationDialog () throws Exception{
+				bot.click(deleteButtonInConfirmationDialog);
 				return new StormRunnerCreateTestPage(driver);
 			}
 			

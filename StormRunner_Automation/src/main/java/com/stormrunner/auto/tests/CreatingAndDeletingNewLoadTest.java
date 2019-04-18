@@ -106,8 +106,7 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		report.startLevel("Step 5 - Moving to new opened Tab after clicking 'Launch'");
 		// saving first tab	
 		//String currentWindow = driver.getWindowHandle();
-		
-			
+					
 		//	Pressing the "Launch" button
 		//driver.findElement(By.xpath("//div/a[contains(@href,'175726009')]")).click();
 	
@@ -116,26 +115,56 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		//works
 		MyAccountPage myAccountPage = new MyAccountPage(driver);
 		StormRunnerHomePage stormRunnerHomePage = myAccountPage.clickLaunchButton();
-		
+		 report.endLevel();
+
+		report.startLevel("Step 6 - Clicking on 'Load Tests' tab");
 		// Click on the "Load Tests" tab - works
 		StormRunnerLoadTestsPage stormRunnerLoadTestsPage = stormRunnerHomePage.clickLoadTestsMenuLink();
-		
+		 report.endLevel();
+
+		 
 		// clicking on the "Create" button
+		report.startLevel("Step 7 - Clicking on 'Create' button for creating a new test");
 		StormRunnerCreateTestPage stormRunnerCreateTestPage = stormRunnerLoadTestsPage.clickOnCreateButton();
+		report.endLevel();
+
 		
 		//Entering Test Name
+		report.startLevel("Step 8 - Entering Test name");
 		stormRunnerCreateTestPage.writeToTestNameField("This is an Automated Test !!!");
-		
-		//Entering Test Description 
+		report.endLevel();
+
+		//Entering Test Description
+		report.startLevel("Step 9 - Entering Description to the test");
 		stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
+		report.endLevel();
 		
+		report.startLevel("Step 10 - Moving back to the list of ALL load tests");
 		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
-		
 		// moving to "Load Tests" tab to view the grid
 		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
-		
+		report.endLevel();
+
 		//Verifying a new test line is added to the grid
+		report.startLevel("Step 11 - Verifying that the new load test was added successfully");
 		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),"This is an Automated Test !!!", "Test Name should be: 'This is an Automated Test !!!'",true);
+		report.endLevel();
+		
+		//Clicking 'Delete' Button for deleting a test
+		report.startLevel("Step 12 - Clicking the 'Delete' button for deleting the test");
+		stormRunnerLoadTestsPage.clickOnDeleteButton();
+		report.endLevel();
+		
+		// Clicking on 'Delete' in Confirmation message
+		report.startLevel("Step 13 - Clicking the 'Delete' button for confirming the deletion");
+		stormRunnerLoadTestsPage.clickOnDeleteButtonInConfirmationDialog();
+		report.endLevel();
+		
+		// Need to check that the number of lines was decreased by 1
+		// --------------- CODE ----------------
+		
+		
+		
 		
 		
 		/*
@@ -154,15 +183,10 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		stormRunnerResultsPage = stormRunnerMainMenuPage.clickResultsTab();
 		*/
 		
-		
-		
+				
 	//	stormRunnerMainMenuPage.clickHomeTab();
 		
-		
-		
-		
-		
-		
+				
 		//Try to add pressing load tests tab
 		//MyAccountPage myAccountPage = new MyAccountPage(driver);
 		//StormRunnerLoadTestsPage stormRunnerLoadTestsPage = 
