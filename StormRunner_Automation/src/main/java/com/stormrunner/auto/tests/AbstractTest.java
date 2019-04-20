@@ -56,6 +56,7 @@ public abstract class AbstractTest {
 		
 		if (driver != null && MainConfig.closeBrowserAtTestEnd) {
 			driver.close();
+			driver.quit();
 		}
 	}
 }

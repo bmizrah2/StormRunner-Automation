@@ -21,7 +21,7 @@ public class ActionBot {
 	
 	public ActionBot(WebDriver driver) {
 		this.driver = driver;
-		webDriverWait = new WebDriverWait(driver, 5);
+		webDriverWait = new WebDriverWait(driver, 40);
 	}
 	
 	// StormRunner - Clicking a button
