@@ -18,6 +18,8 @@ public class MainConfig {
 	public static int webDriverImplicitWaitInSeconds;
 	public static String baseUrl;
 	
+	public static String StormRunnerLabelName;
+	
 	public static void initFromFile(String filePath) throws IOException {
 		
 		Properties prop = new Properties();
@@ -32,6 +34,7 @@ public class MainConfig {
 		StormRunnerURL = prop.getProperty("StormRunnerURL");
 		StormRunnerHomeURL = prop.getProperty("StormRunnerHomeURL");
 		StormRunnerLoadTestsURL = prop.getProperty("StormRunnerLoadTestsURL");
+		StormRunnerLabelName = prop.getProperty("StormRunnerLabelName");
 		
 		input.close();
 	}

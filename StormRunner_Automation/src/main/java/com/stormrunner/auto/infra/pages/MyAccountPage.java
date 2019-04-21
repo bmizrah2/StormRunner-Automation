@@ -52,7 +52,7 @@ public class MyAccountPage extends AbstractPage {
 	// Option2
 	public StormRunnerHomePage clickLaunchButton() throws Exception{
 		bot.click(launchButton);
-		TabAndIframeUtils.switchToTabByTitle(driver, "Home", 40000);
+		TabAndIframeUtils.switchToTabByTitle(driver, "Home", 100000);
 		return new StormRunnerHomePage(driver); 
 	}
 

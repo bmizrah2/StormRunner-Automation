@@ -124,7 +124,8 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 
 		// clicking on the "Expand Labels Pane" icon
 		report.startLevel("Step 7 - Clicking on 'Expand Labels Pane' button for opening the Labels Pane");
-		stormRunnerAssetsPage.clickOnExpandLabelsPaneIcon();
+		//stormRunnerAssetsPage.clickOnExpandLabelsPaneIcon();
+		stormRunnerAssetsPage.moveToExpandButtonAndClickIt();
 		report.endLevel();
 
 		// clicking on the "Create label" button
@@ -134,7 +135,8 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 
 		// Entering a new label name in the "New Label" dialog
 		report.startLevel("Step 9 - Entering Label Name");
-		stormRunnerAssetsPage.writeToLabelNameField("This is an automated LABEL NAME");
+		//stormRunnerAssetsPage.writeToLabelNameField("This is an automated LABEL NAME");
+		stormRunnerAssetsPage.writeToLabelNameField(MainConfig.StormRunnerLabelName);
 		report.endLevel(); 
 
 		// Clicking 'Save' to save the new created label
@@ -142,18 +144,37 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 		stormRunnerAssetsPage.clickOnSaveInNewLabelDialog();
 		report.endLevel();
 
-		// clicking on the "Collapse Labels Pane" icon
-		//report.startLevel("Step 11 - Clicking on 'Collapse Labels Pane' button for closing the Labels Pane");
-		//stormRunnerAssetsPage.clickOnCollapseLabelsPaneIcon();
-		//report.endLevel();
 
-		// Clicking on "Assign Labels" drop down list
+		//clicking on the "Collapse Labels Pane" icon
+		report.startLevel("Step 11 - Clicking on 'Collapse Labels Pane' button for closing the Labels Pane");
+		//stormRunnerAssetsPage.clickOnCollapseLabelsPaneIcon();
+		stormRunnerAssetsPage.moveToCollapseButtonAndClickIt();
+		report.endLevel();
+
+
+
+		//Clicking on "Assign Labels" drop down list
 		report.startLevel("Step 12 - Clicking 'Assign Labels' drop down list");
 		stormRunnerAssetsPage.clickOnAssignLabelsDropDownButton();
 		report.endLevel();
 
 
+		//Clicking the checkbox of the new added label
+		report.startLevel("Step 13 - Clicking the checkbox of the new added label");
+		stormRunnerAssetsPage.clickOnLabelCheckbox();
+		report.endLevel();
 
+		// Clicking save for assigning the label to the script
+		report.startLevel("Step 14 - Clicking 'Save' for attaching the label to the script");
+		stormRunnerAssetsPage.clickSaveAssigningLabelToScript();
+		report.endLevel();
+		
+		
+		
+		
+		
+		
+		
 		/*
 
 		// clicking on the "Create" button

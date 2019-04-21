@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.web.By2;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
@@ -15,6 +16,9 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	//Sending a uniqe element for AssetsPage constructor
 	private static final By2 uploadScriptButton = new By2("Uploading a script", By.id("uploadScript"));
 
+	// RTS Button
+	private static final By2 runtimeSettingsButton = new By2("Runtime Settings button", By.id("runtime-settings-btn"));
+	
 	//Clicking Assets tab by css selector  ($$("a.stm-tst-assets"))
 	private static final By2 assetsTab = new By2("Clicking 'Assets' tab", By.cssSelector("a.stm-tst-assets"));
 
@@ -24,7 +28,7 @@ public class StormRunnerAssetsPage extends AbstractPage {
 
 	// option 2
 	private static final By2 expandLabelsPaneIcon = new By2("Clicking 'Expand Labels Pane' icon", By.cssSelector("div.stm-tst-toggle-to-open"));
-	
+
 	// For clicking "Collapse Labels Pane"
 	private static final By2 collapseLabelsPaneIcon = new By2("Clicking 'Collapse Labels Pane' icon", By.cssSelector("div.stm-tst-toggle-to-close"));
 
@@ -42,7 +46,8 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	//private static final By2 assignLabelsIcon = new By2("Clicking 'Assign Labels' icon", By.id("assign-labels-dropdown"));
 
 	// For clicking the checkbox of the new added label (need to add label name suffix)
-	private static final By2 newLabelCheckbox = new By2("Clicking the checkbox of the added label", By.cssSelector("label.stm-tst-checkbox-label-"));
+	//private static final By2 newLabelCheckbox = new By2("Clicking the checkbox of the added label", By.cssSelector("label.stm-tst-checkbox-label-This-is-an-automated-LABEL-NAME"));
+	private static final By2 newLabelCheckbox = new By2("Clicking the checkbox of the added label", By.cssSelector("label.stm-tst-checkbox-label-"+ MainConfig.StormRunnerLabelName));
 
 	// "Save" button in the labels drop down list
 	private static final By2 saveCheckedLabelButton = new By2("Clicking 'Save' for the checked label", By.cssSelector("div.stm-tst-save-btn"));
@@ -64,9 +69,19 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	// Collapsing the Labels pane
 	public void clickOnCollapseLabelsPaneIcon() throws Exception{
 		bot.click(collapseLabelsPaneIcon);
+	//	return new StormRunnerAssetsPage(driver);
 	}
-
 	
+	// option 2 to move and then click
+	public void moveToExpandButtonAndClickIt() throws Exception{
+		bot.moveToElementAndClickIt(expandLabelsPaneIcon);
+
+	}
+	
+	public void moveToCollapseButtonAndClickIt() throws Exception{
+		bot.moveToElementAndClickIt(collapseLabelsPaneIcon);
+
+	}
 
 	// Clicking "Create label" button in labels pane
 	public void clickOnCreateLabelButton() throws Exception{
@@ -76,12 +91,14 @@ public class StormRunnerAssetsPage extends AbstractPage {
 
 	// StornRunner - Write to LABEL NAME field
 	public void writeToLabelNameField(String userLabelNameInput) {
-		bot.writeToElement(labelNameField, userLabelNameInput);
+		bot.writeToLabelNameField(labelNameField, userLabelNameInput);
 	}
 
 	// Click on "Save" in "New Label" dialog
 	public void clickOnSaveInNewLabelDialog() throws Exception{
 		bot.click(saveNewLabelButton);
+	//	return new StormRunnerAssetsPage(driver);
+
 	}
 
 	// Clicking on "Assign Labels" drop down button
@@ -89,7 +106,27 @@ public class StormRunnerAssetsPage extends AbstractPage {
 		bot.click(assignLabelsIcon);
 	}
 
+	
+	// Clicking on the label's checkbox
+	public void clickOnLabelCheckbox() throws Exception{
+		bot.click(newLabelCheckbox);
+	}
 
+	// Click 'Save' for assigning label to script
+	public void clickSaveAssigningLabelToScript() throws Exception{
+		bot.click(saveCheckedLabelButton);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	public StormRunnerAssetsPage(WebDriver driver) throws Exception {
 		//super(driver, loadTestsTab,createButton);
