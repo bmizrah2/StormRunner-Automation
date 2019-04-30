@@ -22,7 +22,7 @@ public class ActionBot {
 
 	public ActionBot(WebDriver driver) {
 		this.driver = driver;
-		webDriverWait = new WebDriverWait(driver, 40);
+		webDriverWait = new WebDriverWait(driver, 100);
 	}
 
 	// StormRunner - Clicking a button
@@ -94,12 +94,13 @@ public class ActionBot {
 	}
 
 	// Write to LABEL NAME Field
-	public void writeToLabelNameField(By2 elementLocator, String text) {
+	public void writeToLabelNameField(By2 elementLocator, String text){
 
 		report.log("Write '" + text + "' to element: " + elementLocator);
 		WebElement element = driver.findElement(elementLocator.by);
 		element.clear();
 		element.sendKeys(text);
+
 	}
 	
 

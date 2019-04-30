@@ -34,7 +34,7 @@ public class TabAndIframeUtils {
 			}
 			
 			if (!foundTab) {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 				timeElapsed = System.currentTimeMillis() - startTime;
 			}
 		}

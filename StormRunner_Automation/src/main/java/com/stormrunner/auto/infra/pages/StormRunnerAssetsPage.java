@@ -18,7 +18,7 @@ public class StormRunnerAssetsPage extends AbstractPage {
 
 	// RTS Button
 	private static final By2 runtimeSettingsButton = new By2("Runtime Settings button", By.id("runtime-settings-btn"));
-	
+
 	//Clicking Assets tab by css selector  ($$("a.stm-tst-assets"))
 	private static final By2 assetsTab = new By2("Clicking 'Assets' tab", By.cssSelector("a.stm-tst-assets"));
 
@@ -55,11 +55,26 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	// Clicking the "Drop down" menu of the label in the left pane
 	private static final By2 labelDropDownMenu = new By2("Clicking '...' for opening the label's drop down menu", By.cssSelector("div.btn.btn--icon.btn--integrated.dropdown-toggle"));
 
+	//option2 - label drop down menu of new added label
+	private static final By2 labelDropDownMenu2 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//div[contains(@class,'stm-tst-label-toggleMenu-drop')][2]"));
+
+	// option3 - label drop down of ...
+	private static final By2 labelDropDownMenu3 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-label-toggleMenu-drop')]"));
+
+
+
+	//Label assigned for a script in a row
+	private static final By2 labelAssignedInRow = new By2("Label assigned to a script in a row", By.cssSelector("div.stm-tst-row-"+MainConfig.StormRunnerLabelName));
+	private static final By2 expectedLabelName = new By2("The expected label name assigned to a script", By.cssSelector("div.stm-tst-row-"+MainConfig.StormRunnerLabelName));
+
+
+
+
 	// Clicking "Remove" in the drop down menu for removing the label
-	private static final By2 removeLabelOptionInDropDownMenu = new By2("Choosing 'Remove' in Drop Down Menu for deleting the label", By.cssSelector("div.stm-tst-remove-label"));
+	private static final By2 removeLabelOptionInDropDownMenu = new By2("Choosing 'Remove' in Drop Down Menu for deleting the label", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-remove-label')]"));
 
 	// Clicking "Remove" button in confirmation dialog for removing the label
-	private static final By2 removeButtonInConfirmationDialog = new By2("Clicking 'Remove' in confirmation dialog for removing the label", By.cssSelector("button.stm-tst-btn-primary"));
+	private static final By2 removeButtonInConfirmationDialog = new By2("Clicking 'Remove' in confirmation dialog for removing the label", By.cssSelector("button.stm-tst-ok-button"));
 
 	// Expanding the Labels pane
 	public void clickOnExpandLabelsPaneIcon() throws Exception{
@@ -69,15 +84,15 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	// Collapsing the Labels pane
 	public void clickOnCollapseLabelsPaneIcon() throws Exception{
 		bot.click(collapseLabelsPaneIcon);
-	//	return new StormRunnerAssetsPage(driver);
+		//	return new StormRunnerAssetsPage(driver);
 	}
-	
+
 	// option 2 to move and then click
 	public void moveToExpandButtonAndClickIt() throws Exception{
 		bot.moveToElementAndClickIt(expandLabelsPaneIcon);
 
 	}
-	
+
 	public void moveToCollapseButtonAndClickIt() throws Exception{
 		bot.moveToElementAndClickIt(collapseLabelsPaneIcon);
 
@@ -90,14 +105,15 @@ public class StormRunnerAssetsPage extends AbstractPage {
 
 
 	// StornRunner - Write to LABEL NAME field
-	public void writeToLabelNameField(String userLabelNameInput) {
+	public void writeToLabelNameField(String userLabelNameInput) throws Exception {
 		bot.writeToLabelNameField(labelNameField, userLabelNameInput);
+
 	}
 
 	// Click on "Save" in "New Label" dialog
 	public void clickOnSaveInNewLabelDialog() throws Exception{
 		bot.click(saveNewLabelButton);
-	//	return new StormRunnerAssetsPage(driver);
+		//	return new StormRunnerAssetsPage(driver);
 
 	}
 
@@ -106,7 +122,7 @@ public class StormRunnerAssetsPage extends AbstractPage {
 		bot.click(assignLabelsIcon);
 	}
 
-	
+
 	// Clicking on the label's checkbox
 	public void clickOnLabelCheckbox() throws Exception{
 		bot.click(newLabelCheckbox);
@@ -116,17 +132,34 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	public void clickSaveAssigningLabelToScript() throws Exception{
 		bot.click(saveCheckedLabelButton);
 	}
+
+
+	// Get the expected label name
+	public static String getLabelName() {
+		String actualLabelName = bot.getElementText(expectedLabelName);
+		return actualLabelName;
+	}
+
+
+	// Click 'drop down menu' for label option
+	public void clickDropDownMenuOfLabelOptions() throws Exception{
+		bot.moveToElementAndClickIt(labelDropDownMenu3);
+	}
+
+
+	// Click 'drop down menu' for label option
+	public void clickOnRemoveLabelOptionInDropDownMenu() throws Exception{
+		bot.moveToElementAndClickIt(removeLabelOptionInDropDownMenu);
+	}
+
+
+	// Click 'drop down menu' for label option
+	public void clickOnRemoveButtonInRemoveLabelDialog() throws Exception{
+		bot.click(removeButtonInConfirmationDialog);
+	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 	public StormRunnerAssetsPage(WebDriver driver) throws Exception {
 		//super(driver, loadTestsTab,createButton);

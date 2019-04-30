@@ -162,8 +162,10 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		
 		// Need to check that the number of lines was decreased by 1
 		// --------------- CODE ----------------
-		
-		
+	
+		// 4 lines of 4 tests, create list of webelements and ask for get text() 
+		$x("//div[contains(@ng-repeat,'rowRenderIndex')]//a")
+
 		
 		
 		

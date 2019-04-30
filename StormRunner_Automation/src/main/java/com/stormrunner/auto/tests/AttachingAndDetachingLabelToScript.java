@@ -168,13 +168,54 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 		report.startLevel("Step 14 - Clicking 'Save' for attaching the label to the script");
 		stormRunnerAssetsPage.clickSaveAssigningLabelToScript();
 		report.endLevel();
+
+		//Verify the label is attached to the first selected script 
+		AssertUtils.assertEquals(StormRunnerAssetsPage.getLabelName(),MainConfig.StormRunnerLabelName, "Label Name should be:"+MainConfig.StormRunnerLabelName,true);
+
+		//Expand the labels pane again for deleting the label 
+		// clicking on the "Expand Labels Pane" icon
+		report.startLevel("Step 15 - Clicking on 'Expand Labels Pane' button for opening the Labels Pane");
+		//stormRunnerAssetsPage.clickOnExpandLabelsPaneIcon();
+		stormRunnerAssetsPage.moveToExpandButtonAndClickIt();
+		report.endLevel();
+
+
+		// clicking the drop down menu of the label
+		report.startLevel("Step 16 - Clicking on ... of the label to open its options");
+		stormRunnerAssetsPage.clickDropDownMenuOfLabelOptions();
+		report.endLevel();
+
+
+
+		// Choosing the 'Remove' option from the label's options
+		report.startLevel("Step 17 - Choose the 'Remove' option to remove the label");
+		stormRunnerAssetsPage.clickOnRemoveLabelOptionInDropDownMenu();
+		report.endLevel();
+
+
+		// Clicking  'Remove' button in the "Remove Label" dialog
+		report.startLevel("Step 18 - Clicking  'Remove' button in the 'Remove Label' dialog");
+		stormRunnerAssetsPage.clickOnRemoveButtonInRemoveLabelDialog();
+		report.endLevel();
+
+
+		// clicking on the "Collapse Labels Pane" icon
+		report.startLevel("Step 19 - Clicking on 'Collapse Labels Pane' button for closing the Labels Pane");
+		stormRunnerAssetsPage.moveToCollapseButtonAndClickIt();
+		report.endLevel();
 		
-		
-		
-		
-		
-		
-		
+
+		// Add a verification that label was detached from the 1st selected script 
+
+
+
+
+
+		//Xpath for clicking on '...' of LoadRunner 
+		//$x("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'icon-more-vertical')]")
+
+
+
 		/*
 
 		// clicking on the "Create" button
