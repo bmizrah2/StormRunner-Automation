@@ -61,8 +61,7 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	// option3 - label drop down of ...
 	private static final By2 labelDropDownMenu3 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-label-toggleMenu-drop')]"));
 
-
-
+	
 	//Label assigned for a script in a row
 	private static final By2 labelAssignedInRow = new By2("Label assigned to a script in a row", By.cssSelector("div.stm-tst-row-"+MainConfig.StormRunnerLabelName));
 	private static final By2 expectedLabelName = new By2("The expected label name assigned to a script", By.cssSelector("div.stm-tst-row-"+MainConfig.StormRunnerLabelName));

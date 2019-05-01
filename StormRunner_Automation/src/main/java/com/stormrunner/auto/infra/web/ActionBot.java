@@ -25,6 +25,24 @@ public class ActionBot {
 		webDriverWait = new WebDriverWait(driver, 100);
 	}
 
+	// searching for a string 
+	public boolean isTextExistInColumn(WebDriver driver,By2 elementLocator, String textToSearch){
+		boolean isFound = false;
+		List<WebElement> rows = driver.findElements(elementLocator.by);
+	//	List<WebElement> rows = driver.findElements(By.cssSelector("tbody > tr"));
+		for(WebElement rowIndex : rows){
+			//if(rowIndex.findElement(By.cssSelector("td:nth-of-type(2)").getText.equals(username){
+			if(rowIndex.getText().equals(textToSearch)){
+				System.out.println("Test exist");
+				isFound = true;
+				break;
+			}
+			System.out.println("Test doesn't exist");
+		}
+		return isFound;
+	}
+
+
 	// StormRunner - Clicking a button
 	public void click(By2 elementLocator) throws InterruptedException {
 
@@ -54,7 +72,7 @@ public class ActionBot {
 		// try2	
 		///actions.moveToElement(element).build().perform();
 		Thread.sleep(1000);
-	    element.click();
+		element.click();
 
 
 	}
@@ -102,7 +120,7 @@ public class ActionBot {
 		element.sendKeys(text);
 
 	}
-	
+
 
 
 	public String getElementText(By2 elementLocator) { 

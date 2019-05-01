@@ -163,8 +163,15 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		// Need to check that the number of lines was decreased by 1
 		// --------------- CODE ----------------
 	
+		report.startLevel("Step 14 - Checking if test exist");
+		Thread.sleep(2000);
+		stormRunnerLoadTestsPage.IsTestExistInGrid("This is an Automated Test !!!");
+		report.endLevel();
+		
+		
+		
 		// 4 lines of 4 tests, create list of webelements and ask for get text() 
-		$x("//div[contains(@ng-repeat,'rowRenderIndex')]//a")
+		//$x("//div[contains(@ng-repeat,'rowRenderIndex')]//a")
 
 		
 		
