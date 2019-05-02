@@ -45,7 +45,8 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	private static final By2 editText = new By2("'Edit' text", By.xpath("//div[contains(text(),'Edit')]"));
 
 	// Line of new created test
-	private static final By2 newTestLine = new By2("'Test created in grid'", By.cssSelector("a.stm-tst-row-This-is-an-Automated-Test----"));
+	//private static final By2 newTestLine = new By2("'Test created in grid'", By.cssSelector("a.stm-tst-row-"+MainConfig.StormRunnerTestName));
+	private static final By2 newTestLine = new By2("'Test created in grid'", By.xpath("//a[contains(text(),\'"+MainConfig.StormRunnerTestName+"\')]"));
 
 	// 'Delete' Button
 	private static final By2 deleteButton = new By2("'Delete' button", By.cssSelector("div.stm-tst-delete"));

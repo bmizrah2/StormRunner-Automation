@@ -131,12 +131,13 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		
 		//Entering Test Name
 		report.startLevel("Step 8 - Entering Test name");
-		stormRunnerCreateTestPage.writeToTestNameField("This is an Automated Test !!!");
+		stormRunnerCreateTestPage.writeToTestNameField(MainConfig.StormRunnerTestName);
 		report.endLevel();
 
 		//Entering Test Description
 		report.startLevel("Step 9 - Entering Description to the test");
-		stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
+		//stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
+		stormRunnerCreateTestPage.writeToDescriptionField(MainConfig.StormRunnerTestDescription);
 		report.endLevel();
 		
 		report.startLevel("Step 10 - Moving back to the list of ALL load tests");
@@ -147,7 +148,9 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 
 		//Verifying a new test line is added to the grid
 		report.startLevel("Step 11 - Verifying that the new load test was added successfully");
-		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),"This is an Automated Test !!!", "Test Name should be: 'This is an Automated Test !!!'",true);
+		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
 		report.endLevel();
 		
 		//Clicking 'Delete' Button for deleting a test
@@ -165,7 +168,8 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 	
 		report.startLevel("Step 14 - Checking if test exist");
 		Thread.sleep(2000);
-		stormRunnerLoadTestsPage.IsTestExistInGrid("This is an Automated Test !!!");
+		//stormRunnerLoadTestsPage.IsTestExistInGrid("This is an Automated Test !!!");
+		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
 		report.endLevel();
 		
 		
@@ -226,7 +230,7 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		///	    }
 		///	}	
 			
-		 report.endLevel();
+		 //report.endLevel();
 	
 		// Pressing "Create a Test" button
 		//	driver.findElement(By.xpath("//a[@class='stm-tst-load-tests' and text()='Load Tests']")).click();
