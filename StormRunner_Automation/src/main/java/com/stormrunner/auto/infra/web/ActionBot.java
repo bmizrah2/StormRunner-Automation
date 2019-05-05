@@ -29,15 +29,17 @@ public class ActionBot {
 	public boolean isTextExistInColumn(WebDriver driver,By2 elementLocator, String textToSearch){
 		boolean isFound = false;
 		List<WebElement> rows = driver.findElements(elementLocator.by);
-	//	List<WebElement> rows = driver.findElements(By.cssSelector("tbody > tr"));
 		for(WebElement rowIndex : rows){
-			//if(rowIndex.findElement(By.cssSelector("td:nth-of-type(2)").getText.equals(username){
 			if(rowIndex.getText().equals(textToSearch)){
-				System.out.println("Test exist");
+				//Test exist
 				isFound = true;
+				report.log("Test: '" + textToSearch + "' WAS found in list of tests");
 				break;
 			}
-			System.out.println("Test doesn't exist");
+		//Test doesn't exist
+		}
+		if (isFound==false){
+			report.log("Test: '" + textToSearch + "' WASN'T found in list of tests");
 		}
 		return isFound;
 	}

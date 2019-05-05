@@ -163,22 +163,14 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		stormRunnerLoadTestsPage.clickOnDeleteButtonInConfirmationDialog();
 		report.endLevel();
 		
-		// Need to check that the number of lines was decreased by 1
-		// --------------- CODE ----------------
-	
-		report.startLevel("Step 14 - Checking if test exist");
+		// Verify that the test was deleted successfully
+		report.startLevel("Step 14 - Verifying that the test was deleted successfully and doesn't appear in the grid");
 		Thread.sleep(2000);
-		//stormRunnerLoadTestsPage.IsTestExistInGrid("This is an Automated Test !!!");
 		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
 		report.endLevel();
 		
 		
-		
-		// 4 lines of 4 tests, create list of webelements and ask for get text() 
-		//$x("//div[contains(@ng-repeat,'rowRenderIndex')]//a")
-
-		
-		
+	
 		
 		/*
 		// click Assets tab
