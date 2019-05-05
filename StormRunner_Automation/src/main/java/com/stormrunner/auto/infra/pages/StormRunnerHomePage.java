@@ -47,14 +47,22 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 		super(driver, homeButton);
 	}
 
-
+	// Clicking on LoadTests tab
 	public StormRunnerLoadTestsPage clickCreateTestsTab() throws Exception{
 		bot.click(createTest);
 		TabAndIframeUtils.switchToTabByTitle(driver, "Load Tests", 10000);
 		return new StormRunnerLoadTestsPage(driver); 
 	}
 
-
+	// Clicking on Assets tab
+	public StormRunnerAssetsMonitorsPage clickAssetsTab() throws Exception{
+		bot.click(assetsButton);
+	//	TabAndIframeUtils.switchToTabByTitle(driver, "Assets", 10000);
+		return new StormRunnerAssetsMonitorsPage(driver); 
+	}
+	
+	
+	
 	//ORIG
 	//public int getCartCounterValue() {
 

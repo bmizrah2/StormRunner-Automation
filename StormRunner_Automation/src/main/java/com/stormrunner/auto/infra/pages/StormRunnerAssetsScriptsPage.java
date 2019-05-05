@@ -8,7 +8,7 @@ import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.web.By2;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
-public class StormRunnerAssetsPage extends AbstractPage {
+public class StormRunnerAssetsScriptsPage extends AbstractPage {
 
 	//private static final By2 addedToCartTitle = new By2("'Added to cart' title", By.xpath("//h1[contains(text(),'Added to Cart')]"));
 	//private static final By2 cartCounterSpan = new By2("Cart counter", By.id("nav-cart-count"));
@@ -67,14 +67,19 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	private static final By2 expectedLabelName = new By2("The expected label name assigned to a script", By.cssSelector("div.stm-tst-row-"+MainConfig.StormRunnerLabelName));
 
 
-
-
 	// Clicking "Remove" in the drop down menu for removing the label
 	private static final By2 removeLabelOptionInDropDownMenu = new By2("Choosing 'Remove' in Drop Down Menu for deleting the label", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-remove-label')]"));
 
 	// Clicking "Remove" button in confirmation dialog for removing the label
 	private static final By2 removeButtonInConfirmationDialog = new By2("Clicking 'Remove' in confirmation dialog for removing the label", By.cssSelector("button.stm-tst-ok-button"));
 
+	
+	// Clicking on "Monitors" link
+	public void clickOnMonitorsLinkInUpperMenu() throws Exception{
+		bot.click(assetsTab);
+	}
+	
+	
 	// Expanding the Labels pane
 	public void clickOnExpandLabelsPaneIcon() throws Exception{
 		bot.click(expandLabelsPaneIcon);
@@ -160,7 +165,7 @@ public class StormRunnerAssetsPage extends AbstractPage {
 	
 
 
-	public StormRunnerAssetsPage(WebDriver driver) throws Exception {
+	public StormRunnerAssetsScriptsPage(WebDriver driver) throws Exception {
 		//super(driver, loadTestsTab,createButton);
 		//super(driver,createButton);
 		//super(driver,testNameHeader);
