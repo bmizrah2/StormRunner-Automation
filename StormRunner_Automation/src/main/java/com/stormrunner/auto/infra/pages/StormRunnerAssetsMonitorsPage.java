@@ -42,14 +42,17 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 	// Clicking "Delete" in main menu for deleting the monitor
 	private static final By2 deleteMonitorButton = new By2("Choosing 'Delete' in Main Menu for deleting the Monitor", By.cssSelector("div.stm-tst-delete"));
 
-	// Checking the Monitor for deleting
-	//private static final By2 checkingMonitorForDeletion = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("div.stm-tst-row-"+ MainConfig.StormRunnerMonitorName));
-	private static final By2 checkingMonitorForDeletion2 = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("input.ng-not-empty"));
+	// For replacing all " " & "." to "-" in the class name
+	private static String monitorName = MainConfig.StormRunnerSitescopeServerName.replace(".", "-").replace(" ", "-");
+	// For Checking the Monitor for deleting
+
+	private static final By2 checkingMonitorForDeletion = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("div.stm-tst-row-"+ monitorName));
+	//private static final By2 checkingMonitorForDeletion2 = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("input.ng-not-empty"));
 	//private static final By2 newTestLine = new By2("'Test created in grid'",                                            
-	
+
 	// Preesing 'yes' in confirmation dialog for deleting the monitor
 	private static final By2 yesButtonInConfirmMonitorDeletion = new By2("Clicking 'Yes' button in confirmation dialog for deleting the monitor", By.cssSelector("div.stm-tst-Yes"));
-	
+
 
 	// MONITORS link in upper menu in ASSETS tab
 	private static final By2 monitorsLinkInUpperTab = new By2("Clicking the monitors link in upper menu", By.cssSelector("div.stm-tst-monitor-tab"));
@@ -136,7 +139,6 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 		bot.writeToElement(sitescopeUserNameField, userSitescopeUserNameInput);
 	}
 
-
 	// Click on "Save" in New SiteScope Monitor Dialog
 	public void clickOnSaveInNewMonitorDialog() throws Exception{
 		bot.click(saveNewMonitorButton);
@@ -145,14 +147,12 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 
 	}
 
-
-	// Click on the Sitescope monitor for deletion
+	// Click on the Sitescope monitor row for deletion
 	public void clickOnMonitorForDeletion() throws Exception{
-		bot.moveToElementAndClickIt(checkingMonitorForDeletion2);
+		bot.moveToElementAndClickIt(checkingMonitorForDeletion);
 		//	return new StormRunnerAssetsPage(driver);
 
 	}
-
 
 	// Click on 'Delete' for deleting the Sitescope monitor
 	public void clickOnDeleteMonitor() throws Exception{
@@ -161,15 +161,12 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 
 	}
 
-	
-	
 	// Click on 'Yes' for confirming the deletion of the Sitescope monitor
-		public void clickOnYesToConfirmDeletionOfMonitor() throws Exception{
-			bot.click(yesButtonInConfirmMonitorDeletion);
-			//	return new StormRunnerAssetsPage(driver);
+	public void clickOnYesToConfirmDeletionOfMonitor() throws Exception{
+		bot.click(yesButtonInConfirmMonitorDeletion);
+		//	return new StormRunnerAssetsPage(driver);
 
-		}
-
+	}
 
 
 	//	public void moveToCollapseButtonAndClickIt() throws Exception{

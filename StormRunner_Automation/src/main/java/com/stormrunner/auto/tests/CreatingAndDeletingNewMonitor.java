@@ -169,9 +169,9 @@ public class CreatingAndDeletingNewMonitor extends AbstractTest {
 
 
 		// Checking the checkbox of the new added monitor for deletion
-		//		report.startLevel("Step 14 - Checking the checkbox of the new added monitor for deletion");
-		//		stormRunnerAssetsMonitorsPage.clickOnMonitorForDeletion();
-		//		report.endLevel();
+		report.startLevel("Step 14 - Checking the checkbox of the new added monitor for deletion");
+		stormRunnerAssetsMonitorsPage.clickOnMonitorForDeletion();
+		report.endLevel();
 
 
 		// Clicking 'Delete' for deleting the monitor
