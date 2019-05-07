@@ -60,9 +60,9 @@ public class StormRunnerMainMenuPage extends AbstractStormRunnerPage {
 		}
 	
 	// Click on Assets tab
-		public StormRunnerAssetsPage clickAssetsTab () throws Exception{
+		public StormRunnerAssetsScriptsPage clickAssetsTab () throws Exception{
 		bot.click(assetsButton);
-		return new StormRunnerAssetsPage(driver);
+		return new StormRunnerAssetsScriptsPage(driver);
 		}
 		
 		
@@ -96,10 +96,7 @@ public class StormRunnerMainMenuPage extends AbstractStormRunnerPage {
 	//}
 
 
-//	public StormRunnerAssetsPage clickOnAssetsTab() {
-//		bot.click(assetsButton);
-//		return StormRunnerAssetsPage;
-//	}
+
 	
 	
 

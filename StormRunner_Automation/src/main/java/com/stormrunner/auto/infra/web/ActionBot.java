@@ -2,6 +2,7 @@ package com.stormrunner.auto.infra.web;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -159,5 +160,24 @@ public class ActionBot {
 		catch (NoSuchElementException e) {
 			return false;
 		}
+	}
+
+	public void moveToNewOpenedTab(By2 elementLocator) {
+		String currentWindow = driver.getWindowHandle();
+		
+		//	Pressing the "Launch" button
+		//driver.findElement(By.xpath("//a[text()='Launch']")).click();
+
+		driver.findElement(elementLocator.by).click();
+		
+		
+		// A new tab is opened --> So switching to the new tab
+
+			for (String handle : driver.getWindowHandles()) {
+			    if (!handle.equals(currentWindow)) {
+			        driver.switchTo().window(handle);
+			    }
+			}	
+		
 	}
 }

@@ -100,23 +100,24 @@ public class LoginTestToStormRunner extends AbstractTest {
 		
 		
 		report.startLevel("Step 5 - Moving to new opened Tab after clicking 'Launch'");
-		// saving first tab	
-		String currentWindow = driver.getWindowHandle();
+		// ORIG - saving first tab	
+//		String currentWindow = driver.getWindowHandle();
+//		
+//			
+//		//	Pressing the "Launch" button
+//		driver.findElement(By.xpath("//a[text()='Launch']")).click();
+//
+//		// A new tab is opened --> So switching to the new tab
+//
+//			for (String handle : driver.getWindowHandles()) {
+//			    if (!handle.equals(currentWindow)) {
+//			        driver.switchTo().window(handle);
+//			    }
+//			}	
+//		
+		StormRunnerLoginPage.moveToNewOpenedTab();
 		
-			
-		//	Pressing the "Launch" button
-		//driver.findElement(By.xpath("//div/a[contains(@href,'175726009')]")).click();
-		driver.findElement(By.xpath("//a[text()='Launch']")).click();
-
 		
-		// A new tab is opened --> So switching to the new tab
-
-			for (String handle : driver.getWindowHandles()) {
-			    if (!handle.equals(currentWindow)) {
-			        driver.switchTo().window(handle);
-			    }
-			}	
-			
 		report.endLevel();
 	
 		// Pressing "Create a Test" button
