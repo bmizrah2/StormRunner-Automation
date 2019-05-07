@@ -19,7 +19,7 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	//private static final By2 createButton = new By2("Clicking 'Create' button", By.id("div.stm-tst-create"));
 	
 	//"Create" by CSS
-	private static final By2 createButton = new By2("Clicking 'Create' button", By.cssSelector("div[class='stm-tst-create']"));
+	private static final By2 createButton = new By2("Clicking 'Create' button", By.cssSelector("div.stm-tst-create"));
 			
 	// Test name input field
 	private static final By2 testNameInput = new By2("Entering new Test Name", By.cssSelector("input.stm-tst-test-name-header"));
@@ -68,11 +68,11 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 			}
 	
 			
-		// Click on "Scripts" tab in left pane menu	
-			public StormRunnerHomePage clickOnHomeTab() {
-				bot.click(homeButton);
-				return StormRunnerHomePage;
-			}	
+//		// Click on "Scripts" tab in left pane menu	
+//			public StormRunnerHomePage clickOnHomeTab() {
+//				bot.click(homeButton);
+//				return StormRunnerHomePage;
+//			}	
 			
 			
 //			public StormRunnerHomePage clickLaunchButton() throws Exception{

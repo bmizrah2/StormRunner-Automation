@@ -88,7 +88,7 @@ public class StormRunnerAssetsScriptsPage extends AbstractPage {
 	// Collapsing the Labels pane
 	public void clickOnCollapseLabelsPaneIcon() throws Exception{
 		bot.click(collapseLabelsPaneIcon);
-		//	return new StormRunnerAssetsPage(driver);
+		//	return new stormRunnerAssetsPage(driver);
 	}
 
 	// option 2 to move and then click
@@ -117,7 +117,7 @@ public class StormRunnerAssetsScriptsPage extends AbstractPage {
 	// Click on "Save" in "New Label" dialog
 	public void clickOnSaveInNewLabelDialog() throws Exception{
 		bot.click(saveNewLabelButton);
-		//	return new StormRunnerAssetsPage(driver);
+		//	return new stormRunnerAssetsPage(driver);
 
 	}
 

@@ -2,7 +2,7 @@ package com.stormrunner.auto.infra.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebElement;
 
 import com.stormrunner.auto.infra.web.By2;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
@@ -11,7 +11,6 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 
 	public StormRunnerHomePage(WebDriver driver, By2[] pageUniqueElements) throws Exception {
 		super(driver, pageUniqueElements);
-		// TODO Auto-generated constructor stub
 	}
 
 	//private static final By2 addedToCartTitle = new By2("'Added to cart' title", By.xpath("//h1[contains(text(),'Added to Cart')]"));
@@ -78,7 +77,7 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 	//}
 
 	//option2
-	public StormRunnerHomePage clickOnHomeTab() {
+	public StormRunnerHomePage clickOnHomeTab() throws Exception {
 		bot.click(homeButton);
 		return StormRunnerHomePage;
 	}

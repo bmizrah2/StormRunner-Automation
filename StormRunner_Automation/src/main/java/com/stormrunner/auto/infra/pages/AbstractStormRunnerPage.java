@@ -24,9 +24,9 @@ public abstract class AbstractStormRunnerPage extends AbstractPage {
 	}
 
 	// Click ASSETS of main menu	
-	public StormRunnerAssetsPage clickAssetsMenuLink() throws Exception {
+	public StormRunnerAssetsScriptsPage clickAssetsMenuLink() throws Exception {
 		bot.click(assetsMenuLink);
-		return new StormRunnerAssetsPage(driver);
+		return new StormRunnerAssetsScriptsPage(driver);
 	}
 	
 	// Click RESULTS of main menu

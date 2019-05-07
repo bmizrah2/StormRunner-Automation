@@ -8,7 +8,8 @@ import org.testng.annotations.Test;
 import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
 import com.stormrunner.auto.infra.pages.MyAccountPage;
-import com.stormrunner.auto.infra.pages.StormRunnerAssetsPage;
+import com.stormrunner.auto.infra.pages.StormRunnerAssetsScriptsPage;
+import com.stormrunner.auto.infra.pages.StormRunnerAssetsScriptsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerCreateTestPage;
 import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
@@ -119,89 +120,89 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 
 		report.startLevel("Step 6 - Clicking on 'Assets' tab");
 		// Click on the "Assets" tab - works
-		StormRunnerAssetsPage stormRunnerAssetsPage = stormRunnerHomePage.clickAssetsMenuLink();
+		StormRunnerAssetsScriptsPage stormRunnerAssetsScriptsPage = stormRunnerHomePage.clickAssetsMenuLink();
 		report.endLevel();
 
 		// clicking on the "Expand Labels Pane" icon
 		report.startLevel("Step 7 - Clicking on 'Expand Labels Pane' button for opening the Labels Pane");
-		//stormRunnerAssetsPage.clickOnExpandLabelsPaneIcon();
-		stormRunnerAssetsPage.moveToExpandButtonAndClickIt();
+		//StormRunnerAssetsScriptsPage.clickOnExpandLabelsPaneIcon();
+		stormRunnerAssetsScriptsPage.moveToExpandButtonAndClickIt();
 		report.endLevel();
 
 		// clicking on the "Create label" button
 		report.startLevel("Step 8 - Clicking on 'Create label' button for creating new label");
-		stormRunnerAssetsPage.clickOnCreateLabelButton();
+		stormRunnerAssetsScriptsPage.clickOnCreateLabelButton();
 		report.endLevel(); 
 
 		// Entering a new label name in the "New Label" dialog
 		report.startLevel("Step 9 - Entering Label Name");
-		//stormRunnerAssetsPage.writeToLabelNameField("This is an automated LABEL NAME");
-		stormRunnerAssetsPage.writeToLabelNameField(MainConfig.StormRunnerLabelName);
+		//StormRunnerAssetsScriptsPage.writeToLabelNameField("This is an automated LABEL NAME");
+		stormRunnerAssetsScriptsPage.writeToLabelNameField(MainConfig.StormRunnerLabelName);
 		report.endLevel(); 
 
 		// Clicking 'Save' to save the new created label
 		report.startLevel("Step 10 - Saving the new created Label");
-		stormRunnerAssetsPage.clickOnSaveInNewLabelDialog();
+		stormRunnerAssetsScriptsPage.clickOnSaveInNewLabelDialog();
 		report.endLevel();
 
 
 		//clicking on the "Collapse Labels Pane" icon
 		report.startLevel("Step 11 - Clicking on 'Collapse Labels Pane' button for closing the Labels Pane");
-		//stormRunnerAssetsPage.clickOnCollapseLabelsPaneIcon();
-		stormRunnerAssetsPage.moveToCollapseButtonAndClickIt();
+		//StormRunnerAssetsScriptsPage.clickOnCollapseLabelsPaneIcon();
+		stormRunnerAssetsScriptsPage.moveToCollapseButtonAndClickIt();
 		report.endLevel();
 
 
 
 		//Clicking on "Assign Labels" drop down list
 		report.startLevel("Step 12 - Clicking 'Assign Labels' drop down list");
-		stormRunnerAssetsPage.clickOnAssignLabelsDropDownButton();
+		stormRunnerAssetsScriptsPage.clickOnAssignLabelsDropDownButton();
 		report.endLevel();
 
 
 		//Clicking the checkbox of the new added label
 		report.startLevel("Step 13 - Clicking the checkbox of the new added label");
-		stormRunnerAssetsPage.clickOnLabelCheckbox();
+		stormRunnerAssetsScriptsPage.clickOnLabelCheckbox();
 		report.endLevel();
 
 		// Clicking save for assigning the label to the script
 		report.startLevel("Step 14 - Clicking 'Save' for attaching the label to the script");
-		stormRunnerAssetsPage.clickSaveAssigningLabelToScript();
+		stormRunnerAssetsScriptsPage.clickSaveAssigningLabelToScript();
 		report.endLevel();
 
 		//Verify the label is attached to the first selected script 
-		AssertUtils.assertEquals(StormRunnerAssetsPage.getLabelName(),MainConfig.StormRunnerLabelName, "Label Name should be:"+MainConfig.StormRunnerLabelName,true);
+		AssertUtils.assertEquals(stormRunnerAssetsScriptsPage.getLabelName(),MainConfig.StormRunnerLabelName, "Label Name should be:"+MainConfig.StormRunnerLabelName,true);
 
 		//Expand the labels pane again for deleting the label 
 		// clicking on the "Expand Labels Pane" icon
 		report.startLevel("Step 15 - Clicking on 'Expand Labels Pane' button for opening the Labels Pane");
-		//stormRunnerAssetsPage.clickOnExpandLabelsPaneIcon();
-		stormRunnerAssetsPage.moveToExpandButtonAndClickIt();
+		//StormRunnerAssetsScriptsPage.clickOnExpandLabelsPaneIcon();
+		stormRunnerAssetsScriptsPage.moveToExpandButtonAndClickIt();
 		report.endLevel();
 
 
 		// clicking the drop down menu of the label
 		report.startLevel("Step 16 - Clicking on ... of the label to open its options");
-		stormRunnerAssetsPage.clickDropDownMenuOfLabelOptions();
+		stormRunnerAssetsScriptsPage.clickDropDownMenuOfLabelOptions();
 		report.endLevel();
 
 
 
 		// Choosing the 'Remove' option from the label's options
 		report.startLevel("Step 17 - Choose the 'Remove' option to remove the label");
-		stormRunnerAssetsPage.clickOnRemoveLabelOptionInDropDownMenu();
+		stormRunnerAssetsScriptsPage.clickOnRemoveLabelOptionInDropDownMenu();
 		report.endLevel();
 
 
 		// Clicking  'Remove' button in the "Remove Label" dialog
 		report.startLevel("Step 18 - Clicking  'Remove' button in the 'Remove Label' dialog");
-		stormRunnerAssetsPage.clickOnRemoveButtonInRemoveLabelDialog();
+		stormRunnerAssetsScriptsPage.clickOnRemoveButtonInRemoveLabelDialog();
 		report.endLevel();
 
 
 		// clicking on the "Collapse Labels Pane" icon
 		report.startLevel("Step 19 - Clicking on 'Collapse Labels Pane' button for closing the Labels Pane");
-		stormRunnerAssetsPage.moveToCollapseButtonAndClickIt();
+		stormRunnerAssetsScriptsPage.moveToCollapseButtonAndClickIt();
 		report.endLevel();
 		
 
@@ -264,7 +265,7 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 
 
 		// click Assets tab
-		StormRunnerAssetsPage stormRunnerAssetsPage = stormRunnerHomePage.clickAssetsMenuLink();
+		StormRunnerAssetsScriptsPage StormRunnerAssetsScriptsPage = stormRunnerHomePage.clickAssetsMenuLink();
 
 		// Click Results tab
 		StormRunnerResultsPage stormRunnerResultsPage = stormRunnerHomePage.clickResultsMenuLink();
@@ -274,7 +275,7 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 
 		stormRunnerHomePage = stormRunnerMainMenuPage.clickHomeTab();
 		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
-		stormRunnerAssetsPage = stormRunnerMainMenuPage.clickAssetsMenuLink();
+		StormRunnerAssetsScriptsPage = stormRunnerMainMenuPage.clickAssetsMenuLink();
 		stormRunnerResultsPage = stormRunnerMainMenuPage.clickResultsTab();
 
 
