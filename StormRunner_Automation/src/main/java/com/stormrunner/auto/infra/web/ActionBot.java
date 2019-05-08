@@ -27,20 +27,22 @@ public class ActionBot {
 	}
 
 	// searching for a string 
-	public boolean isTextExistInColumn(WebDriver driver,By2 elementLocator, String textToSearch){
+	public boolean isTextExistInColumn(WebDriver driver,By2 elementLocator, String textToSearch) throws Exception {
 		boolean isFound = false;
 		List<WebElement> rows = driver.findElements(elementLocator.by);
 		for(WebElement rowIndex : rows){
 			if(rowIndex.getText().equals(textToSearch)){
-				//Test exist
+				//Text exist
 				isFound = true;
-				report.log("Test: '" + textToSearch + "' WAS found in list of tests");
-				break;
+				report.log("Opsss, Text: '" + textToSearch + "' WAS found under Name column");
+				AssertionError error = new AssertionError();
+				throw error;
+				//break;
 			}
-		//Test doesn't exist
+		//Text doesn't exist
 		}
 		if (isFound==false){
-			report.log("Test: '" + textToSearch + "' WASN'T found in list of tests");
+			report.log("Text: '" + textToSearch + "' WASN'T found under Name column");
 		}
 		return isFound;
 	}

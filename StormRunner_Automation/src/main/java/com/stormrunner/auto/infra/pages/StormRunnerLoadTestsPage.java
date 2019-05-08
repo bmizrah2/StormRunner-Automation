@@ -55,8 +55,8 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	private static final By2 deleteButtonInConfirmationDialog = new By2("'Delete' button in confirmation dialog", By.cssSelector("div.stm-tst-Delete"));
 
 
-	//getting all lines of 
-	private static final By2 allTestsRows = new By2("Getting all tests rows", By.xpath("//a[contains(@class,'stm-tst-row')]"));
+	//getting all lines of tests
+	private static final By2 allTestsRows = new By2("Getting all monitors rows", By.xpath("//a[contains(@class,'stm-tst-row')]"));
 
 	
 

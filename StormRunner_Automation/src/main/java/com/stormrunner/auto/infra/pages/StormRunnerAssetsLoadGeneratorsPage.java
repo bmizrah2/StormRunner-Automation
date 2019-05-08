@@ -97,7 +97,7 @@ public class StormRunnerAssetsLoadGeneratorsPage extends AbstractPage {
 
 	}
 
-	// Click on 'Delete' for deleting the Sitescope monitor
+	// Click on 'Delete' for deleting the Load Generator server
 	public void clickOnDeleteLoadGenerator() throws Exception{
 		bot.click(deleteLoadGeneratorButton);
 		//	return new StormRunnerAssetsPage(driver);

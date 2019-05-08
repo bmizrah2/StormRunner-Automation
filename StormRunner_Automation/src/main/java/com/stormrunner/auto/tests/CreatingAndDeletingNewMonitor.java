@@ -166,31 +166,39 @@ public class CreatingAndDeletingNewMonitor extends AbstractTest {
 		report.endLevel();
 
 		// check if monitor appears in grid
+		report.startLevel("Step 14 - Verifying that the new Load Generator was added successfully");
+		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		AssertUtils.assertEquals(stormRunnerAssetsMonitorsPage.getNewAddedMonitor(),MainConfig.StormRunnerSitescopeServerName, "Load Generator should be: " + MainConfig.StormRunnerSitescopeServerName,true);
+		//getNewAddedTest --> getNewAddedMonitor
+		report.endLevel();
+
 
 
 		// Checking the checkbox of the new added monitor for deletion
-		report.startLevel("Step 14 - Checking the checkbox of the new added monitor for deletion");
+		report.startLevel("Step 15 - Checking the checkbox of the new added monitor for deletion");
 		stormRunnerAssetsMonitorsPage.clickOnMonitorForDeletion();
 		report.endLevel();
 
 
 		// Clicking 'Delete' for deleting the monitor
-		report.startLevel("Step 15 - Clicking 'Delete' for deleting the monitor");
+		report.startLevel("Step 16 - Clicking 'Delete' for deleting the monitor");
 		stormRunnerAssetsMonitorsPage.clickOnDeleteMonitor();
 		//Thread.sleep(2000);
 		report.endLevel();
 
 
 		// Clicking 'Yes' to confirm deletion of monitor
-		report.startLevel("Step 16 - Clicking 'Yes' to confirm deletion of monitor");
+		report.startLevel("Step 17 - Clicking 'Yes' to confirm deletion of monitor");
 		stormRunnerAssetsMonitorsPage.clickOnYesToConfirmDeletionOfMonitor();
 		report.endLevel();
 
-
-
-
-		// Check if monitor was removed
-
+		// Verify that the Monitor was deleted successfully
+		report.startLevel("Step 18 - Verifying that the monitor was deleted successfully and doesn't appear in the grid");
+		Thread.sleep(1000);
+		stormRunnerAssetsMonitorsPage.isMonitorExistInGrid(MainConfig.StormRunnerSitescopeServerName);
+		//stormRunnerAssetsMonitorsPage.isMonitorExistInGrid("2.3.4.5");
+		report.endLevel();
 	}
 
 }

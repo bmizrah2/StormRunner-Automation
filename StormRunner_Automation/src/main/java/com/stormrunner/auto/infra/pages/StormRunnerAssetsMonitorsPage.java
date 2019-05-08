@@ -57,8 +57,19 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 	// MONITORS link in upper menu in ASSETS tab
 	private static final By2 monitorsLinkInUpperTab = new By2("Clicking the monitors link in upper menu", By.cssSelector("div.stm-tst-monitor-tab"));
 
+	// "New Monitor" title of a new Load Generator ==>  $x("//a[@title='New Test']")
+	//private static final By2 newMonitorTitle = new By2("The new Monitor title", By.cssSelector(MainConfig.StormRunnerSitescopeServerName));
+	private static final By2 newMonitorTitle = new By2("The new Monitor title", By.xpath("//div[@title='"+MainConfig.StormRunnerSitescopeServerName+"']"));
 
+	// Get all lines of monitors
+	private static final By2 allMonitorsRows = new By2("Getting all monitors rows", By.xpath("//div[contains(@class,'ui-grid-coluiGrid-0011')]"));
 
+	
+	
+	
+	
+	
+	
 	// option 2
 	//private static final By2 expandLabelsPaneIcon = new By2("Clicking 'Expand Labels Pane' icon", By.cssSelector("div.stm-tst-toggle-to-open"));
 
@@ -167,6 +178,26 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 		//	return new StormRunnerAssetsPage(driver);
 
 	}
+
+
+	public String getNewAddedMonitor() {
+		String actualNewAddedMonitor = bot.getElementText(newMonitorTitle);
+		return actualNewAddedMonitor;
+	}
+
+
+	public boolean isMonitorExistInGrid(String monitorName) throws Exception {
+		Boolean isMonitorExist = bot.isTextExistInColumn(driver, allMonitorsRows, monitorName);
+		return isMonitorExist;
+	}
+
+	
+	
+	
+//	public boolean IsTestExistInGrid(String testName){
+//		Boolean isTestExist = bot.isTextExistInColumn(driver, allTestsRows, testName);
+//		return isTestExist;
+//	}
 
 
 	//	public void moveToCollapseButtonAndClickIt() throws Exception{
