@@ -23,10 +23,6 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 	private static final By2 assetsButton = new By2("Assets tab button", By.cssSelector("a.stm-tst-assets"));
 
 	
-	
-	
-	
-
 	//"Create a Test" button by id
 	private static final By2 createTest = new By2("Create a Test button", By.id("CreateTest"));
 
@@ -59,6 +55,15 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 	//	TabAndIframeUtils.switchToTabByTitle(driver, "Assets", 10000);
 		return new StormRunnerAssetsMonitorsPage(driver); 
 	}
+	
+	
+	// Clicking on AssetsLoadGenerators tab
+		public StormRunnerAssetsLoadGeneratorsPage clickAssetsLoadGeneratorsTab() throws Exception{
+			bot.click(assetsButton);
+		//	TabAndIframeUtils.switchToTabByTitle(driver, "Assets", 10000);
+			return new StormRunnerAssetsLoadGeneratorsPage(driver); 
+		}
+		
 	
 	
 	

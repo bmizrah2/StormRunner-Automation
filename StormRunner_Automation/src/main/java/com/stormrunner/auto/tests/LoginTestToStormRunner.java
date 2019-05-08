@@ -91,14 +91,6 @@ public class LoginTestToStormRunner extends AbstractTest {
 		
 		
 		
-		
-		// locate "Luanch" button
-		// $x("//div/a[contains(@href,'175726009')]")
-			
-		
-		
-		
-		
 		report.startLevel("Step 5 - Moving to new opened Tab after clicking 'Launch'");
 		// ORIG - saving first tab	
 //		String currentWindow = driver.getWindowHandle();

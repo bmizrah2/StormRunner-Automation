@@ -9,6 +9,7 @@ import com.stormrunner.auto.infra.web.WebDriverType;
 
 public class MainConfig {
 
+	
 	public static String StormRunnerURL;
 	public static String StormRunnerHomeURL;
 	public static String StormRunnerLoadTestsURL;
@@ -26,6 +27,9 @@ public class MainConfig {
 	public static String StormRunnerSitescopeServerName;
 	public static String StormRunnerSitescopeDescription;
 	public static String StormRunnerSitescopeUserName;
+	
+	public static String StormRunnerLoadGeneratorName;
+	public static String StormRunnerLoadGeneratorDescription;
 	
 	
 	public static void initFromFile(String filePath) throws IOException {
@@ -49,6 +53,8 @@ public class MainConfig {
 		StormRunnerSitescopeServerName = prop.getProperty("StormRunnerSitescopeServerName");
 		StormRunnerSitescopeDescription = prop.getProperty("StormRunnerSitescopeDescription");
 		StormRunnerSitescopeUserName = prop.getProperty("StormRunnerSitescopeUserName");
+		StormRunnerLoadGeneratorName = prop.getProperty("StormRunnerLoadGeneratorName");
+		StormRunnerLoadGeneratorDescription = prop.getProperty("StormRunnerLoadGeneratorDescription");
 		
 		
 		input.close();
