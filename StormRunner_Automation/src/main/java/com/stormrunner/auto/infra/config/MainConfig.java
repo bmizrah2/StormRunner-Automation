@@ -19,6 +19,11 @@ public class MainConfig {
 	public static int webDriverImplicitWaitInSeconds;
 	public static String baseUrl;
 	
+	public static String StormRunnerAccountName;
+	
+	public static String StormRunnerScriptName;
+	
+	
 	public static String StormRunnerTestName;
 	public static String StormRunnerTestDescription;
 	public static String StormRunnerLabelName;
@@ -44,6 +49,7 @@ public class MainConfig {
 		webDriverImplicitWaitInSeconds = Integer.parseInt(prop.getProperty("webDriverImplicitWaitInSeconds"));
 		baseUrl = prop.getProperty("baseUrl");
 		StormRunnerURL = prop.getProperty("StormRunnerURL");
+		StormRunnerAccountName = prop.getProperty("StormRunnerAccountName");
 		StormRunnerHomeURL = prop.getProperty("StormRunnerHomeURL");
 		StormRunnerLoadTestsURL = prop.getProperty("StormRunnerLoadTestsURL");
 		StormRunnerLabelName = prop.getProperty("StormRunnerLabelName");
@@ -55,6 +61,7 @@ public class MainConfig {
 		StormRunnerSitescopeUserName = prop.getProperty("StormRunnerSitescopeUserName");
 		StormRunnerLoadGeneratorName = prop.getProperty("StormRunnerLoadGeneratorName");
 		StormRunnerLoadGeneratorDescription = prop.getProperty("StormRunnerLoadGeneratorDescription");
+		StormRunnerScriptName = prop.getProperty("StormRunnerScriptName");
 		
 		
 		input.close();
