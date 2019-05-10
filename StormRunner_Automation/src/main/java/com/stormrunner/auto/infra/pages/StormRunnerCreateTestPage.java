@@ -77,13 +77,13 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static final By2 runTestButton = new By2("'Run Test' button", By.cssSelector("div.stm-tst-run"));
 
 	// 'Remove icon'(x) for Virginia region
-	private static final By2 removeVirginiaIcon = new By2("Clicking 'Remove Icon' (x) for Virginia region", By.xpath("//td[contains(text(),'Virginia')]//..//div[contains(@class,'stm-tst-removeRegion')]"));
+	private static final By2 removeVirginiaIcon = new By2("'Remove Icon' (x) for Virginia region", By.xpath("//td[contains(text(),'Virginia')]//..//div[contains(@class,'stm-tst-removeRegion')]"));
 
 	//Scripts tab in left pane menu
-	private static final By2 scriptsTab = new By2("Clicking 'Scripts' tab in left menu", By.cssSelector("div.stm-tst-scripts-tab"));
+	private static final By2 scriptsTab = new By2("'Scripts' tab in left menu", By.cssSelector("div.stm-tst-scripts-tab"));
 
 	//Adding a script to a test from existing repository
-	private static final By2 addScriptFromAssetsButton = new By2("Adding a script from Assets", By.cssSelector("button.stm-tst-add-from-repository"));
+	private static final By2 addScriptFromAssetsButton = new By2("'Add from Assets' button", By.cssSelector("button.stm-tst-add-from-repository"));
 	
 	//Clicking first script in the grid
 	//private static String Name = MainConfig.StormRunnerSitescopeServerName;
@@ -125,14 +125,15 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.click(scriptsTab);
 	}
 
-
+	//Clicking on the 'Add From Assets' button
 	public void clickOnAddFromAssetsButton() throws Exception{
 		bot.click(addScriptFromAssetsButton);
 	}
 
 
-	public void clickOnScript() throws InterruptedException {
-		bot.click(script_1);
+	public void clickOnScriptInScriptsDialog(String scriptName) throws InterruptedException {
+		By2 fullScriptName = new By2("Script: "+scriptName+"", By.cssSelector("div.stm-tst-row-"+ scriptName));
+		bot.click(fullScriptName);
 		
 	}
 

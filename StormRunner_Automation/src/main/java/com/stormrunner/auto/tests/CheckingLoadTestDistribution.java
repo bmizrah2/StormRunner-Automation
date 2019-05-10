@@ -74,14 +74,14 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		report.endLevel();
 
 		// Clicking on 'Add from Assets' button to add a script
-		report.startLevel("Step 11 - Clicking 'Add' button to add a script from list of scripts");
+		report.startLevel("Step 11 - Clicking 'Add from Assets' button to open the list of scripts");
 		stormRunnerCreateTestPage.clickOnAddFromAssetsButton();
 		report.endLevel();
 
 		//Selecting one script from 'Scripts' dialog
-		report.startLevel("Step 12 - Selecting first script from the list of scripts");
+		report.startLevel("Step 12 - Selecting a script from the list of scripts");
 		//stormRunnerCreateTestPage.clickOnScript(MainConfig.StormRunnerScriptName);
-		stormRunnerCreateTestPage.clickOnScript();
+		stormRunnerCreateTestPage.clickOnScriptInScriptsDialog(MainConfig.StormRunnerScriptName);
 		report.endLevel();
 /*
 		//Click on 'Add' to add the script to the test
