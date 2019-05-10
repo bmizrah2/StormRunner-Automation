@@ -83,10 +83,11 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		//stormRunnerCreateTestPage.clickOnScript(MainConfig.StormRunnerScriptName);
 		stormRunnerCreateTestPage.clickOnScriptInScriptsDialog(MainConfig.StormRunnerScriptName);
 		report.endLevel();
-/*
+
 		//Click on 'Add' to add the script to the test
-		report.startLevel("Step 13 - Clicking 'Add' to add the script to the test");
+		report.startLevel("Step 13 - Clicking 'Add' to add the selected script to the test");
 		stormRunnerCreateTestPage.clickAddScriptInScriptsDialog();
+		Thread.sleep(1000);
 		report.endLevel();
 
 		//Click on 'Distribution' tab in left menu
@@ -119,24 +120,24 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		stormRunnerCreateTestPage.clickOkInCloudLocationsDialog();
 		report.endLevel();
 
-		//Entering % of distribution to 'Mumbai' region
+		//Entering 20% of distribution to 'Mumbai' region
 		report.startLevel("Step 20 - Entering % of distribution to 'Mumbai' region");
 		stormRunnerCreateTestPage.enterPercentageToRegion("Mumbai",20);
 		report.endLevel();
 
-		//Entering % of distribution to 'California' region
+		//Entering 30% of distribution to 'California' region
 		report.startLevel("Step 21 - Entering % of distribution to 'California' region");
 		stormRunnerCreateTestPage.enterPercentageToRegion("California",30);
 		report.endLevel();
 
-		//Entering % of distribution to 'Ireland' region
+		//Entering 50% of distribution to 'Ireland' region
 		report.startLevel("Step 22 - Entering % of distribution to 'Ireland' region");
 		stormRunnerCreateTestPage.enterPercentageToRegion("Ireland",50);
 		report.endLevel();
 
 		//Verify 'Run Test' button is DISABLED and has relevant tooltip
 		report.startLevel("Step 23 - Verify 'Run Test' button is DISABLED and has relevant tooltip");
-		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getRunTestTitle(), MainConfig.StormRunner_DisabledRunTestTitle, "'Run Test' Title should be: " + MainConfig.StormRunner_DisabledRunTestTitle, true);
+		AssertUtils.assertEquals(StormRunnerCreateTestPage.getRunTestTitle(), MainConfig.StormRunner_DisabledRunTestTitle, "'Run Test' Title should be: " + MainConfig.StormRunner_DisabledRunTestTitle, true);
 		report.endLevel();
 
 		//Clicking 'OK' to add all selected locations to Distribution
@@ -146,7 +147,7 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 
 		//Verify 'Run Test' button is ENABLED and has relevant tooltip
 		report.startLevel("Step 25 - Verify 'Run Test' button is ENABLED and has relevant tooltip");
-		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getRunTestTitle(), MainConfig.StormRunner_EnabledRunTestTitle, "'Run Test' Title should be: " + MainConfig.StormRunner_EnabledRunTestTitle, true);
+		AssertUtils.assertEquals(StormRunnerCreateTestPage.getRunTestTitle(), MainConfig.StormRunner_EnabledRunTestTitle, "'Run Test' Title should be: " + MainConfig.StormRunner_EnabledRunTestTitle, true);
 		report.endLevel();
 
 
@@ -181,7 +182,7 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		Thread.sleep(2000);
 		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
 		report.endLevel();
-*/
+
 
 	}
 }

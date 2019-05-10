@@ -127,6 +127,12 @@ public class ActionBot {
 	}
 
 
+	public String getElementTitle(By2 elementLocator) { 
+		String elementTitle = driver.findElement(elementLocator.by).getAttribute("title");
+		report.log("Element " + elementLocator + " Title : " + elementTitle);
+		return elementTitle;
+	}
+	
 
 	public String getElementText(By2 elementLocator) { 
 		String text = driver.findElement(elementLocator.by).getText();

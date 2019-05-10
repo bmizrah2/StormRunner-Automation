@@ -26,6 +26,10 @@ public class MainConfig {
 	
 	public static String StormRunnerTestName;
 	public static String StormRunnerTestDescription;
+	public static String StormRunner_DisabledRunTestTitle;
+	public static String StormRunner_EnabledRunTestTitle;
+	
+	
 	public static String StormRunnerLabelName;
 	
 	public static String StormRunnerMonitorName;
@@ -62,6 +66,8 @@ public class MainConfig {
 		StormRunnerLoadGeneratorName = prop.getProperty("StormRunnerLoadGeneratorName");
 		StormRunnerLoadGeneratorDescription = prop.getProperty("StormRunnerLoadGeneratorDescription");
 		StormRunnerScriptName = prop.getProperty("StormRunnerScriptName");
+		StormRunner_DisabledRunTestTitle = prop.getProperty("StormRunner_DisabledRunTestTitle");
+		StormRunner_EnabledRunTestTitle = prop.getProperty("StormRunner_EnabledRunTestTitle");
 		
 		
 		input.close();

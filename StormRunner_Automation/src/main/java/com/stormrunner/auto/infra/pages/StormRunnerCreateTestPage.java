@@ -44,7 +44,7 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static final By2 newTestTitle = new By2("'New Test' Title", By.xpath("//a[@title='New Test']"));
 
 	//Distribution tab in left pane menu
-	private static final By2 distributionTab = new By2("Clicking 'Distribution' tab in left menu", By.cssSelector("div.stm-tst-distribution-tab"));
+	private static final By2 distributionTab = new By2("'Distribution' tab in left menu", By.cssSelector("div.stm-tst-distribution-tab"));
 
 	//'Edit Locations' button in Distribution tab
 	private static final By2 editLocationsButton = new By2("Entering new Test Name", By.cssSelector("div.stm-tst-add-Location"));
@@ -84,15 +84,15 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 
 	//Adding a script to a test from existing repository
 	private static final By2 addScriptFromAssetsButton = new By2("'Add from Assets' button", By.cssSelector("button.stm-tst-add-from-repository"));
-	
+
 	//Clicking first script in the grid
 	//private static String Name = MainConfig.StormRunnerSitescopeServerName;
 	private static final By2 script_1 = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-12_01_Web_PeaceFul_71_NOV_2016"));
 	private static final By2 scriptPrefix = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-"));
-	
+
 	//Clicking 'Add' for adding the script to the test
-	private static final By2 addButtonInScriptsDialog = new By2("Clicking 'Add' in 'Scripts' dialog", By.cssSelector("button.stm-tst-btn-primary"));
-	
+	private static final By2 addButtonInScriptsDialog = new By2("'Add' button in 'Scripts' dialog", By.cssSelector("button.stm-tst-btn-primary"));
+
 
 
 
@@ -134,13 +134,54 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	public void clickOnScriptInScriptsDialog(String scriptName) throws InterruptedException {
 		By2 fullScriptName = new By2("Script: "+scriptName+"", By.cssSelector("div.stm-tst-row-"+ scriptName));
 		bot.click(fullScriptName);
-		
+
 	}
 
-	
-	
-	
-	
-	
+	//Clicking 'Add' in 'Scripts' dialog
+	public void clickAddScriptInScriptsDialog() throws InterruptedException {
+		bot.click(addButtonInScriptsDialog);
+	}
+
+	//Clicking 'Distribution' tab in left menu
+	public void clickOnDistributionTab() throws InterruptedException {
+		bot.click(distributionTab);
+	}
+
+	//Clicking 'Edit Locations' button in 'Distribution' page
+	public void clickOnEditLocationsButton() throws InterruptedException {
+		bot.click(editLocationsButton);
+	}
+
+	//Selecting a region from "Cloud Locations" dialog
+	public void selectingRegionFromCloudLocations(String regionName) throws InterruptedException {
+		By2 selectedRegion = new By2("Selecting"+ regionName + "region", By.xpath("//div[contains(text(),'"+ regionName+"')]"));
+		bot.click(selectedRegion);
+	}
+
+	// Clicking 'OK' in 'Cloud Locations' dialog
+	public void clickOkInCloudLocationsDialog() throws InterruptedException {
+		bot.click(okButtonInCloudLocations);
+	}
+
+
+	public void enterPercentageToRegion(String regionName, int percentage) throws InterruptedException {
+		By2 regionDistributionTotal = new By2("Entering % of distribution for "+regionName+" region", By.xpath("//td[contains(text(),'"+regionName+"')]//..//input[contains(@class,'stm-tst-distribution-input')]"));
+		bot.writeToElement(regionDistributionTotal, String.valueOf(percentage));
+	}
+
+
+	public static String getRunTestTitle() {
+		String actualRunTestTitle = bot.getElementTitle(runTestButton);
+		return actualRunTestTitle;
+	}
+
+
+	public void deletingRegionFromTestDistribution(String regionName) throws InterruptedException {
+		By2 removeSelectedRegion = new By2("'Remove Icon' (x) for "+regionName+" Virginia region", By.xpath("//td[contains(text(),'"+regionName+"')]//..//div[contains(@class,'stm-tst-removeRegion')]"));
+		bot.click(removeSelectedRegion);
+	}
+
+
+
 
 }
