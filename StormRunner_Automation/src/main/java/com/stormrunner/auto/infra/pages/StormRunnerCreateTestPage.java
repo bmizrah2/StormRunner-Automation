@@ -93,8 +93,58 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	//Clicking 'Add' for adding the script to the test
 	private static final By2 addButtonInScriptsDialog = new By2("'Add' button in 'Scripts' dialog", By.cssSelector("button.stm-tst-btn-primary"));
 
+	// Params for creating Advanced Scheduling Scenario
+	// Expand script properties
+	private static final By2 expandScriptPropertiesIcon = new By2("'Expand Script properties' icon of selected script", By.cssSelector("div.stm-tst-expandable-buttons-cell"));
 
+	// 'Advanced scheduling mode' option 
+	private static final By2 advancedSchedulingMode = new By2("'Advanced Scheduling' mode", By.cssSelector("label.stm-tst-select-advanced-mode-label"));
 
+	// 'Edit' button of 'Advanced' mode
+	private static final By2 editAdvancedSchedulingMode = new By2("'Edit' button of 'Advanced' mode", By.cssSelector("button.stm-tst-configure-advanced-scheduling"));
+
+	//--------------------
+	// 1st 'Ramp up' hours
+	private static final By2 rampUpHours = new By2("'Hours' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+
+	// 1st 'Ramp up' Minutes
+	private static final By2 rampUpMinutes = new By2("'Minutes' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-minutes')]"));
+
+	// 1st 'Ramp up' seconds
+	private static final By2 rampUpSeconds = new By2("'Seconds' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-seconds')]"));
+
+	// 1st 'Ramp up' Vusers field
+	private static final By2 rampUpVusers = new By2("'Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
+	
+	// 1st 'Ramp up' Total Vusers field
+	private static final By2 rampUpTotalVusers = new By2("'Total Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
+	
+	// ----------
+	// 1st 'Duration' hours
+	private static final By2 durationHours = new By2("'Hours' of Duration step", By.xpath("//div[contains(text(),'Duration')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+
+	// 1st 'Duration' Minutes
+	private static final By2 durationMinutes = new By2("'Minutes' of Duration step", By.xpath("//div[contains(text(),'Duration')]//..//..//input[contains(@class,'stm-tst-minutes')]"));
+
+	// 1st 'Duration' seconds
+	private static final By2 durationSeconds = new By2("'Seconds' of Duration step", By.xpath("//div[contains(text(),'Duration')]//..//..//input[contains(@class,'stm-tst-seconds')]"));
+
+	//-----------------
+	// 1st 'Tear down' hours
+	private static final By2 tearDownHours = new By2("'Hours' of 'Tear down' step", By.xpath("//div[contains(text(),'Tear down')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+
+	// 1st 'Tear down' Minutes
+	private static final By2 tearDownMinutes = new By2("'Minutes' of 'Tear down' step", By.xpath("//div[contains(text(),'Tear down')]//..//..//input[contains(@class,'stm-tst-minutes')]"));
+
+	// 1st 'Tear down' seconds
+	private static final By2 tearDownSeconds = new By2("'Seconds' of 'Tear down' step", By.xpath("//div[contains(text(),'Tear down')]//..//..//input[contains(@class,'stm-tst-seconds')]"));
+
+	// 1st 'Tear down' Vusers field
+	private static final By2 tearDownVusers = new By2("'Vusers' of Tear down step", By.xpath("//div[contains(text(),'Tear down')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
+
+	// 'Apply' button
+	private static final By2 applyButtonInSchedulingDialog = new By2("'Apply' button of 'Advanced Scheduling' dialog", By.cssSelector("button.stm-tst-advanced-sch-save-btn"));
+	
 
 	//WebElement accountName = driver.findElement(By.xpath("//div[@title='Benny Java Automation']"));
 
@@ -181,7 +231,68 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.click(removeSelectedRegion);
 	}
 
+	// Click on 'Expand script properties' icon
+	public void clickOnExpandScriptProperties() throws InterruptedException {
+		bot.click(expandScriptPropertiesIcon);
+	}
 
+	// click 'Advanced' scheduling mode
+	public void clickOnAdvancedSchedulingOption() throws InterruptedException {
+		bot.click(advancedSchedulingMode);
+	}
+
+	// Click 'Edit' advanced scheduling mode
+	public void clickOnEditAdvancedSchedulingButton() throws InterruptedException {
+		bot.click(editAdvancedSchedulingMode);
+	}
+
+
+	public void enterHoursInterval(String stepName, int numberOfHours) throws InterruptedException{
+		By2 hoursIntervalForStep = new By2("Entering number of hours for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+		//private static final By2 rampUpHours = new By2("'Hours' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+		bot.writeToElement(hoursIntervalForStep, String.valueOf(numberOfHours));
+	}
+
+
+	public void enterMinutesInterval(String stepName, int numberOfMinutes) throws InterruptedException{
+		By2 minutesIntervalForStep = new By2("Entering number of Minutes for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-minutes')]"));
+		//private static final By2 rampUpHours = new By2("'Hours' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-hours')]"));
+		bot.writeToElement(minutesIntervalForStep, String.valueOf(numberOfMinutes));
+		
+	}
+
+
+	public void enterSecondsInterval(String stepName, int numberOfSeconds) throws InterruptedException{
+		By2 secondsIntervalForStep = new By2("Entering number of Seconds for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-seconds')]"));
+		bot.writeToElement(secondsIntervalForStep, String.valueOf(numberOfSeconds));
+		
+	}
+
+
+	public void enterVusers(String stepName, int numberOfVusers) throws InterruptedException{
+		By2 vusersForStep = new By2("Entering number of Vusers for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
+		//private static final By2 rampUpVusers = new By2("'Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
+		bot.writeToElement(vusersForStep, String.valueOf(numberOfVusers));
+	}
+
+
+	public void enterTotalVusers(String stepName, int numberOfTotalVusers) throws InterruptedException{
+		By2 totalVusersForStep = new By2("Entering Total number of Vusers for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
+		//private static final By2 rampUpTotalVusers = new By2("'Total Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
+		bot.writeToElement(totalVusersForStep, String.valueOf(numberOfTotalVusers));
+	}
+
+
+	public void clickApplyInAdvancedSchedulingDialog() throws InterruptedException {
+		bot.click(applyButtonInSchedulingDialog);
+	}
+
+
+	
+	
+	
+	
+	
 
 
 }
