@@ -59,7 +59,7 @@ public class StormRunnerAssetsScriptsPage extends AbstractPage {
 	private static final By2 labelDropDownMenu2 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//div[contains(@class,'stm-tst-label-toggleMenu-drop')][2]"));
 
 	// option3 - label drop down of ...
-	private static final By2 labelDropDownMenu3 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-label-toggleMenu-drop')]"));
+	private static final By2 labelDropDownMenu3 = new By2("Clicking '...' for opening the label's drop down menu", By.xpath("//div[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-label-toggleMenu-drop')]"));
 
 	
 	//Label assigned for a script in a row
@@ -68,7 +68,7 @@ public class StormRunnerAssetsScriptsPage extends AbstractPage {
 
 
 	// Clicking "Remove" in the drop down menu for removing the label
-	private static final By2 removeLabelOptionInDropDownMenu = new By2("Choosing 'Remove' in Drop Down Menu for deleting the label", By.xpath("//span[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-remove-label')]"));
+	private static final By2 removeLabelOptionInDropDownMenu = new By2("Choosing 'Remove' in Drop Down Menu for deleting the label", By.xpath("//div[contains(text(),'StormRunner_Label')]/../..//div[contains(@class,'stm-tst-remove-label')]"));
 
 	// Clicking "Remove" button in confirmation dialog for removing the label
 	private static final By2 removeButtonInConfirmationDialog = new By2("Clicking 'Remove' in confirmation dialog for removing the label", By.cssSelector("button.stm-tst-ok-button"));
