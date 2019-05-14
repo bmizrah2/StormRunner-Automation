@@ -21,7 +21,7 @@ public abstract class AbstractTest {
 
 	protected static ReportDispatcher report = ReportManager.getInstance();
 	protected static WebDriver driver;
-
+	
 	@BeforeMethod
 	public void beforeTest() throws IOException {
 		

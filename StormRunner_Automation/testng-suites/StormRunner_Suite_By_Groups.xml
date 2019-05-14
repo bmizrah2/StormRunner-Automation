@@ -1,0 +1,19 @@
+<suite name="StormRunner Suite of tests by Groups" verbose="1">
+
+	<test name="StormRunner list of tests by groups">
+		
+		<groups>
+			<run>
+				<exclude name="exclude" />
+				<include name="storm" />
+			</run>
+		</groups>
+
+		<classes>
+			<class name="com.stormrunner.auto.tests.LoginTestToStormRunner"></class>
+		</classes>
+		
+	</test>
+
+
+</suite>

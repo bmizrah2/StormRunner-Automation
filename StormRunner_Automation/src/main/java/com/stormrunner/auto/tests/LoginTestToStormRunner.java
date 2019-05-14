@@ -1,8 +1,5 @@
 package com.stormrunner.auto.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.stormrunner.auto.infra.config.MainConfig;
@@ -12,7 +9,7 @@ import com.stormrunner.auto.infra.utils.AssertUtils;
 
 public class LoginTestToStormRunner extends AbstractTest {
 
-	@Test
+	@Test(groups = { "storm" })
 	public void _001_loginToStormRunner() throws Exception {
 		
 		//driver.get("http://amazon.com");
