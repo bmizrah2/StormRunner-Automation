@@ -27,7 +27,7 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 	// SiteScope Monitor option
 	private static final By2 sitescopeMonitorType = new By2("SiteScoe Monitor Type", By.cssSelector("div.stm-tst-sitescope"));
 
-	//Clicking Assets tab by css selector  ($$("a.stm-tst-assets"))
+	//Clicking on server name field
 	private static final By2 sitescopeServerNameField = new By2("SiteScope Server Name Field", By.cssSelector("input.stm-tst-textbox-server-name"));
 
 	// SiteScope Description field

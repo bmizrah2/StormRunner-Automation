@@ -55,7 +55,8 @@ public abstract class AbstractTest {
 		
 		takeScreenshot("Browser state at test end");
 		
-		if (driver != null ) {//&& MainConfig.closeBrowserAtTestEnd==true) {
+		//if (driver != null ) {//&& MainConfig.closeBrowserAtTestEnd==true) {
+		if (driver != null && MainConfig.closeBrowserAtTestEnd==true) {
 		//if (driver != null) {
 			//driver.close();
 			driver.quit();

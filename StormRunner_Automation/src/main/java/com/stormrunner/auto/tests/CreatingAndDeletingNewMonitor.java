@@ -154,13 +154,13 @@ public class CreatingAndDeletingNewMonitor extends AbstractTest {
 		report.endLevel();
 
 
-		// Entering SiteScope server Description
+		// Entering SiteScope user name
 		report.startLevel("Step 12 - Entering SiteScope server User Name in dialog");
 		stormRunnerAssetsMonitorsPage.writeToSitescopeUserNameField(MainConfig.StormRunnerSitescopeUserName);
 		report.endLevel();
 
 
-		// Entering SiteScope server Description
+		// Click on 'save' button for saving the Monitor
 		report.startLevel("Step 13 - Clicking 'Save' for saving the new SiteScope server");
 		stormRunnerAssetsMonitorsPage.clickOnSaveInNewMonitorDialog();
 		report.endLevel();

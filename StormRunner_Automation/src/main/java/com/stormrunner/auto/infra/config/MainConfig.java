@@ -10,6 +10,7 @@ import com.stormrunner.auto.infra.web.WebDriverType;
 public class MainConfig {
 
 	
+	
 	public static String StormRunnerURL;
 	public static String StormRunnerHomeURL;
 	public static String StormRunnerLoadTestsURL;
@@ -40,6 +41,9 @@ public class MainConfig {
 	public static String StormRunnerLoadGeneratorName;
 	public static String StormRunnerLoadGeneratorDescription;
 	
+	public static String StormRunnerTopologyName;
+	public static String StormRunnerTopologyDescription;
+	public static String StormRunnerSelectedMonitorForTopology;
 	
 	public static void initFromFile(String filePath) throws IOException {
 		
@@ -68,6 +72,9 @@ public class MainConfig {
 		StormRunnerScriptName = prop.getProperty("StormRunnerScriptName");
 		StormRunner_DisabledRunTestTitle = prop.getProperty("StormRunner_DisabledRunTestTitle");
 		StormRunner_EnabledRunTestTitle = prop.getProperty("StormRunner_EnabledRunTestTitle");
+		StormRunnerTopologyName = prop.getProperty("StormRunnerTopologyName");
+		StormRunnerTopologyDescription = prop.getProperty("StormRunnerTopologyDescription");
+		StormRunnerSelectedMonitorForTopology = prop.getProperty("StormRunnerSelectedMonitorForTopology");
 		
 		input.close();
 	}
