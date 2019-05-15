@@ -69,7 +69,6 @@ public class MainConfig {
 		StormRunner_DisabledRunTestTitle = prop.getProperty("StormRunner_DisabledRunTestTitle");
 		StormRunner_EnabledRunTestTitle = prop.getProperty("StormRunner_EnabledRunTestTitle");
 		
-		
 		input.close();
 	}
 }

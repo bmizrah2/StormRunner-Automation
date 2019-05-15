@@ -6,8 +6,9 @@ import java.io.IOException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 
 import com.stormrunner.auto.infra.config.MainConfig;
@@ -22,7 +23,7 @@ public abstract class AbstractTest {
 	protected static ReportDispatcher report = ReportManager.getInstance();
 	protected static WebDriver driver;
 	
-	@BeforeMethod
+	@BeforeClass
 	public void beforeTest() throws IOException {
 		
 		MainConfig.initFromFile("src/main/resources/config/MainConfig.properties");
@@ -49,15 +50,23 @@ public abstract class AbstractTest {
 		}
 	}
 	
-	@AfterMethod
+	@AfterClass
 	public void afterTest() throws Exception {
 		
 		takeScreenshot("Browser state at test end");
 		
-		if (driver != null && MainConfig.closeBrowserAtTestEnd==true) {
+		if (driver != null ) {//&& MainConfig.closeBrowserAtTestEnd==true) {
 		//if (driver != null) {
 			//driver.close();
 			driver.quit();
+			driver = null;
 		}
+	}
+	
+	@AfterSuite
+	public void afterSuite() throws IOException {
+		System.out.println("in after suite");
+		// cmd command // taskkill /im chromedriver.exe /f
+		Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
 	}
 }

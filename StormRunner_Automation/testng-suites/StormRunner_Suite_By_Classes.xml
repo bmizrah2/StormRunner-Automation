@@ -5,8 +5,13 @@
 	<!-- Run all tests in the specified classes -->
 	<test name="List of tests for Java Automation Project">
 		<classes>
+				<class name="com.stormrunner.auto.tests.LoginTestToStormRunner"/>
 				<class name="com.stormrunner.auto.tests.CreatingAndDeletingNewLoadTest"/>
-				<class name="com.stormrunner.auto.tests.LoginTestToStormRunner"/>			
+				<class name="com.stormrunner.auto.tests.AttachingAndDetachingLabelToScript"/>
+				<class name="com.stormrunner.auto.tests.CreatingAndDeletingNewMonitor"/>
+				<class name="com.stormrunner.auto.tests.CreatingAndDeletingNewLoadGenerator"/>
+				<class name="com.stormrunner.auto.tests.CheckingLoadTestDistribution"/>
+				<class name="com.stormrunner.auto.tests.CreatingAdvancedSchedulingTest"/>		
 		</classes>
 	</test>
 

@@ -30,6 +30,11 @@ public class AmazonLandingPage extends AbstractPage {
 	}
 	
 	public void clickAmazonMusicLink() {
-		bot.click(amazonMusicLink);
+		try {
+			bot.click(amazonMusicLink);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

@@ -28,6 +28,11 @@ public class AmazonProductPage extends AbstractPage {
 	}
 	
 	public void clickAddToOrderPopupXButton() {
-		bot.click(addToOrderPopupXButton);
+		try {
+			bot.click(addToOrderPopupXButton);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
