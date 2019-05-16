@@ -1,30 +1,31 @@
 package com.stormrunner.auto.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.stormrunner.auto.infra.config.MainConfig;
-import com.stormrunner.auto.infra.pages.AmazonSearchResultsPage;
+import com.stormrunner.auto.infra.entities.Topology;
 import com.stormrunner.auto.infra.pages.MyAccountPage;
-import com.stormrunner.auto.infra.pages.StormRunnerAssetsMonitorsPage;
-import com.stormrunner.auto.infra.pages.StormRunnerAssetsScriptsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerAssetsTopologiesPage;
-import com.stormrunner.auto.infra.pages.StormRunnerCreateTestPage;
 import com.stormrunner.auto.infra.pages.StormRunnerHomePage;
-import com.stormrunner.auto.infra.pages.StormRunnerLoadTestsPage;
 import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
-import com.stormrunner.auto.infra.pages.StormRunnerMainMenuPage;
-import com.stormrunner.auto.infra.pages.StormRunnerResultsPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
-import com.stormrunner.auto.infra.web.TabAndIframeUtils;
+import com.stormrunner.auto.infra.web.WebDriverFactory;
 
 public class CreatingAndDeletingNewTopology extends AbstractTest {
 
-	//@SuppressWarnings("null")
-	@Test
-	public void CreatingAndDeletingNewTopology() throws Exception {
+	@Test(dataProvider = "topologiesProvider")
+	public void _008_CreatingAndDeletingNewTopology(Topology topology) throws Exception {
 
 		//driver.get("http://amazon.com");
 
@@ -131,6 +132,8 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		//		stormRunnerAssetsMonitorsPage.clickOnMonitorsLinkInUpperMenu();
 		//		report.endLevel();
 
+		//for (int i=0 ; i<3 ; i++) {
+			
 
 		// clicking on "Create" button for creating topology
 		report.startLevel("Step 7 - Clicking on 'Create' button");
@@ -144,36 +147,39 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		//		report.endLevel();
 
 
-		// Entering SiteScope server name
+		
+		// Entering Topology name
 		report.startLevel("Step 8 - Entering Topology name in dialog");
-		stormRunnerAssetsTopologiesPage.writeToTopologyNameField(MainConfig.StormRunnerTopologyName);
+		//stormRunnerAssetsTopologiesPage.writeToTopologyNameField(MainConfig.StormRunnerTopologyName);
+		stormRunnerAssetsTopologiesPage.writeToTopologyNameField(topology.topologyName);
 		report.endLevel();
 
 
-		// Entering SiteScope server Description
+		// Entering Topology Description
 		report.startLevel("Step 9 - Entering Topology Description in dialog");
-		stormRunnerAssetsTopologiesPage.writeToTopologyDescriptionField(MainConfig.StormRunnerTopologyDescription);
+		//stormRunnerAssetsTopologiesPage.writeToTopologyDescriptionField(MainConfig.StormRunnerTopologyDescription);
+		stormRunnerAssetsTopologiesPage.writeToTopologyDescriptionField(topology.topologyDescription);
 		report.endLevel();
 
-
-		// clicking on "Create" button for creating topology
+		
+		// selecting a "monitor" for topology
 		report.startLevel("Step 10 - Clicking on monitor to be part of the Topology");
 		stormRunnerAssetsTopologiesPage.clickOnMonitorToBePartOfTopology(MainConfig.StormRunnerSelectedMonitorForTopology);
 		report.endLevel();
 
-
-
-		//		// Entering SiteScope server Description
-		//		report.startLevel("Step 12 - Entering SiteScope server User Name in dialog");
-		//		stormRunnerAssetsMonitorsPage.writeToSitescopeUserNameField(MainConfig.StormRunnerSitescopeUserName);
-		//		report.endLevel();
-
-
-		// Entering SiteScope server Description
+	
+		// Click 'Save'
 		report.startLevel("Step 10 - Clicking 'Save' for saving the new Topology");
 		stormRunnerAssetsTopologiesPage.clickOnSaveInNewTopologyDialog();
 		report.endLevel();
-
+		
+		//}
+		
+		//Kill session for opening a new one with next entry from data provider 
+		//Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+		
+		
+/*
 		// check if monitor appears in grid
 		report.startLevel("Step 11 - Verifying that the new Topology was added successfully");
 		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
@@ -207,6 +213,78 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		stormRunnerAssetsTopologiesPage.isTopologyExistInGrid(MainConfig.StormRunnerTopologyName);
 		//stormRunnerAssetsMonitorsPage.isMonitorExistInGrid("2.3.4.5");
 		report.endLevel();
+		
+		*/
 	}
+	
+	
+	@DataProvider(name = "topologiesProvider")
+	public Object[][] topologiesProvider() throws Exception {
+		
+		FileInputStream fstream = new FileInputStream("src/main/resources/config/Topologies.csv");
+		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+		int numOfLines = 0;
+		String line;
+
+		ArrayList<Topology> topologies = new ArrayList<Topology>();
+		
+		while ((line = br.readLine()) != null) {
+			
+			if (numOfLines > 0) {
+				
+				String[] splitStr = line.split(",");
+				Topology topology = new Topology(splitStr[0],splitStr[1]);
+				topologies.add(topology);
+			}
+			
+			numOfLines++;
+		}
+		
+		br.close();
+		
+		Object[][] params = new Object[numOfLines-1][1];
+		
+		for (int i=0; i<numOfLines-1; i++) {
+			params[i][0] = topologies.get(i);
+		}
+
+		return params;
+	}
+
+	
+	
+	@BeforeMethod
+	public void beforeTest() throws IOException {
+		
+		MainConfig.initFromFile("src/main/resources/config/MainConfig.properties");
+		
+		if (driver == null) {
+			
+			driver = WebDriverFactory.getWebDriver(MainConfig.webDriverType);
+		}
+	}
+	
+	
+	
+	@AfterMethod
+	public void afterTest() throws Exception {
+		
+		takeScreenshot("Browser state at test end");
+		
+		//if (driver != null ) {//&& MainConfig.closeBrowserAtTestEnd==true) {
+		if (driver != null && MainConfig.StormRunnerTopologyFlag==true) {
+		//if (driver != null) {
+			//driver.close();
+			driver.quit();
+			driver = null;
+				
+		}
+	}
+	
+	
+	
+	
+	
 
 }

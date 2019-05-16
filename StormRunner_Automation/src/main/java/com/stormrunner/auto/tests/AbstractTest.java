@@ -61,6 +61,7 @@ public abstract class AbstractTest {
 			//driver.close();
 			driver.quit();
 			driver = null;
+				
 		}
 	}
 	

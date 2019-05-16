@@ -11,6 +11,7 @@ public class MainConfig {
 
 	
 	
+	
 	public static String StormRunnerURL;
 	public static String StormRunnerHomeURL;
 	public static String StormRunnerLoadTestsURL;
@@ -44,6 +45,7 @@ public class MainConfig {
 	public static String StormRunnerTopologyName;
 	public static String StormRunnerTopologyDescription;
 	public static String StormRunnerSelectedMonitorForTopology;
+	public static boolean StormRunnerTopologyFlag;
 	
 	public static void initFromFile(String filePath) throws IOException {
 		
@@ -74,6 +76,7 @@ public class MainConfig {
 		StormRunner_EnabledRunTestTitle = prop.getProperty("StormRunner_EnabledRunTestTitle");
 		StormRunnerTopologyName = prop.getProperty("StormRunnerTopologyName");
 		StormRunnerTopologyDescription = prop.getProperty("StormRunnerTopologyDescription");
+		StormRunnerTopologyFlag = Boolean.parseBoolean(prop.getProperty("StormRunnerTopologyFlag"));
 		StormRunnerSelectedMonitorForTopology = prop.getProperty("StormRunnerSelectedMonitorForTopology");
 		
 		input.close();
