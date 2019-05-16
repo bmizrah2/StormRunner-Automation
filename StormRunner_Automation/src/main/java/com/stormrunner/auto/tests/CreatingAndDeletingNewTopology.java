@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -27,6 +29,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 	@Test(dataProvider = "topologiesProvider")
 	public void _008_CreatingAndDeletingNewTopology(Topology topology) throws Exception {
 
+		
 		//driver.get("http://amazon.com");
 
 		// Login to my account of stormRunner Load
@@ -133,7 +136,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		//		report.endLevel();
 
 		//for (int i=0 ; i<3 ; i++) {
-			
+
 
 		// clicking on "Create" button for creating topology
 		report.startLevel("Step 7 - Clicking on 'Create' button");
@@ -141,7 +144,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		report.endLevel();
 
 
-			
+
 		// Entering Topology name
 		report.startLevel("Step 8 - Entering Topology name in dialog");
 		//stormRunnerAssetsTopologiesPage.writeToTopologyNameField(MainConfig.StormRunnerTopologyName);
@@ -155,66 +158,80 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		stormRunnerAssetsTopologiesPage.writeToTopologyDescriptionField(topology.topologyDescription);
 		report.endLevel();
 
-		
+
 		// selecting a "monitor" for topology
 		report.startLevel("Step 10 - Clicking on monitor to be part of the Topology");
 		stormRunnerAssetsTopologiesPage.clickOnMonitorToBePartOfTopology(MainConfig.StormRunnerSelectedMonitorForTopology);
 		report.endLevel();
 
-	
+
 		// Click 'Save'
 		report.startLevel("Step 10 - Clicking 'Save' for saving the new Topology");
 		stormRunnerAssetsTopologiesPage.clickOnSaveInNewTopologyDialog();
 		report.endLevel();
+
+		
+		MainConfig.topologiesCounter++;
+		
+		
+		if (MainConfig.topologiesCounter == 3){
+			
+			//Selecting all topologies for deletion
+			report.startLevel("Step 13 - Clicking The Checkbox for selecting ALL Topologies");
+			stormRunnerAssetsTopologiesPage.clickOnCheckboxSelectingAllTopologies();
+			//Thread.sleep(2000);
+			report.endLevel();
+
+
+			// Clicking 'Delete' for deleting the Topology
+			report.startLevel("Step 13 - Clicking 'Delete' for deleting the monitor");
+			stormRunnerAssetsTopologiesPage.clickOnDeleteSelectedTopologies();
+			//Thread.sleep(2000);
+			report.endLevel();
+
+
+			// Clicking 'Yes' to confirm deletion of Topology
+			report.startLevel("Step 14 - Clicking 'Yes' to confirm deletion of monitor");
+			stormRunnerAssetsTopologiesPage.clickOnYesToConfirmDeletionOfTopology();
+			report.endLevel();
+
+			
+			
+			
+		}
+		
 		
 		//}
-		
-	
-		
-		
 
-		// check if monitor appears in grid
-		report.startLevel("Step 11 - Verifying that the new Topology was added successfully");
-		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
-		AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),MainConfig.StormRunnerTopologyName, "Topology should be: " + MainConfig.StormRunnerTopologyName,true);
-		//AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),topology.topologyName, "Topology should be: " + topology.topologyName,true);
-		report.endLevel();
+
+
+
+
+		//		// check if monitor appears in grid
+		//		report.startLevel("Step 11 - Verifying that the new Topology was added successfully");
+		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		//		//AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),MainConfig.StormRunnerTopologyName, "Topology should be: " + MainConfig.StormRunnerTopologyName,true);
+		//		AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),topology.topologyName, "Topology should be: " + topology.topologyName,true);
+		//		report.endLevel();
 
 
 		//********** No need to click since it auto clicked after closing dialog
 		// Checking the checkbox of the new added Topology for deletion
-//		report.startLevel("Step 12 - Checking the checkbox of the new added Topology for deletion");
-//		stormRunnerAssetsTopologiesPage.clickOnTopologyForDeletion();
-//		report.endLevel();
+		//		report.startLevel("Step 12 - Checking the checkbox of the new added Topology for deletion");
+		//		stormRunnerAssetsTopologiesPage.clickOnTopologyForDeletion();
+		//		report.endLevel();
 
 
-		// Clicking 'Delete' for deleting the Topology
-		report.startLevel("Step 13 - Clicking 'Delete' for deleting the monitor");
-		stormRunnerAssetsTopologiesPage.clickOnDeleteTopology();
-		//Thread.sleep(2000);
-		report.endLevel();
 
 
-		// Clicking 'Yes' to confirm deletion of Topology
-		report.startLevel("Step 14 - Clicking 'Yes' to confirm deletion of monitor");
-		stormRunnerAssetsTopologiesPage.clickOnYesToConfirmDeletionOfTopology();
-		report.endLevel();
 
-		// Verify that the Topology was deleted successfully
-		report.startLevel("Step 15 - Verifying that the Topology was deleted successfully and doesn't appear in the grid");
-		Thread.sleep(1000);
-		stormRunnerAssetsTopologiesPage.isTopologyExistInGrid(topology.topologyName);
-		//stormRunnerAssetsMonitorsPage.isMonitorExistInGrid("2.3.4.5");
-		report.endLevel();
-		
-		
 	}
-	
-	
+
+
 	@DataProvider(name = "topologiesProvider")
 	public Object[][] topologiesProvider() throws Exception {
-		
+
 		FileInputStream fstream = new FileInputStream("src/main/resources/config/Topologies.csv");
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
@@ -222,23 +239,23 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		String line;
 
 		ArrayList<Topology> topologies = new ArrayList<Topology>();
-		
+
 		while ((line = br.readLine()) != null) {
-			
+
 			if (numOfLines > 0) {
-				
+
 				String[] splitStr = line.split(",");
 				Topology topology = new Topology(splitStr[0],splitStr[1]);
 				topologies.add(topology);
 			}
-			
+
 			numOfLines++;
 		}
 		
 		br.close();
-		
+
 		Object[][] params = new Object[numOfLines-1][1];
-		
+
 		for (int i=0; i<numOfLines-1; i++) {
 			params[i][0] = topologies.get(i);
 		}
@@ -246,39 +263,41 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		return params;
 	}
 
-	
-	
+
+
 	@BeforeMethod
 	public void beforeTest() throws IOException {
-		
+
 		MainConfig.initFromFile("src/main/resources/config/MainConfig.properties");
-		
+
 		if (driver == null) {
-			
+
 			driver = WebDriverFactory.getWebDriver(MainConfig.webDriverType);
 		}
 	}
-	
-	
-	
+
+
+
 	@AfterMethod
 	public void afterTest() throws Exception {
-		
+
 		takeScreenshot("Browser state at test end");
-		
+
 		//if (driver != null ) {//&& MainConfig.closeBrowserAtTestEnd==true) {
 		if (driver != null && MainConfig.StormRunnerTopologyFlag==true) {
-		//if (driver != null) {
+			//if (driver != null) {
 			//driver.close();
 			driver.quit();
 			driver = null;
-				
+
 		}
 	}
+
+
+
 	
-	
-	
-	
-	
+
+
+
 
 }

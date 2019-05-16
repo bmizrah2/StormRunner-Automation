@@ -68,7 +68,8 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 	// Get all lines of Topologies
 	private static final By2 allTopologiesRows = new By2("Getting all Topologies rows", By.xpath("//div[contains(@class,'ui-grid-coluiGrid-00FS')]"));
 
-
+	//Checking all monitors
+	private static final By2 allTopologiesCheckbox = new By2("All Topologies checkbox", By.cssSelector("div.stm-tst-select-all-checkbox"));
 
 
 
@@ -112,10 +113,14 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 	}
 
 	// Click on 'Delete' for deleting the Topology
-	public void clickOnDeleteTopology() throws Exception{
+	public void clickOnDeleteSelectedTopologies() throws Exception{
 		bot.click(deleteTopologyButton);
 		//	return new StormRunnerAssetsPage(driver);
-
+	}
+	
+	// Click on the checkbox of selecting ALL topologies
+	public void clickOnCheckboxSelectingAllTopologies() throws Exception{
+		bot.click(allTopologiesCheckbox);
 	}
 
 	// Click on 'Yes' for confirming the deletion of the Topology

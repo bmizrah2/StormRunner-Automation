@@ -21,6 +21,8 @@ public class MainConfig {
 	public static int webDriverImplicitWaitInSeconds;
 	public static String baseUrl;
 	
+	public static int topologiesCounter=0;
+	
 	public static String StormRunnerAccountName;
 	
 	public static String StormRunnerScriptName;
