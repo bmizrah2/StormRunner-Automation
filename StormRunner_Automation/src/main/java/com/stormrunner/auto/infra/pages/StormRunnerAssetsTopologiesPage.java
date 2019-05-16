@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.stormrunner.auto.infra.config.MainConfig;
+import com.stormrunner.auto.infra.entities.Topology;
 import com.stormrunner.auto.infra.web.By2;
 import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
@@ -42,7 +43,8 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 
 	// For replacing all " " & "." to "-" in the class name
 	private static String topologyName = MainConfig.StormRunnerTopologyName.replace(".", "-").replace(" ", "-");
-
+	
+	
 	// For Checking the Topology checkbox for deleting
 	private static final By2 checkingTopologyForDeletion = new By2("Topology checkbox for deletion", By.cssSelector("div.stm-tst-row-"+ topologyName));
 	//private static final By2 checkingMonitorForDeletion2 = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("input.ng-not-empty"));

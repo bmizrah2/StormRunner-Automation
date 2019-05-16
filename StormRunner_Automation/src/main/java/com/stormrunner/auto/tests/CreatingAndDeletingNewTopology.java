@@ -141,13 +141,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		report.endLevel();
 
 
-		//		// Choosing "Sitescope" monitor
-		//		report.startLevel("Step 9 - Choosing 'SiteScope' monitor");
-		//		stormRunnerAssetsMonitorsPage.clickOnSitescopeMonitorType();
-		//		report.endLevel();
-
-
-		
+			
 		// Entering Topology name
 		report.startLevel("Step 8 - Entering Topology name in dialog");
 		//stormRunnerAssetsTopologiesPage.writeToTopologyNameField(MainConfig.StormRunnerTopologyName);
@@ -175,16 +169,16 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		
 		//}
 		
-		//Kill session for opening a new one with next entry from data provider 
-		//Runtime.getRuntime().exec("taskkill /F /IM ChromeDriver.exe");
+	
 		
 		
-/*
+
 		// check if monitor appears in grid
 		report.startLevel("Step 11 - Verifying that the new Topology was added successfully");
 		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
 		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
 		AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),MainConfig.StormRunnerTopologyName, "Topology should be: " + MainConfig.StormRunnerTopologyName,true);
+		//AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNewAddedTopology(),topology.topologyName, "Topology should be: " + topology.topologyName,true);
 		report.endLevel();
 
 
@@ -210,11 +204,11 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		// Verify that the Topology was deleted successfully
 		report.startLevel("Step 15 - Verifying that the Topology was deleted successfully and doesn't appear in the grid");
 		Thread.sleep(1000);
-		stormRunnerAssetsTopologiesPage.isTopologyExistInGrid(MainConfig.StormRunnerTopologyName);
+		stormRunnerAssetsTopologiesPage.isTopologyExistInGrid(topology.topologyName);
 		//stormRunnerAssetsMonitorsPage.isMonitorExistInGrid("2.3.4.5");
 		report.endLevel();
 		
-		*/
+		
 	}
 	
 	
