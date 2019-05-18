@@ -1,5 +1,10 @@
 package com.stormrunner.auto.infra.pages;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,8 +48,8 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 
 	// For replacing all " " & "." to "-" in the class name
 	private static String topologyName = MainConfig.StormRunnerTopologyName.replace(".", "-").replace(" ", "-");
-	
-	
+
+
 	// For Checking the Topology checkbox for deleting
 	private static final By2 checkingTopologyForDeletion = new By2("Topology checkbox for deletion", By.cssSelector("div.stm-tst-row-"+ topologyName));
 	//private static final By2 checkingMonitorForDeletion2 = new By2("Clicking the checkbox of the monitor for deletion", By.cssSelector("input.ng-not-empty"));
@@ -63,8 +68,15 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 	//private static final By2 newTopologyTitle = new By2("Topology title", By.xpath("//a[contains(@title,'"+MainConfig.StormRunnerTopologyName+"']"));
 	//private static String topologyName = MainConfig.StormRunnerTopologyName.replace(".", "-").replace(" ", "-");
 	private static final By2 newTopologyTitle = new By2("Topology title", By.cssSelector("div.stm-tst-row-"+topologyName));
+
+	//Message presented when all topologies are deleted
+	//private static final By2 noDataInGridMessage = new By2("'No Data' link", By.xpath("//div[text()='There is no data for this asset.']"));
+	private static final By2 noDataInGridMessage = new By2("'No Data' link", By.xpath("//div[contains(text(),'There is no data for this asset.')]"));
+
+
+
 	//By.xpath("//div[contains(@class,'modal')]
-	
+
 	// Get all lines of Topologies
 	private static final By2 allTopologiesRows = new By2("Getting all Topologies rows", By.xpath("//div[contains(@class,'ui-grid-coluiGrid-00FS')]"));
 
@@ -117,7 +129,7 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 		bot.click(deleteTopologyButton);
 		//	return new StormRunnerAssetsPage(driver);
 	}
-	
+
 	// Click on the checkbox of selecting ALL topologies
 	public void clickOnCheckboxSelectingAllTopologies() throws Exception{
 		bot.click(allTopologiesCheckbox);
@@ -132,8 +144,8 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 
 	// Get topology title
 	public String getNewAddedTopology() {
-		String actualNewAddedMonitor = bot.getElementText(newTopologyTitle);
-		return actualNewAddedMonitor;
+		String actualNewAddedTopology = bot.getElementText(newTopologyTitle);
+		return actualNewAddedTopology;
 	}
 
 	// Get all lines of topologies
@@ -143,12 +155,60 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 	}
 
 
+
+
+
 	public void clickOnMonitorToBePartOfTopology(String monitorName) throws InterruptedException {
 		//By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.cssSelector("div.stm-tst-row-"+ monitorName));
 		//By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.xpath("//div[contains(text(),'"+monitorName+"']"));
 		By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.xpath("//div[contains(@class,'modal')]//div[contains(text(),'"+monitorName+"')]"));
 		bot.moveToElementAndClickIt(selectedMonitorName);
 	}
+
+
+	// Getting 'No Data' message
+	public Object getNoDataMessage() {
+		String actualNoDataMessage = bot.getElementText(noDataInGridMessage);
+		return actualNoDataMessage;
+
+	}
+
+
+	//	public int getNumberOfLinesInFile (String fileName) throws Exception{
+	//		return bot.getNumberOfLinesInTopologiesFile(fileName);
+	//	}
+
+
+	//	public int getNumberOfLinesInTopologiesFile(String fileName) throws Exception {
+	//
+	//		//FileInputStream fstream = new FileInputStream("src/main/resources/config/Topologies.csv");
+	//		FileInputStream fileStream = new FileInputStream(fileName);
+	//
+	//		BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
+	//
+	//		int numOfLines = 0;
+	//		String line;
+	//
+	//		ArrayList<Topology> topologies = new ArrayList<Topology>();
+	//
+	//		while ((line = br.readLine()) != null) {
+	//
+	//			if (numOfLines > 0) {
+	//				String[] splitStr = line.split(",");
+	//				Topology topology = new Topology(splitStr[0],splitStr[1]);
+	//				topologies.add(topology);
+	//			}
+	//			numOfLines++;
+	//		}
+	//		br.close();
+	//		
+	//		return numOfLines;
+	//	}
+
+
+
+
+
 
 
 

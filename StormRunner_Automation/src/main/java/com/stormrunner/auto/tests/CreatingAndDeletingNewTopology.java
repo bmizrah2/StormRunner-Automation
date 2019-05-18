@@ -171,10 +171,20 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 		report.endLevel();
 
 		
+	
+		
+		
+		
+		
+		
+		// Counting how many topologies were added from Topologies file
 		MainConfig.topologiesCounter++;
 		
+		// Getting the number of topologies in Topologies file 
+	//	int numOfTopologiesInFile = stormRunnerAssetsTopologiesPage.getNumberOfLinesInTopologiesFile("src/main/resources/config/Topologies.csv");
 		
-		if (MainConfig.topologiesCounter == 3){
+		// After adding all topologies --> Deleting them all together
+		if (MainConfig.topologiesCounter == MainConfig.numberOfTopologiesInTopologiesFile){
 			
 			//Selecting all topologies for deletion
 			report.startLevel("Step 13 - Clicking The Checkbox for selecting ALL Topologies");
@@ -195,6 +205,14 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 			stormRunnerAssetsTopologiesPage.clickOnYesToConfirmDeletionOfTopology();
 			report.endLevel();
 
+			
+			
+	//		check if 'No Data' message appears in grid
+			report.startLevel("Step 11 - Verifying that 'No Data' message appears on screen");
+			AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNoDataMessage(),MainConfig.noDataMessageInTopologiesPage, "Message should be: " + MainConfig.noDataMessageInTopologiesPage,true);
+			report.endLevel();
+	
+			
 			
 			
 			
@@ -258,6 +276,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 
 		for (int i=0; i<numOfLines-1; i++) {
 			params[i][0] = topologies.get(i);
+			
 		}
 
 		return params;

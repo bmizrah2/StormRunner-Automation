@@ -22,6 +22,8 @@ public class MainConfig {
 	public static String baseUrl;
 	
 	public static int topologiesCounter=0;
+	public static int numberOfTopologiesInTopologiesFile;
+	public static String noDataMessageInTopologiesPage;
 	
 	public static String StormRunnerAccountName;
 	
@@ -80,6 +82,8 @@ public class MainConfig {
 		StormRunnerTopologyDescription = prop.getProperty("StormRunnerTopologyDescription");
 		StormRunnerTopologyFlag = Boolean.parseBoolean(prop.getProperty("StormRunnerTopologyFlag"));
 		StormRunnerSelectedMonitorForTopology = prop.getProperty("StormRunnerSelectedMonitorForTopology");
+		numberOfTopologiesInTopologiesFile = Integer.parseInt(prop.getProperty("numberOfTopologiesInTopologiesFile"));
+		noDataMessageInTopologiesPage = prop.getProperty("noDataMessageInTopologiesPage");
 		
 		input.close();
 	}

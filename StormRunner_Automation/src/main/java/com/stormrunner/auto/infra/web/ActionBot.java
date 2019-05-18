@@ -1,5 +1,9 @@
 package com.stormrunner.auto.infra.web;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -11,6 +15,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.stormrunner.auto.infra.entities.Topology;
 
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
@@ -39,7 +45,7 @@ public class ActionBot {
 				throw error;
 				//break;
 			}
-		//Text doesn't exist
+			//Text doesn't exist
 		}
 		if (isFound==false){
 			report.log("Text: '" + textToSearch + "' WASN'T found under Name column");
@@ -132,7 +138,7 @@ public class ActionBot {
 		report.log("Element " + elementLocator + " Title : " + elementTitle);
 		return elementTitle;
 	}
-	
+
 
 	public String getElementText(By2 elementLocator) { 
 		String text = driver.findElement(elementLocator.by).getText();
@@ -172,20 +178,25 @@ public class ActionBot {
 
 	public void moveToNewOpenedTab(By2 elementLocator) {
 		String currentWindow = driver.getWindowHandle();
-		
+
 		//	Pressing the "Launch" button
 		//driver.findElement(By.xpath("//a[text()='Launch']")).click();
 
 		driver.findElement(elementLocator.by).click();
-		
-		
+
+
 		// A new tab is opened --> So switching to the new tab
 
-			for (String handle : driver.getWindowHandles()) {
-			    if (!handle.equals(currentWindow)) {
-			        driver.switchTo().window(handle);
-			    }
-			}	
-		
+		for (String handle : driver.getWindowHandles()) {
+			if (!handle.equals(currentWindow)) {
+				driver.switchTo().window(handle);
+			}
+		}	
+
 	}
+
+
+	
+	
+	
 }
