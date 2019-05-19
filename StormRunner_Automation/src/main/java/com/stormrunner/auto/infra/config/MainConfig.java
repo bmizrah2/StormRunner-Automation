@@ -51,6 +51,10 @@ public class MainConfig {
 	public static String StormRunnerSelectedMonitorForTopology;
 	public static boolean StormRunnerTopologyFlag;
 	
+	public static String StormRunnerClientSideBreakdownTitle;
+	public static String StormRunnerWebPageTestReportTitle;
+
+	
 	public static void initFromFile(String filePath) throws IOException {
 		
 		Properties prop = new Properties();
@@ -84,6 +88,8 @@ public class MainConfig {
 		StormRunnerSelectedMonitorForTopology = prop.getProperty("StormRunnerSelectedMonitorForTopology");
 		numberOfTopologiesInTopologiesFile = Integer.parseInt(prop.getProperty("numberOfTopologiesInTopologiesFile"));
 		noDataMessageInTopologiesPage = prop.getProperty("noDataMessageInTopologiesPage");
+		StormRunnerClientSideBreakdownTitle = prop.getProperty("StormRunnerClientSideBreakdownTitle");
+		StormRunnerWebPageTestReportTitle = prop.getProperty("StormRunnerWebPageTestReportTitle");
 		
 		input.close();
 	}

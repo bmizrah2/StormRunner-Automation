@@ -20,10 +20,10 @@ import com.stormrunner.auto.infra.pages.StormRunnerLoginPage;
 import com.stormrunner.auto.infra.utils.AssertUtils;
 import com.stormrunner.auto.infra.web.WebDriverFactory;
 
-public class CreatingAndDeletingNewTopology extends AbstractTest {
+public class CreatingMultipleTopologiesWithDataProvider extends AbstractTest {
 
 	@Test(dataProvider = "topologiesProvider")
-	public void _008_CreatingAndDeletingNewTopology(Topology topology) throws Exception {
+	public void _008_CreatingMultipleTopologiesWithDataProvider(Topology topology) throws Exception {
 
 
 		//driver.get("http://amazon.com");

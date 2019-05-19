@@ -23,7 +23,7 @@ import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 public class CreatingAndDeletingNewLoadGenerator extends AbstractTest {
 
 	@Test
-	public void _005_CreatingAndDeletingMonitor() throws Exception {
+	public void _005_CreatingAndDeletingNewLoadGenerator() throws Exception {
 
 
 		//Option2

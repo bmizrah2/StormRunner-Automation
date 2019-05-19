@@ -12,6 +12,7 @@
 				<class name="com.stormrunner.auto.tests.CreatingAndDeletingNewLoadGenerator"/>
 				<class name="com.stormrunner.auto.tests.CheckingLoadTestDistribution"/>
 				<class name="com.stormrunner.auto.tests.CreatingAdvancedSchedulingTest"/>		
+				<class name="com.stormrunner.auto.tests.CreatingMultipleTopologiesWithDataProvider"/>		
 		</classes>
 	</test>
 
