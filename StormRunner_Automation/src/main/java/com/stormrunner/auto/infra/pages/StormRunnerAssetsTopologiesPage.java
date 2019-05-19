@@ -56,7 +56,7 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 	//private static final By2 newTestLine = new By2("'Test created in grid'",                                            
 
 	// Pressing 'yes' in confirmation dialog for deleting the Topology
-	private static final By2 yesButtonInConfirmTopologyDeletion = new By2("'Yes' button in confirmation dialog for deleting the Topology", By.cssSelector("div.stm-tst-Yes"));
+	private static final By2 yesButtonInConfirmTopologyDeletion = new By2("'Yes' button in confirmation dialog for deleting the selected Topology(ies)", By.cssSelector("div.stm-tst-Yes"));
 
 
 	// TOPOLOGIES link in upper menu under ASSETS tab
@@ -71,7 +71,9 @@ public class StormRunnerAssetsTopologiesPage extends AbstractPage {
 
 	//Message presented when all topologies are deleted
 	//private static final By2 noDataInGridMessage = new By2("'No Data' link", By.xpath("//div[text()='There is no data for this asset.']"));
-	private static final By2 noDataInGridMessage = new By2("'No Data' link", By.xpath("//div[contains(text(),'There is no data for this asset.')]"));
+	//private static final By2 noDataInGridMessage = new By2("'No Data' link", By.xpath("//div[contains(text(),'There is no data for this asset.')]"));
+	private static final By2 noDataInGridMessage = new By2("'No Data' link", By.cssSelector(".ui-grid-render-container-body div[ng-if='grid.noDataInGrid() && grid.appScope.dataArrived && !grid.options.noDataMessage']"));
+	//private static final By2 noDataInGridMessage = new By2("'No Data' link", By.cssSelector("div.ui-grid-render-container-body"));
 
 
 

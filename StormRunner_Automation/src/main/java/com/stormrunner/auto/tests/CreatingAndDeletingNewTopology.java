@@ -6,11 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -29,7 +25,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 	@Test(dataProvider = "topologiesProvider")
 	public void _008_CreatingAndDeletingNewTopology(Topology topology) throws Exception {
 
-		
+
 		//driver.get("http://amazon.com");
 
 		// Login to my account of stormRunner Load
@@ -166,59 +162,60 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 
 
 		// Click 'Save'
-		report.startLevel("Step 10 - Clicking 'Save' for saving the new Topology");
+		report.startLevel("Step 11 - Clicking 'Save' for saving the new Topology");
 		stormRunnerAssetsTopologiesPage.clickOnSaveInNewTopologyDialog();
 		report.endLevel();
 
-		
-	
-		
-		
-		
-		
-		
+
+
+
+
+
+
+
 		// Counting how many topologies were added from Topologies file
 		MainConfig.topologiesCounter++;
-		
+
 		// Getting the number of topologies in Topologies file 
-	//	int numOfTopologiesInFile = stormRunnerAssetsTopologiesPage.getNumberOfLinesInTopologiesFile("src/main/resources/config/Topologies.csv");
-		
+		//	int numOfTopologiesInFile = stormRunnerAssetsTopologiesPage.getNumberOfLinesInTopologiesFile("src/main/resources/config/Topologies.csv");
+
 		// After adding all topologies --> Deleting them all together
 		if (MainConfig.topologiesCounter == MainConfig.numberOfTopologiesInTopologiesFile){
-			
+
 			//Selecting all topologies for deletion
-			report.startLevel("Step 13 - Clicking The Checkbox for selecting ALL Topologies");
+			report.startLevel("Step 12 - Clicking The Checkbox for selecting ALL Topologies");
 			stormRunnerAssetsTopologiesPage.clickOnCheckboxSelectingAllTopologies();
 			//Thread.sleep(2000);
 			report.endLevel();
 
 
 			// Clicking 'Delete' for deleting the Topology
-			report.startLevel("Step 13 - Clicking 'Delete' for deleting the monitor");
+			report.startLevel("Step 13 - Clicking 'Delete' for deleting the selected topologies)");
 			stormRunnerAssetsTopologiesPage.clickOnDeleteSelectedTopologies();
 			//Thread.sleep(2000);
 			report.endLevel();
 
 
-			// Clicking 'Yes' to confirm deletion of Topology
-			report.startLevel("Step 14 - Clicking 'Yes' to confirm deletion of monitor");
+			// Clicking 'Yes' to confirm deletion of selected Topologies
+			report.startLevel("Step 14 - Clicking 'Yes' to confirm deletion of all selected topologies");
 			stormRunnerAssetsTopologiesPage.clickOnYesToConfirmDeletionOfTopology();
+			Thread.sleep(2000);
 			report.endLevel();
 
-			
-			
-	//		check if 'No Data' message appears in grid
-			report.startLevel("Step 11 - Verifying that 'No Data' message appears on screen");
+
+
+			//Check if 'No Data' message appears in grid
+			report.startLevel("Step 15 - Verifying that 'No Data' message appears on screen");
 			AssertUtils.assertEquals(stormRunnerAssetsTopologiesPage.getNoDataMessage(),MainConfig.noDataMessageInTopologiesPage, "Message should be: " + MainConfig.noDataMessageInTopologiesPage,true);
 			report.endLevel();
-	
-			
-			
-			
-			
+
+
+
+
+
 		}
-		
-		
+
+
 		//}
 
 
@@ -269,14 +266,14 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 
 			numOfLines++;
 		}
-		
+
 		br.close();
 
 		Object[][] params = new Object[numOfLines-1][1];
 
 		for (int i=0; i<numOfLines-1; i++) {
 			params[i][0] = topologies.get(i);
-			
+
 		}
 
 		return params;
@@ -314,7 +311,7 @@ public class CreatingAndDeletingNewTopology extends AbstractTest {
 
 
 
-	
+
 
 
 
