@@ -73,8 +73,8 @@ public class TabAndIframeUtils {
 	
 	public static void switchToIframe(WebDriver driver, By iframeBy) {
 		
-		WebElement ifrmaeElement = driver.findElement(iframeBy);
-		driver.switchTo().frame(ifrmaeElement);
+		WebElement iframeElement = driver.findElement(iframeBy);
+		driver.switchTo().frame(iframeElement);
 		report.log("Switched to iframe: " + iframeBy);
 	}
 }

@@ -132,7 +132,7 @@ public class ViewingSingleUserPerformanceReports extends AbstractTest {
 		// clicking on "Single User Performance" option in the menu
 		report.startLevel("Step 8 - Choosing 'Single User Performance' option in the menu");
 		stormRunnerResultsPage.clickOnSingleUserPerformanceOfRunId3();
-		Thread.sleep(15000);
+		//Thread.sleep(5000);
 		report.endLevel();
 
 
@@ -140,21 +140,46 @@ public class ViewingSingleUserPerformanceReports extends AbstractTest {
 		//
 		//   TBD - 9 
 
-		
-		//Verifying a new test line is added to the grid
-		report.startLevel("Step 9 - Verifying that the title of the CSB is 'NV Insights Report'");
-//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		// Move to inner iFrame
+
+
+		report.startLevel("Step 9 - Entering the inner Iframe to verify 'Client Side Breakdown' title");
+		StormRunnerResultsPage.moveToClientSideBreakdownHtml(driver);
+		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
+		report.endLevel();
+
+
+		//Verifying the title of Client Side Breakdown
+		report.startLevel("Step 10 - Verifying that the title of the CSB is 'NV Insights Report'");
+		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		stormRunnerResultsPage.waitForClientSideBreakdownTilteToBeClickable();
 		AssertUtils.assertEquals(stormRunnerResultsPage.getClientSideBreakdownTitle(),MainConfig.StormRunnerClientSideBreakdownTitle, "Client Side Breakdown Title should be: " + MainConfig.StormRunnerClientSideBreakdownTitle,true);
 		report.endLevel();
+
+
+		// Back to STORM HTML
+		//TabAndIframeUtils.switchToIframe(driver, By.xpath("//html[contains(@ng-app,'storm')]"));
+
+		//TabAndIframeUtils.switchToTabByTitle(driver, "Home", 2000);
+
+		//By.xpath("//div[contains(@class,'transactionNameContainer')]//label[contains(@id,'insightsLink')]")
+
+
+
+		report.startLevel("Step 11 - Going back to parent Frame");
+		StormRunnerResultsPage.moveBackToParentFrame(driver);
+		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
+		report.endLevel();
 		
-		
-		
-		
-		
+		//driver.switchTo().parentFrame();
+
+
+
+
 
 		// clicking on "Web Page Test Report" tab
-		report.startLevel("Step 10 - Click on 'Web Page Test Report' tab");
+		report.startLevel("Step 12 - Click on 'Web Page Test Report' tab");
 		stormRunnerResultsPage.clickOnWebPageTestReportTab();
 		report.endLevel();
 
@@ -163,48 +188,77 @@ public class ViewingSingleUserPerformanceReports extends AbstractTest {
 		//
 		//   TBD - 11
 
+		// Entering the inner HTML to verify the title of WPT
+		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
 
-//
-//		//Entering Test Name
-//		report.startLevel("Step 8 - Entering Test name");
-//		stormRunnerCreateTestPage.writeToTestNameField(MainConfig.StormRunnerTestName);
-//		report.endLevel();
-//
-//		//Entering Test Description
-//		report.startLevel("Step 9 - Entering Description to the test");
-//		//stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
-//		stormRunnerCreateTestPage.writeToDescriptionField(MainConfig.StormRunnerTestDescription);
-//		report.endLevel();
-//
-//		report.startLevel("Step 10 - Moving back to the list of ALL load tests");
-//		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
-//		// moving to "Load Tests" tab to view the grid
-//		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
-//		report.endLevel();
-//
-//		//Verifying a new test line is added to the grid
-//		report.startLevel("Step 11 - Verifying that the new load test was added successfully");
-//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
-//		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-//		report.endLevel();
-//
-//		//Clicking 'Delete' Button for deleting a test
-//		report.startLevel("Step 12 - Clicking the 'Delete' button for deleting the test");
-//		stormRunnerLoadTestsPage.clickOnDeleteButton();
-//		report.endLevel();
-//
-//		// Clicking on 'Delete' in Confirmation message
-//		report.startLevel("Step 13 - Clicking the 'Delete' button for confirming the deletion");
-//		stormRunnerLoadTestsPage.clickOnDeleteButtonInConfirmationDialog();
-//		report.endLevel();
-//
-//		// Verify that the test was deleted successfully
-//		report.startLevel("Step 14 - Verifying that the test was deleted successfully and doesn't appear in the grid");
-//		Thread.sleep(2000);
-//		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
-//		report.endLevel();
-//
+		//Thread.sleep(2000);	
+
+
+
+		//Verifying a new test line is added to the grid
+		report.startLevel("Step 13 - Verifying that the title of the WebPageTest Report is 'WebPageTest report'");
+		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+
+		stormRunnerResultsPage.waitForWebPageTestTitleToBeClickable();
+		AssertUtils.assertEquals(stormRunnerResultsPage.getWebPageTestReportTitle(),MainConfig.StormRunnerWebPageTestReportTitle, "WebPageTest Report Title should be: " + MainConfig.StormRunnerWebPageTestReportTitle,true);
+		report.endLevel();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		//
+		//		//Entering Test Name
+		//		report.startLevel("Step 8 - Entering Test name");
+		//		stormRunnerCreateTestPage.writeToTestNameField(MainConfig.StormRunnerTestName);
+		//		report.endLevel();
+		//
+		//		//Entering Test Description
+		//		report.startLevel("Step 9 - Entering Description to the test");
+		//		//stormRunnerCreateTestPage.writeToDescriptionField("This is the Description of the Automated Test !");
+		//		stormRunnerCreateTestPage.writeToDescriptionField(MainConfig.StormRunnerTestDescription);
+		//		report.endLevel();
+		//
+		//		report.startLevel("Step 10 - Moving back to the list of ALL load tests");
+		//		StormRunnerMainMenuPage stormRunnerMainMenuPage = new StormRunnerMainMenuPage(driver);
+		//		// moving to "Load Tests" tab to view the grid
+		//		stormRunnerLoadTestsPage = stormRunnerMainMenuPage.clickLoadTestsMenuLink();
+		//		report.endLevel();
+		//
+		//		//Verifying a new test line is added to the grid
+		//		report.startLevel("Step 11 - Verifying that the new load test was added successfully");
+		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
+		//		AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
+		//		report.endLevel();
+		//
+		//		//Clicking 'Delete' Button for deleting a test
+		//		report.startLevel("Step 12 - Clicking the 'Delete' button for deleting the test");
+		//		stormRunnerLoadTestsPage.clickOnDeleteButton();
+		//		report.endLevel();
+		//
+		//		// Clicking on 'Delete' in Confirmation message
+		//		report.startLevel("Step 13 - Clicking the 'Delete' button for confirming the deletion");
+		//		stormRunnerLoadTestsPage.clickOnDeleteButtonInConfirmationDialog();
+		//		report.endLevel();
+		//
+		//		// Verify that the test was deleted successfully
+		//		report.startLevel("Step 14 - Verifying that the test was deleted successfully and doesn't appear in the grid");
+		//		Thread.sleep(2000);
+		//		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
+		//		report.endLevel();
+		//
 
 
 

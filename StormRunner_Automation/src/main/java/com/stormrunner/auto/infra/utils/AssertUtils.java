@@ -1,6 +1,10 @@
 package com.stormrunner.auto.infra.utils;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import com.stormrunner.auto.infra.web.By2;
 
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
@@ -8,11 +12,24 @@ import il.co.topq.difido.model.Enums.Status;
 
 public class AssertUtils {
 
+	//private WebDriverWait webDriverWait;
 	private static ReportDispatcher report = ReportManager.getInstance();
+	
 	
 	public static void assertEquals(Object actual, Object expected, String message) {
 		assertEquals(actual, expected, message, false);
 	}
+	
+	
+//	public void waitForElementToBeClickable(By2 elementLocator) {
+//		report.log("Wait for element: " + elementLocator + " to be clickable");
+//		webDriverWait.until(ExpectedConditions.elementToBeClickable(elementLocator.by));
+//	}
+
+	
+	
+	
+	
 	
 	public static void assertEquals(Object actual, Object expected, String message, boolean softAssert) {
 		

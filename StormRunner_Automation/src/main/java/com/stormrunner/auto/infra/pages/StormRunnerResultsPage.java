@@ -27,6 +27,12 @@ public class StormRunnerResultsPage extends AbstractPage {
 	//private static final By2 clientSideBreakdownTitle = new By2("'NV Insights Report' link under 'Client Side Breakdown' tab", By.xpath("//div[contains(@id,'reportContainer')]//label[contains(@id,'insightsLink')]"));
 	private static final By2 clientSideBreakdownTitle = new By2("'NV Insights Report' link under 'Client Side Breakdown' tab", By.xpath("//div[contains(@class,'transactionNameContainer')]//label[contains(@id,'insightsLink')]"));
 
+	// Single user performance TAB
+	//private static final By2 singleUserPerformanceTab = new By2("'Single user performance' Tab", By.cssSelector("div.stm-tst-status-bar-navigation-breakdown"));
+	private static final By2 singleUserPerformanceTab = new By2("'Single user performance' Tab", By.xpath("//div[contains(text(),'Single user performance')]"));
+	
+	
+	
 	//Web Page Test report tab
 	//private static final By2 webPageTestReportTab = new By2("'Web Page Test report' tab under 'Single User Performance Tab'", By.cssSelector("div.stm-tst-status-bar-report open"));
 	private static final By2 webPageTestReportTab = new By2("'Web Page Test report' tab under 'Single User Performance Tab'", By.xpath("//div[contains(text(),' WebPageTest report ')]"));
@@ -62,7 +68,7 @@ public class StormRunnerResultsPage extends AbstractPage {
 	}
 
 
-
+	// Clicking on WPT tab
 	public void clickOnWebPageTestReportTab() throws InterruptedException {
 		bot.click(webPageTestReportTab);
 	}
@@ -82,7 +88,35 @@ public class StormRunnerResultsPage extends AbstractPage {
 	}
 
 
+	// Clicking on CSB tab
+	public void clickOnSingleUserPerformanceTab() throws InterruptedException {
+			bot.click(singleUserPerformanceTab);
+	}
 
+
+	// Waiting until WPT tab content appears
+	public void waitForWebPageTestTitleToBeClickable() {
+		bot.waitForElementToBeClickable(webPageTestReportTitle);
+	}
+
+
+	// Waiting until CSB content appears 
+	public void waitForClientSideBreakdownTilteToBeClickable() {
+		bot.waitForElementToBeClickable(clientSideBreakdownTitle);
+	}
+
+
+	//Inserting insdie inner HTML ('Client Side Breakdown' Tab)
+	public static void moveToClientSideBreakdownHtml(WebDriver driver) {
+		TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
+
+	}
+
+
+	//Moving back to Parent Frame
+	public static void moveBackToParentFrame(WebDriver driver) {
+		driver.switchTo().parentFrame();
+	}
 
 
 
