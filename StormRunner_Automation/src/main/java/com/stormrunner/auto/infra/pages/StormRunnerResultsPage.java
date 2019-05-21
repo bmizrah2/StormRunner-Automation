@@ -12,6 +12,7 @@ public class StormRunnerResultsPage extends AbstractPage {
 	//private static final By2 addedToCartTitle = new By2("'Added to cart' title", By.xpath("//h1[contains(text(),'Added to Cart')]"));
 	//private static final By2 cartCounterSpan = new By2("Cart counter", By.id("nav-cart-count"));
 
+	// ------------------   SINGLE USER PERFORMANCE ----------------------
 
 	//Clicking Results tab by css selector  ($$("a.stm-tst-results"))
 	private static final By2 resultsTab = new By2("'Results' tab", By.cssSelector("a.stm-tst-results"));
@@ -40,6 +41,41 @@ public class StormRunnerResultsPage extends AbstractPage {
 	//Web Page Test Report title
 	private static final By2 webPageTestReportTitle = new By2("'Web Page Test report' Title", By.xpath("//div[contains(@class,'container')]//div[contains(text(),'WebPageTest report')]"));
 	                                                                                         
+	
+	// ------------------  DASHBOARD -------------------
+	
+	// 'Dashboard' option in drop down menu of RunId3
+		private static final By2 dashboardOptionOfRunId3 = new By2("'Dashboard' option of run Id 3", By.cssSelector("div.stm-tst-dashboard-3"));
+		
+		// 'Add Widgets' icon down the dashboard
+		private static final By2 addWidgetsIcon = new By2("'Add Widgets' icon to open gallery", By.cssSelector("div.stm-tst-gallery"));
+		
+		// 'Transactions' tab on the left menu
+		private static final By2 TransactionsTab = new By2("'Transactions' Tab", By.xpath("//div[contains(text(),'Transactions')]"));
+		
+		// Clicking on transaction 'Go to 2nd page'
+		private static final By2 transactionGoTo2ndPage = new By2("'Transaction: Go to 2nd page'", By.xpath("//div[contains(@class,'chart-in-gallery-model')]//div[contains(@title,'Go to 2nd page')]"));
+		
+		// Clicking on transaction 'Back Home'
+		private static final By2 transactionBackHome = new By2("'Transaction: Back Home'", By.xpath("//div[contains(@class,'chart-in-gallery-model')]//div[contains(@title,'Back Home')]"));
+		
+		
+		// Title of widget: transaction "Go To 2nd Page" 
+		private static final By2 transactionGoTo2ndPageWidget = new By2("'Transaction: Go To 2nd Page Widget'", By.xpath("//div[contains(@title,'TRT [90th percentile]: Go to 2nd page in script 12_01_Web_PeaceFul_71_NOV_2016')]"));
+		
+		// Title of widget: transaction "Back Home"
+		private static final By2 transactionBackHomeWidget = new By2("'Transaction: Back Home Widget'", By.xpath("//div[contains(@title,'TRT [90th percentile]: Back Home in script 12_01_Web_PeaceFul_71_NOV_2016')]"));
+		
+		// 'Running Vusers" widget in dashboard
+		private static final By2 runningVusersWidgetTitle = new By2("'Running Vusers' widget title'", By.xpath("//div[contains(@class,'stm-tst-main-chart')]//div[contains(@title,'Running Vusers')]"));
+		
+		// 'x' icon to close trans: "Go To 2nd Page"
+		private static final By2 closingGoTo2ndPageTransWidget = new By2("'x' icon of 'Go To 2nd Page' transaction", By.xpath("//div[contains(@title,'TRT [90th percentile]: Go to 2nd page in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
+		
+	
+		// 'x' icon to close trans: "Back Home"
+		private static final By2 closingBackHomeTransWidget = new By2("'x' icon of 'Back Home' transaction", By.xpath("//div[contains(@title,'TRT [90th percentile]: Back Home in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
+		
 	
 	
 	//     By.xpath("//div[contains(@class,'ui-grid-coluiGrid-00FS')]
@@ -119,7 +155,67 @@ public class StormRunnerResultsPage extends AbstractPage {
 	}
 
 
+	//Clicking on Dashboard option of RunId3
+	public void clickOnDashboardOfRunId3() throws InterruptedException {
+		bot.click(dashboardOptionOfRunId3);
+	}
 
+
+	// Click on "Add Widgets" icon to open widgets Gallery
+	public void clickOnAddWidgetsIcon() throws InterruptedException {
+		bot.click(addWidgetsIcon);
+	}
+
+
+	// Click on "Transaction" tab in left menu of Dashboard
+	public void clickOnTransactionsTab() throws InterruptedException {
+		bot.click(TransactionsTab);;
+	}
+
+
+	// Click on "Go To 2nd Page" transaction widget
+	public void clickOnGoTo2ndPageTransaction() throws InterruptedException {
+		bot.click(transactionGoTo2ndPage);;
+	}
+
+
+	
+	// Click on "Back Home" transaction widget
+	public void clickOnBackHomeTransaction() throws InterruptedException {
+		bot.click(transactionBackHome);
+	}
+
+
+	//Wait for trans "Go To 2nd Page" to be clickable
+	public void waitForTransGoTo2ndPageToBeClickable() {
+		bot.waitForElementToBeClickable(transactionGoTo2ndPage);
+	}
+
+	
+	//Wait for trans "Go To 2nd Page" to be clickable
+	public void waitForTransBackHomeToBeClickable() {
+		bot.waitForElementToBeClickable(transactionBackHome);
+	}
+
+
+
+	public void waitForDefaultWidgetsToBeClickable() {
+		bot.waitForElementToBeClickable(runningVusersWidgetTitle);
+	}
+
+
+
+	public void clickOnRemoveTransactionWidget(String transactionName) throws InterruptedException {
+		//By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.xpath("//div[contains(@class,'modal')]//div[contains(text(),'"+monitorName+"')]"));
+		By2 WidgetTitleToRemove = new By2("'x' icon to remove transaction widget "+transactionName+" from dashboard", By.xpath("//div[contains(@title,'TRT [90th percentile]: "+transactionName+" in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
+		bot.click(WidgetTitleToRemove);
+	}
+	
+
+	
+
+	
+	
 
 
 
