@@ -48,7 +48,7 @@ public class StormRunnerResultsPage extends AbstractPage {
 		private static final By2 dashboardOptionOfRunId3 = new By2("'Dashboard' option of run Id 3", By.cssSelector("div.stm-tst-dashboard-3"));
 		
 		// 'Add Widgets' icon down the dashboard
-		private static final By2 addWidgetsIcon = new By2("'Add Widgets' icon to open gallery", By.cssSelector("div.stm-tst-gallery"));
+		private static final By2 addWidgetsIcon = new By2("'Add Widgets' icon to open/close gallery", By.cssSelector("div.stm-tst-gallery"));
 		
 		// 'Transactions' tab on the left menu
 		private static final By2 TransactionsTab = new By2("'Transactions' Tab", By.xpath("//div[contains(text(),'Transactions')]"));
@@ -207,7 +207,7 @@ public class StormRunnerResultsPage extends AbstractPage {
 
 	public void clickOnRemoveTransactionWidget(String transactionName) throws InterruptedException {
 		//By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.xpath("//div[contains(@class,'modal')]//div[contains(text(),'"+monitorName+"')]"));
-		By2 WidgetTitleToRemove = new By2("'x' icon to remove transaction widget "+transactionName+" from dashboard", By.xpath("//div[contains(@title,'TRT [90th percentile]: "+transactionName+" in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
+		By2 WidgetTitleToRemove = new By2("'x' icon to remove transaction widget: '"+transactionName+"' from dashboard", By.xpath("//div[contains(@title,'TRT [90th percentile]: "+transactionName+" in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
 		bot.click(WidgetTitleToRemove);
 	}
 	

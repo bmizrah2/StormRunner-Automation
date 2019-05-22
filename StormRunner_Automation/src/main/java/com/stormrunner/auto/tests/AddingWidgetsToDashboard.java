@@ -129,7 +129,7 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 		report.endLevel();
 
 
-		// clicking on "Single User Performance" option in the menu
+		// clicking on "Dashboard" option in the menu
 		report.startLevel("Step 8 - Choosing 'Dashboard' option in the menu");
 		stormRunnerResultsPage.clickOnDashboardOfRunId3();
 		report.endLevel();
@@ -175,12 +175,14 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 
 
 		//Wait for default widgets to appear in dashboard
-		stormRunnerResultsPage.waitForDefaultWidgetsToBeClickable();
+		//stormRunnerResultsPage.waitForDefaultWidgetsToBeClickable();
 
 
 
 		// clicking on "Add Widgets" icon
 		report.startLevel("Step 9 - Click on 'Add Widgets' icon to open widgets gallery");
+		//Wait for default widgets to appear in Dashboard
+		stormRunnerResultsPage.waitForDefaultWidgetsToBeClickable();
 		stormRunnerResultsPage.clickOnAddWidgetsIcon();
 		report.endLevel();
 
@@ -231,7 +233,7 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 
 
 		// clicking on 'x' to remove 'Go To 2nd Page' & 'Back Home' transaction widgets
-		report.startLevel("Step 13 - Removing both 'Go To 2nd Page' & 'Back Home' transaction from dashboard");
+		report.startLevel("Step 14 - Removing both 'Go To 2nd Page' & 'Back Home' transactions from dashboard");
 		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Go to 2nd page");
 		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Back Home");
 		report.endLevel();
