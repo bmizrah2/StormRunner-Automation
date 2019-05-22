@@ -21,7 +21,7 @@ import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 public class AddingWidgetsToDashboard extends AbstractTest {
 
 	@Test
-	public void _009_ViewingSingleUserPerformanceReports() throws Exception {
+	public void _010_AddingWidgetsToDashboard() throws Exception {
 
 		//driver.get("http://amazon.com");
 
@@ -124,7 +124,7 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 
 
 		// clicking on the "Drop Down Menu" of Run Id 3
-		report.startLevel("Step 7 - Clicking drop down nenu of Run Id 3");
+		report.startLevel("Step 7 - Clicking drop down menu of Run Id 3");
 		stormRunnerResultsPage.clickOnDropDownMenuOfRunId3();
 		report.endLevel();
 
@@ -133,49 +133,6 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 		report.startLevel("Step 8 - Choosing 'Dashboard' option in the menu");
 		stormRunnerResultsPage.clickOnDashboardOfRunId3();
 		report.endLevel();
-
-
-		// Verify 'NV Insights Report' title
-		//
-		//   TBD - 9 
-
-		// Move to inner iFrame
-
-
-		//		report.startLevel("Step 9 - Entering the inner Iframe to verify 'Client Side Breakdown' title");
-		//		StormRunnerResultsPage.moveToClientSideBreakdownHtml(driver);
-		//		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
-		//		report.endLevel();
-
-
-		//		//Verifying the title of Client Side Breakdown
-		//		report.startLevel("Step 10 - Verifying that the title of the CSB is 'NV Insights Report'");
-		//		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-		//		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
-		//		stormRunnerResultsPage.waitForClientSideBreakdownTilteToBeClickable();
-		//		AssertUtils.assertEquals(stormRunnerResultsPage.getClientSideBreakdownTitle(),MainConfig.StormRunnerClientSideBreakdownTitle, "Client Side Breakdown Title should be: " + MainConfig.StormRunnerClientSideBreakdownTitle,true);
-		//		report.endLevel();
-
-
-		// Back to STORM HTML
-		//TabAndIframeUtils.switchToIframe(driver, By.xpath("//html[contains(@ng-app,'storm')]"));
-
-		//TabAndIframeUtils.switchToTabByTitle(driver, "Home", 2000);
-
-		//By.xpath("//div[contains(@class,'transactionNameContainer')]//label[contains(@id,'insightsLink')]")
-
-
-
-		//		report.startLevel("Step 11 - Going back to parent Frame");
-		//		StormRunnerResultsPage.moveBackToParentFrame(driver);
-		//		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
-		//		report.endLevel();
-		//		
-		//		//driver.switchTo().parentFrame();
-
-
-		//Wait for default widgets to appear in dashboard
-		//stormRunnerResultsPage.waitForDefaultWidgetsToBeClickable();
 
 
 
@@ -214,66 +171,18 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 		report.endLevel();
 
 
-
-
-		//wait for 1st trans to appear on dash
-
-
-
-		// Verify 1 trans in dash title
-
-
-
-		//wait for 1st trans to appear on dash
-
-
-
-		// Verify 2nd trans in dash
-
-
-
-		// clicking on 'x' to remove 'Go To 2nd Page' & 'Back Home' transaction widgets
-		report.startLevel("Step 14 - Removing both 'Go To 2nd Page' & 'Back Home' transactions from dashboard");
-		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Go to 2nd page");
-		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Back Home");
+		//Verifying that the 2 transactions widgets appear in the dashboard
+		report.startLevel("Step 14 - Verifying that the 2 transactions widgets appear in the Dashboard");
+		AssertUtils.assertEquals(stormRunnerResultsPage.getGoTo2ndPageTransWidgetTitle(),MainConfig.StormRunnerGoTo2ndPageTransWidgetTitle, "'Go to 2nd page' Transaction widget title should be: " + MainConfig.StormRunnerGoTo2ndPageTransWidgetTitle,true);
+		AssertUtils.assertEquals(stormRunnerResultsPage.getBackHomeTransWidgetTitle(),MainConfig.StormRunnerBackHomeTransWidgetTitle, "'Back Home' Transaction widget title should be: " + MainConfig.StormRunnerBackHomeTransWidgetTitle,true);
 		report.endLevel();
 
 
-
-
-
-
-		// Verify 'NV Insights Report' title
-		//
-		//   TBD - 11
-
-		// Entering the inner HTML to verify the title of WPT
-		//TabAndIframeUtils.switchToIframe(driver, By.id("hpe-iframe"));
-
-		//Thread.sleep(2000);	
-
-
-
-		//		//Verifying a new test line is added to the grid
-		//		report.startLevel("Step 13 - Verifying that the title of the WebPageTest Report is 'WebPageTest report'");
-		//		//		//AssertUtils.assertEquals(StormRunnerLoadTestsPage.getNewAddedTest(),MainConfig.StormRunnerTestName, "Test Name should be: " + MainConfig.StormRunnerTestName,true);
-		//		//		//AssertUtils.assertEquals(MyAccountPage.getAccountName(),"Benny Java Automation", "Account Name should be: 'Benny Java Automation'",true);
-		//
-		//		stormRunnerResultsPage.waitForWebPageTestTitleToBeClickable();
-		//		AssertUtils.assertEquals(stormRunnerResultsPage.getWebPageTestReportTitle(),MainConfig.StormRunnerWebPageTestReportTitle, "WebPageTest Report Title should be: " + MainConfig.StormRunnerWebPageTestReportTitle,true);
-		//		report.endLevel();
-
-
-
-
-
-
-
-
-
-
-
-
+		// clicking on 'x' to remove 'Go To 2nd Page' & 'Back Home' transaction widgets
+		report.startLevel("Step 15 - Removing both 'Go To 2nd Page' & 'Back Home' transactions from dashboard");
+		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Go to 2nd page");
+		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Back Home");
+		report.endLevel();
 
 
 

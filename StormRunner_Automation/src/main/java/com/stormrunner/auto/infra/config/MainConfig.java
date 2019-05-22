@@ -12,6 +12,7 @@ public class MainConfig {
 	
 	
 	
+	
 	public static String StormRunnerURL;
 	public static String StormRunnerHomeURL;
 	public static String StormRunnerLoadTestsURL;
@@ -54,6 +55,9 @@ public class MainConfig {
 	public static String StormRunnerClientSideBreakdownTitle;
 	public static String StormRunnerWebPageTestReportTitle;
 
+	public static String StormRunnerGoTo2ndPageTransWidgetTitle;
+	public static String StormRunnerBackHomeTransWidgetTitle;
+	
 	
 	public static void initFromFile(String filePath) throws IOException {
 		
@@ -90,6 +94,8 @@ public class MainConfig {
 		noDataMessageInTopologiesPage = prop.getProperty("noDataMessageInTopologiesPage");
 		StormRunnerClientSideBreakdownTitle = prop.getProperty("StormRunnerClientSideBreakdownTitle");
 		StormRunnerWebPageTestReportTitle = prop.getProperty("StormRunnerWebPageTestReportTitle");
+		StormRunnerGoTo2ndPageTransWidgetTitle = prop.getProperty("StormRunnerGoTo2ndPageTransWidgetTitle");
+		StormRunnerBackHomeTransWidgetTitle = prop.getProperty("StormRunnerBackHomeTransWidgetTitle");
 		
 		input.close();
 	}

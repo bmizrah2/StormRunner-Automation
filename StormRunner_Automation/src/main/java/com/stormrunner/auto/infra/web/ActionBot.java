@@ -176,6 +176,14 @@ public class ActionBot {
 		}
 	}
 
+	// Moving back to parent frame after inserting to inner iframe
+	public void moveBackToParentFrame(WebDriver driver){
+		driver.switchTo().parentFrame();
+		report.log("Moving back to parent frame");
+	}
+	
+	
+	
 	public void moveToNewOpenedTab(By2 elementLocator) {
 		String currentWindow = driver.getWindowHandle();
 

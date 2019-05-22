@@ -124,7 +124,7 @@ public class ViewingSingleUserPerformanceReports extends AbstractTest {
 
 
 		// clicking on the "Drop Down Menu" of Run Id 3
-		report.startLevel("Step 7 - Clicking drop down nenu of Run Id 3");
+		report.startLevel("Step 7 - Clicking drop down menu of Run Id 3");
 		stormRunnerResultsPage.clickOnDropDownMenuOfRunId3();
 		report.endLevel();
 

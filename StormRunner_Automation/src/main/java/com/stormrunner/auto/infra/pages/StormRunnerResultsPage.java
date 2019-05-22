@@ -161,7 +161,8 @@ public class StormRunnerResultsPage extends AbstractPage {
 
 	//Moving back to Parent Frame
 	public static void moveBackToParentFrame(WebDriver driver) {
-		driver.switchTo().parentFrame();
+		bot.moveBackToParentFrame(driver);
+		//driver.switchTo().parentFrame();
 	}
 
 
@@ -222,6 +223,21 @@ public class StormRunnerResultsPage extends AbstractPage {
 		//By2 selectedMonitorName = new By2("Monitor: "+monitorName+"", By.xpath("//div[contains(@class,'modal')]//div[contains(text(),'"+monitorName+"')]"));
 		By2 WidgetTitleToRemove = new By2("'x' icon to remove transaction widget: '"+transactionName+"' from dashboard", By.xpath("//div[contains(@title,'TRT [90th percentile]: "+transactionName+" in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
 		bot.click(WidgetTitleToRemove);
+	}
+
+
+	// Get the title of transaction widget : "Go to 2nd page" in dashboard
+	public String getGoTo2ndPageTransWidgetTitle() {
+		String actualGoTo2ndPageTransWidgetTitle = bot.getElementText(transactionGoTo2ndPageWidget);
+		return actualGoTo2ndPageTransWidgetTitle;
+	}
+
+
+
+	// Get the title of transaction widget : "Back Home" in dashboard
+	public String getBackHomeTransWidgetTitle() {
+		String actualBackHomeTransWidgetTitle=bot.getElementText(transactionBackHomeWidget);
+		return actualBackHomeTransWidgetTitle;
 	}
 	
 
