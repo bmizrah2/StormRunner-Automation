@@ -66,8 +66,18 @@ public class StormRunnerResultsPage extends AbstractPage {
 		// Title of widget: transaction "Back Home"
 		private static final By2 transactionBackHomeWidget = new By2("'Transaction: Back Home Widget'", By.xpath("//div[contains(@title,'TRT [90th percentile]: Back Home in script 12_01_Web_PeaceFul_71_NOV_2016')]"));
 		
-		// 'Running Vusers" widget in dashboard
+		// 'Running Vusers' widget in dashboard
 		private static final By2 runningVusersWidgetTitle = new By2("'Running Vusers' widget title'", By.xpath("//div[contains(@class,'stm-tst-main-chart')]//div[contains(@title,'Running Vusers')]"));
+
+		// 'Hits per second' widget in dashboard
+		private static final By2 hitsPerSecondWidgetTitle = new By2("'Hits per second' widget title'", By.xpath("//div[contains(@class,'stm-tst-main-chart')]//div[contains(@title,'Hits per second')]"));
+		
+		// 'Throughput' widget in dashboard
+		private static final By2 throughputWidgetTitle = new By2("'Throughput' widget title'", By.xpath("//div[contains(@class,'stm-tst-main-chart')]//div[contains(@title,'Throughput')]"));
+		
+		// 'Throughput' widget in dashboard
+		private static final By2 errorsWidgetTitle = new By2("'Errors' widget title'", By.xpath("//div[contains(@class,'stm-tst-main-chart')]//div[contains(@title,'Errors')]"));
+		
 		
 		// 'x' icon to close trans: "Go To 2nd Page"
 		private static final By2 closingGoTo2ndPageTransWidget = new By2("'x' icon of 'Go To 2nd Page' transaction", By.xpath("//div[contains(@title,'TRT [90th percentile]: Go to 2nd page in script 12_01_Web_PeaceFul_71_NOV_2016')]//..//div[contains(@class,'stm-tst-primary-x-btn')]"));
@@ -201,6 +211,9 @@ public class StormRunnerResultsPage extends AbstractPage {
 
 	public void waitForDefaultWidgetsToBeClickable() {
 		bot.waitForElementToBeClickable(runningVusersWidgetTitle);
+		bot.waitForElementToBeClickable(hitsPerSecondWidgetTitle);
+		bot.waitForElementToBeClickable(throughputWidgetTitle);
+		bot.waitForElementToBeClickable(errorsWidgetTitle);
 	}
 
 
