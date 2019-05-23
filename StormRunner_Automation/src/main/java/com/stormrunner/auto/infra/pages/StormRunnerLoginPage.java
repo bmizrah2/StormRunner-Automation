@@ -27,6 +27,11 @@ public class StormRunnerLoginPage extends AbstractPage {
 
 	private static final By2 launchButton = new By2("'Launch' button", By.xpath("//a[text()='Launch']"));
 
+	// 'Home' tab
+	//private static final By2 homeTab = new By2("'Home' Tab", By.cssSelector(".stm-tst-home"));
+	private static final By2 createTestButton = new By2("'Create a test' button", By.cssSelector(".stm-tst-create-a-test"));
+	
+	
 	//By.xpath("//a[text()='Launch']"
 
 
@@ -78,11 +83,16 @@ public class StormRunnerLoginPage extends AbstractPage {
 	}
 
 	// Move to the new opened tab after Login to the tenant
-	public static void moveToNewOpenedTab() {
+	public void moveToNewOpenedTab() {
 		bot.moveToNewOpenedTab(launchButton);
 
 	}
 
+	public void waitToHomePageToBeVisible() {
+		bot.waitForElementToBeClickable(createTestButton);	
+	}
+
+	
 	//	public AmazonSearchResultsPage clickOnGoButton() throws Exception {
 	//		bot.click(goButton);
 	//		return new AmazonSearchResultsPage(driver);

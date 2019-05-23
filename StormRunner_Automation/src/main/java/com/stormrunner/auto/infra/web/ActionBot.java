@@ -200,7 +200,7 @@ public class ActionBot {
 				driver.switchTo().window(handle);
 			}
 		}	
-
+		report.log("Moving to new opened Tab");
 	}
 
 

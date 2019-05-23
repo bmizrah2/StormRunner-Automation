@@ -87,6 +87,10 @@ public class StormRunnerHomePage extends AbstractStormRunnerPage {
 		return StormRunnerHomePage;
 	}
 
+	public void waitToHomePageToBeVisible() {
+		bot.waitForElementToBeClickable(homeButton);
+	}
+
 
 //	public StormRunnerAssetsPage clickOnAssetsTab() {
 //		bot.click(assetsButton);
