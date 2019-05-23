@@ -111,7 +111,7 @@ public class StormRunnerLoadTestsPage extends AbstractPage {
 	}
 
 	
-	public boolean IsTestExistInGrid(String testName) throws Exception{
+	public boolean isTestExistInGrid(String testName) throws Exception{
 		Boolean isTestExist = bot.isTextExistInColumn(driver, allTestsRows, testName);
 		return isTestExist;
 	}
