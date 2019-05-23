@@ -180,7 +180,7 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		// Verify that the test was deleted successfully
 		report.startLevel("Step 30 - Verifying that the test was deleted successfully and doesn't appear in the grid");
 		Thread.sleep(2000);
-		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
+		stormRunnerLoadTestsPage.isTestExistInGrid(MainConfig.StormRunnerTestName);
 		report.endLevel();
 
 
