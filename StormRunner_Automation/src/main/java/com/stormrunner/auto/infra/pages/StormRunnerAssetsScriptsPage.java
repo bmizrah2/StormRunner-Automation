@@ -139,7 +139,7 @@ public class StormRunnerAssetsScriptsPage extends AbstractPage {
 
 
 	// Get the expected label name
-	public static String getLabelName() {
+	public String getLabelName() {
 		String actualLabelName = bot.getElementText(expectedLabelName);
 		return actualLabelName;
 	}
