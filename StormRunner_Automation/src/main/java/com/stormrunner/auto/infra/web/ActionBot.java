@@ -123,12 +123,13 @@ public class ActionBot {
 	}
 
 	// Write to LABEL NAME Field
-	public void writeToLabelNameField(By2 elementLocator, String text){
+	public void writeToLabelNameField(By2 elementLocator, String text) throws InterruptedException{
 
 		report.log("Write '" + text + "' to element: " + elementLocator);
 		WebElement element = driver.findElement(elementLocator.by);
 		element.clear();
 		element.sendKeys(text);
+		Thread.sleep(500);
 
 	}
 
