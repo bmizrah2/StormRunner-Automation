@@ -3,6 +3,7 @@ package com.stormrunner.auto.infra.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.web.By2;
@@ -192,6 +193,9 @@ public class StormRunnerAssetsMonitorsPage extends AbstractPage {
 	}
 
 	
+	// making sure the delete lg dialog is closed and we back to lgs page
+	
+
 	
 	
 //	public boolean IsTestExistInGrid(String testName){

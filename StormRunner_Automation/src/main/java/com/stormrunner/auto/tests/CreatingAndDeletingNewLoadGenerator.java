@@ -106,6 +106,7 @@ public class CreatingAndDeletingNewLoadGenerator extends AbstractTest {
 		
 		// Step 15 - Verifying that the Load Generator was deleted successfully and doesn't appear in the grid
 		report.startLevel("Step 15 - Verifying that the Load Generator was deleted successfully and doesn't appear in the grid");
+		stormRunnerAssetsLoadGeneratorsPage.waitForLoadGeneratorsPageToAppear();
 		Thread.sleep(1000);
 		stormRunnerAssetsLoadGeneratorsPage.isLoadGeneratorExistInGrid(MainConfig.StormRunnerLoadGeneratorName);
 		report.endLevel();
