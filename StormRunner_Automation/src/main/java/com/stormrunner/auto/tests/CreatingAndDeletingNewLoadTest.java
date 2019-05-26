@@ -96,7 +96,7 @@ public class CreatingAndDeletingNewLoadTest extends AbstractTest {
 		// Step 14 - Verifying that the test was deleted successfully and doesn't appear in the grid
 		report.startLevel("Step 14 - Verifying that the test was deleted successfully and doesn't appear in the grid");
 		Thread.sleep(2000);
-		stormRunnerLoadTestsPage.IsTestExistInGrid(MainConfig.StormRunnerTestName);
+		stormRunnerLoadTestsPage.isTestExistInGrid(MainConfig.StormRunnerTestName);
 		report.endLevel();
 
 

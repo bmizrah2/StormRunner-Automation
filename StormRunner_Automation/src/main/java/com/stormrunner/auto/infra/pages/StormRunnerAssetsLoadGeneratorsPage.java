@@ -49,6 +49,17 @@ public class StormRunnerAssetsLoadGeneratorsPage extends AbstractPage {
 	// For Checking the Load Generator for deletion
 	private static final By2 checkingLoadGeneratorForDeletion = new By2("Clicking the checkbox of the Load Generator for deletion", By.cssSelector("div.stm-tst-row-"+ loadGeneratorName));
 	
+	// Load Generator prefix name
+	//private static final By2 allLoadGeneratorsRows = new By2("'All Load Generators lows'", By.cssSelector("div.stm-tst-row-"));
+	//private static final By2 allLoadGeneratorsRows = new By2("'All Load Generators lows'", By.xpath("//div[contains(@class,'stm-tst-row-')]"));
+	private static final By2 allLoadGeneratorsRows = new By2("'All Load Generators rows'", By.cssSelector(".ui-grid-coluiGrid-0012"));
+	//By.xpath("//div[contains(@class,'container')]//div[contains(text(),'WebPageTest report')]")
+	
+	
+	
+	// For getting the title of the new added load generator
+	private static final By2 loadGeneratorTitle = new By2("'Load Generator name'", By.cssSelector("div.stm-tst-row-"+ loadGeneratorName));
+	
 	// Pressing 'yes' in confirmation dialog for deleting the load generator
 	private static final By2 yesButtonInConfirmLoadGeneratorDeletion = new By2("Clicking 'Yes' button in confirmation dialog for deleting the Load Generator", By.cssSelector("div.stm-tst-Yes"));
 
@@ -56,7 +67,10 @@ public class StormRunnerAssetsLoadGeneratorsPage extends AbstractPage {
 	// MONITORS link in upper menu in ASSETS tab
 	private static final By2 loadGeneratorsLinkInUpperTab = new By2("Clicking the Load Generators link in upper menu", By.cssSelector("div.stm-tst-lg-tab"));
 
-
+	// The 'NAME' header of the the grid
+	private static final By2 nameHeaderColumn = new By2("'NAME' header column", By.xpath("//div[contains(@title,'NAME')]"));
+	//"//div[contains(@title,'NAME')]"
+	
 	
 	// Click on "Load Generators" link in upper menu of Assets tab
 	public void clickOnLoadGeneratorsLinkInUpperMenu() throws Exception{
@@ -110,6 +124,36 @@ public class StormRunnerAssetsLoadGeneratorsPage extends AbstractPage {
 		//	return new StormRunnerAssetsPage(driver);
 
 	}
+
+	// Getting the Load Generator name from the grid 
+	public String getNewAddedLoadGenerator() {
+		String actualNewAddedLoadGeneratorTitle = bot.getElementText(loadGeneratorTitle);
+		return actualNewAddedLoadGeneratorTitle; 
+	}
+
+
+	public boolean isLoadGeneratorExistInGrid(String loadGeneratorName) throws Exception {
+		Boolean isLoadGeneratorExist = bot.isTextExistInColumn(driver, allLoadGeneratorsRows, loadGeneratorName);
+		return isLoadGeneratorExist;
+	}
+
+
+	// wait for the load generators page to appear	
+	public void waitForLoadGeneratorsPageToAppear() {
+		bot.waitForElementToBeClickable(nameHeaderColumn);
+	}
+
+	
+//	public boolean isMonitorExistInGrid(String monitorName) throws Exception {
+//		Boolean isMonitorExist = bot.isTextExistInColumn(driver, allMonitorsRows, monitorName);
+//		return isMonitorExist;
+//	}
+
+	
+//	public String getNewAddedMonitor() {
+//		String actualNewAddedMonitor = bot.getElementText(newMonitorTitle);
+//		return actualNewAddedMonitor;
+//	}
 
 
 	//	public void moveToCollapseButtonAndClickIt() throws Exception{

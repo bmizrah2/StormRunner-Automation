@@ -135,8 +135,13 @@ public class AttachingAndDetachingLabelToScript extends AbstractTest {
 		stormRunnerAssetsScriptsPage.moveToCollapseButtonAndClickIt();
 		report.endLevel();
 		
+		
+		// Step 21 - Verifying that the label was detached from the script successfully and doesn't appear in the grid
+		report.startLevel("Step 21 - Verifying that the label was detached from the script successfully and doesn't appear in the grid");
+		Thread.sleep(2000);
+		stormRunnerAssetsScriptsPage.isLabelExistInGrid(MainConfig.StormRunnerLabelName);
+		report.endLevel();
 
-		// Add a verification that label was detached from the 1st selected script 
 
 
 
