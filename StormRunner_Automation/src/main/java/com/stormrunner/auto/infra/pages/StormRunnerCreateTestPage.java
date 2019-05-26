@@ -47,7 +47,7 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static final By2 distributionTab = new By2("'Distribution' tab in left menu", By.cssSelector("div.stm-tst-distribution-tab"));
 
 	//'Edit Locations' button in Distribution tab
-	private static final By2 editLocationsButton = new By2("Entering new Test Name", By.cssSelector("div.stm-tst-add-Location"));
+	private static final By2 editLocationsButton = new By2("'Edit Locations' button", By.cssSelector("div.stm-tst-add-Location"));
 
 	//For selecting 'Mumbai' region
 	private static final By2 mumbaiRegionInCloudLocations = new By2("Selecting 'Mumbai' region", By.xpath("//div[contains(text(),'Mumbai')]"));

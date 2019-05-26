@@ -164,8 +164,8 @@ public class CheckingLoadTestDistribution extends AbstractTest {
 		report.endLevel();
 
 		
-		// Step 24 - Clicking 'OK' to add all selected regions to distribution
-		report.startLevel("Step 24 - Clicking 'OK' to add all selected regions to distribution");
+		// Step 24 - Deleting region 'Virginia' with distribution of 100% by clicking 'x' icon-> To stay with total of 100% (Mumbai+California+Ireland)
+		report.startLevel("Step 24 - Deleting region 'Virginia' with distribution of 100% by clicking 'x' icon");
 		stormRunnerCreateTestPage.deletingRegionFromTestDistribution("Virginia");
 		report.endLevel();
 
