@@ -108,14 +108,12 @@ public class CreatingMultipleTopologiesWithDataProvider extends AbstractTest {
 			//Step 12 - Clicking The Checkbox for selecting ALL Topologies
 			report.startLevel("Step 12 - Clicking The Checkbox for selecting ALL Topologies");
 			stormRunnerAssetsTopologiesPage.clickOnCheckboxSelectingAllTopologies();
-			//Thread.sleep(2000);
 			report.endLevel();
 
 
 			// Step 13 - Clicking 'Delete' for deleting the selected topologies
 			report.startLevel("Step 13 - Clicking 'Delete' for deleting the selected topologies");
 			stormRunnerAssetsTopologiesPage.clickOnDeleteSelectedTopologies();
-			//Thread.sleep(2000);
 			report.endLevel();
 
 
