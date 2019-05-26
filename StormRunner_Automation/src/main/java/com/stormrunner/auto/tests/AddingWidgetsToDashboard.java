@@ -113,8 +113,8 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 		stormRunnerResultsPage.clickOnRemoveTransactionWidget("Back Home");
 		report.endLevel();
 
-		// Step 16 - Verify both transactions were deleted from Dashboard
-		report.startLevel("Step 16 - Verify both transactions were deleted from Dashboard");
+		// Step 16 - Verifying both transactions were deleted from Dashboard
+		report.startLevel("Step 16 - Verifying both transactions were deleted from Dashboard");
 		Thread.sleep(1000);
 		stormRunnerResultsPage.isGoTo2ndPageTransExistInDashboard();
 		stormRunnerResultsPage.isBackHomeTransExistInDashboard();
