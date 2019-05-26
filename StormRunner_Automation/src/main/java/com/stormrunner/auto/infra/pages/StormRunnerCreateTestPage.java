@@ -90,6 +90,13 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static final By2 script_1 = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-12_01_Web_PeaceFul_71_NOV_2016"));
 	private static final By2 scriptPrefix = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-"));
 
+	//Full Test name by css
+	// For replacing all " " & "." to "-" in the class name
+	private static String adjustedTestName = MainConfig.StormRunnerTestName.replace(".", "-").replace(" ", "-");
+
+	private static final By2 fullTestName = new By2("'Created Test Name'", By.cssSelector("div.stm-tst-row-"+adjustedTestName));
+	
+	
 	//Clicking 'Add' for adding the script to the test
 	private static final By2 addButtonInScriptsDialog = new By2("'Add' button in 'Scripts' dialog", By.cssSelector("button.stm-tst-btn-primary"));
 
@@ -285,6 +292,11 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 
 	public void clickApplyInAdvancedSchedulingDialog() throws InterruptedException {
 		bot.click(applyButtonInSchedulingDialog);
+	}
+
+	// Wait till load tests grid is presented
+	public void waitTillDistributionIsClickable() {
+		bot.waitForElementToBeClickable(distributionTab);
 	}
 
 
