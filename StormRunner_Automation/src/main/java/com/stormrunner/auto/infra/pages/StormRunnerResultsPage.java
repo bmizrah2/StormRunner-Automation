@@ -242,7 +242,16 @@ public class StormRunnerResultsPage extends AbstractPage {
 	
 
 	
-
+	// Is 1st transaction exist in dashboard
+	public Boolean isGoTo2ndPageTransExistInDashboard(){
+		return bot.isElementDisplayed1(transactionGoTo2ndPageWidget);
+	}
+	
+	
+	// Is 2nd transaction exist in dashboard
+	public Boolean isBackHomeTransExistInDashboard(){
+		return bot.isElementDisplayed1(transactionGoTo2ndPageWidget);
+	}
 	
 	
 
