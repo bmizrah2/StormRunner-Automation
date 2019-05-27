@@ -115,7 +115,7 @@ public class AddingWidgetsToDashboard extends AbstractTest {
 
 		// Step 16 - Verifying both transactions were deleted from Dashboard
 		report.startLevel("Step 16 - Verifying both transactions were deleted from Dashboard");
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		stormRunnerResultsPage.isGoTo2ndPageTransExistInDashboard();
 		stormRunnerResultsPage.isBackHomeTransExistInDashboard();
 		report.endLevel();

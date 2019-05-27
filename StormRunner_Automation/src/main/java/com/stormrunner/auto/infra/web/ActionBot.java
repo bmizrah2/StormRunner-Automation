@@ -152,14 +152,16 @@ public class ActionBot {
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(elementLocator.by));
 	}
 
-	public boolean isElementDisplayed1(By2 elementLocator) {
+	public boolean isElementDisplayed1(By2 elementLocator) throws Exception {
 
 		List<WebElement> elements = driver.findElements(elementLocator.by);
 		if (elements.size() > 0) {
 
 			boolean isDisplayed = elements.get(0).isDisplayed();
 			report.log("Element " + elementLocator + " is displayed: " + isDisplayed);
-			return isDisplayed;
+			AssertionError error = new AssertionError();
+			throw error;
+			//return isDisplayed;
 		}
 
 		report.log("Element " + elementLocator + " is NOT displayed");

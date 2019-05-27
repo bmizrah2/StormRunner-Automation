@@ -9,10 +9,6 @@ import com.stormrunner.auto.infra.web.WebDriverType;
 
 public class MainConfig {
 
-	
-	
-	
-	
 	public static String StormRunnerURL;
 	public static String StormRunnerHomeURL;
 	public static String StormRunnerLoadTestsURL;

@@ -42,21 +42,19 @@ public abstract class AbstractStormRunnerPage extends AbstractPage {
 	}
 
 	// Click ASSETS->Topologies sub menu	
-		public StormRunnerAssetsTopologiesPage clickAssetsTopologiesSubMenuLink() throws Exception {
-			bot.click(assetsMenuLink);
-			bot.click(assetsTopologiesSubMenuLink);
-			return new StormRunnerAssetsTopologiesPage(driver);
-		}
+	public StormRunnerAssetsTopologiesPage clickAssetsTopologiesSubMenuLink() throws Exception {
+		bot.click(assetsMenuLink);
+		bot.click(assetsTopologiesSubMenuLink);
+		return new StormRunnerAssetsTopologiesPage(driver);
+	}
 
-		// Click ASSETS-> Monitors sub menu	
-		public StormRunnerAssetsMonitorsPage clickAssetsMonitorsSubMenuLink() throws Exception {
-			bot.click(assetsMenuLink);
-			bot.click(assetsMonitorsSubMenuLink);
-			return new StormRunnerAssetsMonitorsPage(driver);
-		}
-		
-	
-		
+	// Click ASSETS-> Monitors sub menu	
+	public StormRunnerAssetsMonitorsPage clickAssetsMonitorsSubMenuLink() throws Exception {
+		bot.click(assetsMenuLink);
+		bot.click(assetsMonitorsSubMenuLink);
+		return new StormRunnerAssetsMonitorsPage(driver);
+	}
+
 
 	// Click RESULTS of main menu
 	public StormRunnerResultsPage clickResultsMenuLink() throws Exception {
@@ -64,6 +62,8 @@ public abstract class AbstractStormRunnerPage extends AbstractPage {
 		return new StormRunnerResultsPage(driver);
 	}
 
+	
+	// Click HOME tab
 	public StormRunnerHomePage clickHomeMenuLink() throws Exception {
 		bot.click(homeMenuLink);
 		return new StormRunnerHomePage(driver);

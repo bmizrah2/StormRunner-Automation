@@ -1,5 +1,6 @@
 package com.stormrunner.auto.infra.entities;
 
+// Topology class to read from "Topologies.csv" file
 public class Topology {
 
 	public String topologyName;

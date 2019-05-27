@@ -2,16 +2,12 @@ package com.stormrunner.auto.infra.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.stormrunner.auto.infra.config.MainConfig;
 import com.stormrunner.auto.infra.web.By2;
-import com.stormrunner.auto.infra.web.TabAndIframeUtils;
 
 public class StormRunnerCreateTestPage extends AbstractPage {
 
-	//private static final By2 addedToCartTitle = new By2("'Added to cart' title", By.xpath("//h1[contains(text(),'Added to Cart')]"));
-	//private static final By2 cartCounterSpan = new By2("Cart counter", By.id("nav-cart-count"));
 
 	//Clicking Load Tests tab by css selector  ($$("a.stm-tst-home"))
 	private static final By2 loadTestsTab = new By2("Clicking 'Load Tests' tab", By.cssSelector("a.stm-tst-load-tests"));
@@ -86,7 +82,6 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static final By2 addScriptFromAssetsButton = new By2("'Add from Assets' button", By.cssSelector("button.stm-tst-add-from-repository"));
 
 	//Clicking first script in the grid
-	//private static String Name = MainConfig.StormRunnerSitescopeServerName;
 	private static final By2 script_1 = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-12_01_Web_PeaceFul_71_NOV_2016"));
 	private static final By2 scriptPrefix = new By2("Clicking a script in the grid", By.cssSelector("div.stm-tst-row-"));
 
@@ -95,8 +90,8 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 	private static String adjustedTestName = MainConfig.StormRunnerTestName.replace(".", "-").replace(" ", "-");
 
 	private static final By2 fullTestName = new By2("'Created Test Name'", By.cssSelector("div.stm-tst-row-"+adjustedTestName));
-	
-	
+
+
 	//Clicking 'Add' for adding the script to the test
 	private static final By2 addButtonInScriptsDialog = new By2("'Add' button in 'Scripts' dialog", By.cssSelector("button.stm-tst-btn-primary"));
 
@@ -122,10 +117,10 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 
 	// 1st 'Ramp up' Vusers field
 	private static final By2 rampUpVusers = new By2("'Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
-	
+
 	// 1st 'Ramp up' Total Vusers field
 	private static final By2 rampUpTotalVusers = new By2("'Total Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
-	
+
 	// ----------
 	// 1st 'Duration' hours
 	private static final By2 durationHours = new By2("'Hours' of Duration step", By.xpath("//div[contains(text(),'Duration')]//..//..//input[contains(@class,'stm-tst-hours')]"));
@@ -151,18 +146,11 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 
 	// 'Apply' button
 	private static final By2 applyButtonInSchedulingDialog = new By2("'Apply' button of 'Advanced Scheduling' dialog", By.cssSelector("button.stm-tst-advanced-sch-save-btn"));
-	
-
-	//WebElement accountName = driver.findElement(By.xpath("//div[@title='Benny Java Automation']"));
 
 
+	// Constructor
 	public StormRunnerCreateTestPage(WebDriver driver) throws Exception {
-		//super(driver, loadTestsTab,createButton);
-		//super(driver,createButton);
-		//super(driver,testNameHeader);
-		//super(driver,toolBar);
 		super(driver,newTestTitle);
-
 	}
 
 
@@ -187,11 +175,10 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.click(addScriptFromAssetsButton);
 	}
 
-
+	// Click on a script in 'Scripts' dialog
 	public void clickOnScriptInScriptsDialog(String scriptName) throws InterruptedException {
 		By2 fullScriptName = new By2("Script: "+scriptName+"", By.cssSelector("div.stm-tst-row-"+ scriptName));
 		bot.click(fullScriptName);
-
 	}
 
 	//Clicking 'Add' in 'Scripts' dialog
@@ -220,19 +207,19 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.click(okButtonInCloudLocations);
 	}
 
-
+	// Entering % of distribution for a region
 	public void enterPercentageToRegion(String regionName, int percentage) throws InterruptedException {
 		By2 regionDistributionTotal = new By2("Entering % of distribution for "+regionName+" region", By.xpath("//td[contains(text(),'"+regionName+"')]//..//input[contains(@class,'stm-tst-distribution-input')]"));
 		bot.writeToElement(regionDistributionTotal, String.valueOf(percentage));
 	}
 
-
+	// Getting 'Run Test' title 
 	public static String getRunTestTitle() {
 		String actualRunTestTitle = bot.getElementTitle(runTestButton);
 		return actualRunTestTitle;
 	}
 
-
+	// Deleting a region form distribution list
 	public void deletingRegionFromTestDistribution(String regionName) throws InterruptedException {
 		By2 removeSelectedRegion = new By2("'Remove Icon' (x) for "+regionName+" Virginia region", By.xpath("//td[contains(text(),'"+regionName+"')]//..//div[contains(@class,'stm-tst-removeRegion')]"));
 		bot.click(removeSelectedRegion);
@@ -253,43 +240,41 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.click(editAdvancedSchedulingMode);
 	}
 
-
+	// Enter Hours value
 	public void enterHoursInterval(String stepName, int numberOfHours) throws InterruptedException{
 		By2 hoursIntervalForStep = new By2("Entering number of hours for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-hours')]"));
 		//private static final By2 rampUpHours = new By2("'Hours' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-hours')]"));
 		bot.writeToElement(hoursIntervalForStep, String.valueOf(numberOfHours));
 	}
 
-
+	// Enter Minutes value
 	public void enterMinutesInterval(String stepName, int numberOfMinutes) throws InterruptedException{
 		By2 minutesIntervalForStep = new By2("Entering number of Minutes for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-minutes')]"));
 		//private static final By2 rampUpHours = new By2("'Hours' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-hours')]"));
 		bot.writeToElement(minutesIntervalForStep, String.valueOf(numberOfMinutes));
-		
 	}
 
-
+	// Enter Seconds value
 	public void enterSecondsInterval(String stepName, int numberOfSeconds) throws InterruptedException{
 		By2 secondsIntervalForStep = new By2("Entering number of Seconds for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-seconds')]"));
 		bot.writeToElement(secondsIntervalForStep, String.valueOf(numberOfSeconds));
-		
 	}
 
-
+	// Enter Virtual Users value (Vusers)
 	public void enterVusers(String stepName, int numberOfVusers) throws InterruptedException{
 		By2 vusersForStep = new By2("Entering number of Vusers for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
 		//private static final By2 rampUpVusers = new By2("'Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-vusers')]"));
 		bot.writeToElement(vusersForStep, String.valueOf(numberOfVusers));
 	}
 
-
+	// Enter TOTAL of Vusers
 	public void enterTotalVusers(String stepName, int numberOfTotalVusers) throws InterruptedException{
 		By2 totalVusersForStep = new By2("Entering Total number of Vusers for "+stepName+" step ", By.xpath("//div[contains(text(),'"+stepName+"')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
 		//private static final By2 rampUpTotalVusers = new By2("'Total Vusers' of Ramp up step", By.xpath("//div[contains(text(),'Ramp up')]//..//..//input[contains(@class,'stm-tst-advanced-step-total-vusers')]"));
 		bot.writeToElement(totalVusersForStep, String.valueOf(numberOfTotalVusers));
 	}
 
-
+	// Click 'Apply' in Advanced scheduling dialog
 	public void clickApplyInAdvancedSchedulingDialog() throws InterruptedException {
 		bot.click(applyButtonInSchedulingDialog);
 	}
@@ -299,12 +284,6 @@ public class StormRunnerCreateTestPage extends AbstractPage {
 		bot.waitForElementToBeClickable(distributionTab);
 	}
 
-
-	
-	
-	
-	
-	
 
 
 }
