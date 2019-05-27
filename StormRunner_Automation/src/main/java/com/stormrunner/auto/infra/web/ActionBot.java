@@ -1,22 +1,14 @@
 package com.stormrunner.auto.infra.web;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.stormrunner.auto.infra.entities.Topology;
 
 import il.co.topq.difido.ReportDispatcher;
 import il.co.topq.difido.ReportManager;
@@ -60,38 +52,23 @@ public class ActionBot {
 		report.log("Click on element: " + elementLocator);
 		waitForElementToBeClickable(elementLocator);
 		WebElement element = driver.findElement(elementLocator.by);
-		//executeJavaScript("arguments[0].scrollIntoView(true);", element);
-		//Thread.sleep(1000);
 		element.click();
 	}
 
+	
+	
 	// StormRunner - Clicking a button
 	public void moveToElementAndClickIt(By2 elementLocator) throws InterruptedException {
-
+		
 		report.log("Move to element: " + elementLocator + " and click it");
 		waitForElementToBeClickable(elementLocator);
 		WebElement element = driver.findElement(elementLocator.by);
-		///Actions actions = new Actions(driver);
-		//action.moveToElement(element).click(element).build().perform();
-		//action.moveToElement(element).build().perform();
-		//try1
-		//actions.moveToElement(element);
-		//actions.click().build().perform();
-		//
-		//element.click();
-
-		// try2	
-		///actions.moveToElement(element).build().perform();
 		Thread.sleep(1000);
 		element.click();
-
-
 	}
 
 
-
-
-
+	//For executing JS
 	public void executeJavaScript(String javaScript, WebElement element) {
 
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -104,6 +81,7 @@ public class ActionBot {
 		}
 	}
 
+	// Enter text to input element
 	public void writeToElement(By2 elementLocator, String text) {
 
 		report.log("Write '" + text + "' to element: " + elementLocator);
@@ -113,6 +91,7 @@ public class ActionBot {
 		element.sendKeys(text);
 	}
 
+	
 	// StormRunner - Write to user name field
 	public void writeToUserNameField(By2 elementLocator, String text) {
 
@@ -130,28 +109,29 @@ public class ActionBot {
 		element.clear();
 		element.sendKeys(text);
 		Thread.sleep(500);
-
 	}
 
-
+	// Getting the title of element
 	public String getElementTitle(By2 elementLocator) { 
 		String elementTitle = driver.findElement(elementLocator.by).getAttribute("title");
 		report.log("Element " + elementLocator + " Title : " + elementTitle);
 		return elementTitle;
 	}
 
-
+	// Get element text
 	public String getElementText(By2 elementLocator) { 
 		String text = driver.findElement(elementLocator.by).getText();
 		report.log("Element " + elementLocator + " inner text: " + text);
 		return text;
 	}
 
+	// Wait till element is clickable
 	public void waitForElementToBeClickable(By2 elementLocator) {
 		report.log("Wait for element: " + elementLocator + " to be clickable");
 		webDriverWait.until(ExpectedConditions.elementToBeClickable(elementLocator.by));
 	}
 
+	// Is element displayed
 	public boolean isElementDisplayed1(By2 elementLocator) throws Exception {
 
 		List<WebElement> elements = driver.findElements(elementLocator.by);
@@ -168,6 +148,7 @@ public class ActionBot {
 		return false;
 	}
 
+	// Is element displayed
 	public boolean isElementDisplayed2(By2 elementLocator) {
 
 		try {
@@ -184,9 +165,9 @@ public class ActionBot {
 		driver.switchTo().parentFrame();
 		report.log("Moving back to parent frame");
 	}
-	
-	
-	
+
+
+	// Move to the new opened Tab
 	public void moveToNewOpenedTab(By2 elementLocator) {
 		String currentWindow = driver.getWindowHandle();
 
@@ -206,9 +187,9 @@ public class ActionBot {
 		report.log("Moving to new opened Tab");
 	}
 
-	
 
-	
-	
-	
+
+
+
+
 }
