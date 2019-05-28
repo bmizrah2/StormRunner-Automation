@@ -200,7 +200,7 @@ public class CreatingAdvancedSchedulingTest extends AbstractTest {
 		// Step 29 - Clicking 'Apply' for saving the Advanced Scheduling settings
 		report.startLevel("Step 29 - Clicking 'Apply' for saving the Advanced Scheduling settings");
 		stormRunnerCreateTestPage.clickApplyInAdvancedSchedulingDialog();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		report.endLevel();
 
 		// ------------- End of Advanced Scheduling Scenario ---------------
